@@ -1,19 +1,18 @@
 import React, {Component} from "react";
 import PropTypes from "prop-types";
-import "./HomePage.css";
 
-class HomePage extends Component {
+class RegisterPage extends Component {
     render() {
         return (
-            <div className="HomePage">
-                <h1>Home page</h1>
+            <div className="RegisterPage">
+                <h1>Register</h1>
             </div>
         );
     }
 }
 
-HomePage.propTypes = {
+RegisterPage.propTypes = {
     history: PropTypes.object
 };
 
-export default HomePage;
+export default RegisterPage;
