@@ -1,12 +1,13 @@
 import React, {Component} from 'react';
 import {Switch, Route} from "react-router-dom";
-import HomePage from "./app/homepage/HomePage";
-import PostDetail from "./app/detail/PostDetail";
-import PageNotFound from "./app/page-not-found/PageNotFound";
-import UploadPage from "./app/upload/UploadPage";
-import Header from "./app/header/Header";
-import LoginPage from "./app/login/LoginPage";
-import RegisterPage from "./app/register/RegisterPage";
+import HomePage from "./pages/homepage/HomePage";
+import PostDetail from "./pages/post-detail/PostDetail";
+import PageNotFound from "./pages/page-not-found/PageNotFound";
+import UploadPage from "./pages/upload/UploadPage";
+import Header from "./shared-components/header/Header";
+import LoginPage from "./pages/login/LoginPage";
+import RegisterPage from "./pages/register/RegisterPage";
+import ProfilePage from "./pages/profile/ProfilePage";
 
 class App extends Component {
     render() {
@@ -20,6 +21,7 @@ class App extends Component {
                     <Route path="/upload" component={UploadPage}/>
                     <Route path="/login" component={LoginPage}/>
                     <Route path="/register" component={RegisterPage}/>
+                    <Route path="/profile" component={ProfilePage}/>
                     <Route component={PageNotFound}/>
                 </Switch>
             </div>
