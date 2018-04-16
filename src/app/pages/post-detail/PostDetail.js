@@ -7,7 +7,7 @@ class PostDetail extends Component {
         return (
             <div className="PostDetail">
                 <h1>Post Detail</h1>
-                <h2>hi anh em la Xuan </h2>
+                <h2>1123581321</h2>
             </div>
         );
     }
