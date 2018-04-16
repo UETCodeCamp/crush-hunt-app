@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Switch, Route} from "react-router-dom";
-import HomePage from "./pages/homepage/HomePage";
+import HomePage from "./pages/home/HomePage";
 import PostDetail from "./pages/post-detail/PostDetail";
 import PageNotFound from "./pages/page-not-found/PageNotFound";
 import UploadPage from "./pages/upload/UploadPage";
