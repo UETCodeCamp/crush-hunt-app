@@ -9,6 +9,7 @@ class HomePage extends Component {
                 <h1>Home page</h1>
                 ahihi do ngok
                 <p>zì em íu đúi akjdhakjdhkajhd</p>
+                muôn đời em zẫn íu đúi.
             </div>
         );
     }
