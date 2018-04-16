@@ -19,7 +19,7 @@ class LoginPage extends Component {
 
         return (
             <div className="LoginPage">
-                <h1>Login page</h1>
+                <h1>Login page 123</h1>
             </div>
         );
     }
