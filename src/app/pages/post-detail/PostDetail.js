@@ -8,6 +8,7 @@ class PostDetail extends Component {
             <div className="PostDetail">
                 <h1>Post Detail</h1>
                 <h2>1123581321</h2>
+                <h3>lan 3</h3>
             </div>
         );
     }
