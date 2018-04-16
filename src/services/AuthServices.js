@@ -1,7 +1,12 @@
 import {setLocalData, getLocalData} from "./StorageServices";
 
 const _keyStore = '_auth';
-let _state = getLocalData(_keyStore, {});
+const _initState = {
+    accessToken: '',
+    user: {}
+};
+
+let _state = getLocalData(_keyStore, _initState);
 let _listeners = [];
 
 const _broadcast = () => {
@@ -10,7 +15,7 @@ const _broadcast = () => {
     });
 };
 
-export const addListener = (listener) => {
+export const addAuthListener = (listener) => {
     if (typeof listener !== 'function') {
         return;
     }
@@ -19,21 +24,29 @@ export const addListener = (listener) => {
         return;
     }
 
-    _listeners.push(listener);
+    _listeners = [].concat(_listeners, listener);
 };
 
-export const removeListener = (listener) => {
-    _listeners = _listeners.filter(_listener => listener === _listener);
+export const removeAuthListener = (listener) => {
+    _listeners = _listeners.filter(_listener => listener !== _listener);
 };
 
-export const getState = () => {
-    return _state;
+export const getAuthState = () => {
+    return {
+        ..._state
+    };
 };
 
-export const setState = (state) => {
+export const isAuthenticated = () => {
+    const {accessToken} = _state;
+
+    return !!accessToken;
+};
+
+export const setAuthState = (state) => {
     _state = {
         ..._state,
-        state
+        ...state
     };
 
     setLocalData(_keyStore, _state);
