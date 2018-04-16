@@ -40,7 +40,7 @@ class APIServices {
     }
 }
 
-export const APIServicesExtend = (baseURL) => {
+export const extendsAPIServices = (baseURL) => {
     return new APIServices(baseURL);
 };
 
