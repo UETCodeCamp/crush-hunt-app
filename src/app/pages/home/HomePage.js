@@ -6,7 +6,7 @@ class HomePage extends Component {
     render() {
         return (
             <div className="HomePage">
-                <h1>Home page akjsdhkasjdh</h1>
+                <h1>Home page akjsdhka,asjhdsjdh </h1>
             </div>
         );
     }
