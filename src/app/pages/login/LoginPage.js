@@ -19,7 +19,7 @@ class LoginPage extends Component {
 
         return (
             <div className="LoginPage">
-                <h1>Login page QUANG</h1>
+                <h1>QUANG BKL</h1>
             </div>
         );
     }
