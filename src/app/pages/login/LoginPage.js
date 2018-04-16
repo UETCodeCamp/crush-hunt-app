@@ -20,6 +20,7 @@ class LoginPage extends Component {
         return (
             <div className="LoginPage">
                 <h1>Login page 123</h1>
+                <h2>D Pop</h2>
             </div>
         );
     }
