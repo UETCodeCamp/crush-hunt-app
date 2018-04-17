@@ -7,8 +7,6 @@ class Content extends  React.Component{
 
     render(){
 
-
-
         return(
             <div>
                 <header className={'userDetails'}>
