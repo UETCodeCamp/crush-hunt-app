@@ -24,8 +24,6 @@ class Comment extends React.Component{
                 <div className={'commentList'}>
                     {listComent}
                 </div>
-                <div className="time">
-                </div>
             </div>
         );
     }

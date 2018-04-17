@@ -135,9 +135,6 @@ body {
                 background: #3897f0;
                 color: #fff;
             }
-            button:hover .pushComment{
-                filter: brightness(900%);
-            }
             .pushComment {
                 background-image: url("/img/icon.png");
                 background-size: 435px 401px;
@@ -148,6 +145,10 @@ body {
                 margin-top: 3px;
                 margin-left: -4px;
                 transform: rotate(28deg);
+                transition: 0.25s;
+            }
+            button:hover .pushComment{
+                filter: brightness(800%);
             }
         }
     }
