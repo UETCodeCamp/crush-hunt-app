@@ -5,13 +5,16 @@ import CommentInput from "./CommentInput";
 
 class Post extends React.Component{
 
+
     render(){
 
-        return <div>
-            <Content/>
-            <Comment/>
-            <CommentInput/>
-        </div>
+        return (
+            <div className={'post'}>
+                <Content dataPost={this.props.dataPost}/>
+                <Comment dataPost={this.props.dataPost}/>
+                <CommentInput dataPost={this.props.dataPost}/>
+            </div>
+        );
 
     }
 

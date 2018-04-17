@@ -9,17 +9,13 @@ class Content extends  React.Component{
 
         return(
             <div>
-                <header className={'userDetails'}>
-                    <span>
-                        <img src="" alt=""/>
+                <div className={'userDetails'}>
+                    <span className={'avatar'} style={{ backgroundImage: "url('http://d38we5ntdyxyje.cloudfront.net/820641/profile/CRPQIVAX_avatar_medium_square.jpg')" }}/>
+                    <span className={'userName'}>
+                        {this.props.dataPost.userName}
                     </span>
-                    <span>
-                        {/* <Link className={'userLinkPost'} to={}/> */}
-                    </span>
-                </header>
-                <div className={'imgPost'}>
-                    <img src="" alt=""/>
                 </div>
+                <img src={this.props.dataPost.imgSrc}/>
             </div>
         );
     }
