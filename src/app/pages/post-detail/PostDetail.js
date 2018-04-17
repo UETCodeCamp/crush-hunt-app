@@ -1,16 +1,17 @@
 import React, {Component} from "react";
 import PropTypes from "prop-types";
-
+import Post from "./Post"
+import Footer from "./Footer"
+import Nav from "./Nav"
 class PostDetail extends Component {
     render() {
-
         return (
-            <div className="PostDetail">
-                <h1>Post Detail</h1>
-                <h2>1123581321</h2>
-                <h3>lan 3</h3>
-            </div>
-        );
+        <div id="post-detail main">
+          <Nav/>
+          <Post/>
+          <Footer/>
+        </div>
+       );
     }
 }
 
