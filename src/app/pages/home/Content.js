@@ -1,6 +1,6 @@
 import React , {Component} from 'react';
 import {Link, Route, Switch} from 'react-router-dom';
-import Link from "react-router-dom/es/Link";
+// import Link from "react-router-dom/es/Link";
 
 
 
@@ -18,7 +18,7 @@ class Content extends  React.Component{
                         <img src="" alt=""/>
                     </span>
                     <span>
-                        <Link className={'userLinkPost'} to={}/>
+                        {/* <Link className={'userLinkPost'} to={}/> */}
                     </span>
                 </header>
                 <div className={'imgPost'}>
