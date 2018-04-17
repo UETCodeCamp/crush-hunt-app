@@ -5,7 +5,7 @@ class UploadPage extends Component {
     render() {
         return (
             <div className="UploadPage">
-                <h1>Upload a post 123</h1>
+                <h1>Upload a post 1234</h1>
             </div>
         );
     }
