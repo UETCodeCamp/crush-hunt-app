@@ -67,18 +67,21 @@ body {
         .likeButton {
             padding: 4px 12px;
             font-size: 20px;
-            .unlike, .comment{
-                width:24px;
-                height:24px;
+
+            .unlike, .comment {
+                width: 24px;
+                height: 24px;
                 background-size: 435px 401px;
-                background-image: url("/img/icon.png");        
+                background-image: url("/img/icon.png");
                 display: inline-block;
                 background-repeat: no-repeat;
             }
-            .unlike{
+
+            .unlike {
                 background-position: -388px -350px;
             }
-            .comment{
+
+            .comment {
                 margin-left: 12px;
                 background-position: -350px -352px;
             }
@@ -131,6 +134,20 @@ body {
             button:hover {
                 background: #3897f0;
                 color: #fff;
+            }
+            button:hover .pushComment{
+                filter: brightness(900%);
+            }
+            .pushComment {
+                background-image: url("/img/icon.png");
+                background-size: 435px 401px;
+                background-position: -388px 2px;
+                width: 24px;
+                height: 24px;
+                display: inline-block;
+                margin-top: 3px;
+                margin-left: -4px;
+                transform: rotate(28deg);
             }
         }
     }

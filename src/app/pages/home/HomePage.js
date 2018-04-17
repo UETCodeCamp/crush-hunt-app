@@ -9,9 +9,9 @@ class HomePage extends Component {
         super(props);
         this.state = {
             listPost:[{
-                userName:'Cuong dang ne',
+                userName:'Cô Zô Dép',
                 imgSrc:'https://s.abcnews.com/images/Entertainment/HT_TSpelling_MEM_160101_1x1_1600.jpg',
-                likeText:['tui like'],
+                likeText:['không ai thèm like'],
                 timePost:Date(2018, 11, 24, 10, 33, 30, 0),
                 postText:"ahihihi tui dang ne!",
                 listComments:[{
@@ -42,7 +42,7 @@ class HomePage extends Component {
     render() {
 
         var listPostData = this.state.listPost.map((e)=>{
-            return <Post  dataPost={e}/>;
+            return <Post dataPost={e}/>;
         });
 
         return (
