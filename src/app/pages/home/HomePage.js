@@ -7,7 +7,6 @@ class HomePage extends Component {
     render() {
         return (
             <div className="HomePage">
-                <h1>Home page</h1>
                 <div class="post">
                     <div className={'userDetails'}>
                         <span className="avatar" style={{ backgroundImage: "url('http://d38we5ntdyxyje.cloudfront.net/820641/profile/CRPQIVAX_avatar_medium_square.jpg')" }}>
@@ -19,8 +18,8 @@ class HomePage extends Component {
                     </div>
                     <img src="https://s.abcnews.com/images/Entertainment/HT_TSpelling_MEM_160101_1x1_1600.jpg" />
                     <div className="likeButton">
-                        <i class="fa fa-heart" style={{ color: '#ff5353' }} aria-hidden="true"></i>
-                        <i class="fa fa-comment-o" aria-hidden="true"></i>
+                        <span className="unlike"></span>
+                        <span className="comment"></span>
                     </div>
                     <div className="likeText">
                         chỉ mỗi Dép lai
@@ -51,6 +50,9 @@ class HomePage extends Component {
                         <button><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
                     </div>
                 </div>
+
+
+                
             </div>
         );
     }
