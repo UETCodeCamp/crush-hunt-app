@@ -5,9 +5,14 @@ class Nav extends React.Component {
         return (
             <nav id="post-detail-nav">
                 <ul>
-                     <li>nav</li>
+                    <li><a href="">Instagram</a></li>
+                    <li><input type="text" placeholder="Search"/></li>
+                    <li className="icon"><a href="">icon 1</a></li>
+                    <li><a href="">icon 2</a></li>
+                    <li><a href="">icon 3</a></li>
                 </ul>
             </nav>
+
         )
     }
 }
