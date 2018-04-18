@@ -52,6 +52,16 @@ body {
             padding: 12px 0 0 12px;
         }
 
+        .loadComment {
+            background: 0 0;
+            border: 0;
+            color: #999;
+            font-size: inherit;
+            margin: 0;
+            padding: 0 12px;
+            cursor: pointer;
+        }
+
         .likeText {
             padding: 0 12px;
             font-size: 14px;
@@ -67,18 +77,21 @@ body {
         .likeButton {
             padding: 4px 12px;
             font-size: 20px;
-            .unlike, .comment{
-                width:24px;
-                height:24px;
+
+            .unlike, .comment {
+                width: 24px;
+                height: 24px;
                 background-size: 435px 401px;
-                background-image: url("/img/icon.png");        
+                background-image: url("/img/icon.png");
                 display: inline-block;
                 background-repeat: no-repeat;
             }
-            .unlike{
+
+            .unlike {
                 background-position: -388px -350px;
             }
-            .comment{
+
+            .comment {
                 margin-left: 12px;
                 background-position: -350px -352px;
             }
@@ -131,6 +144,21 @@ body {
             button:hover {
                 background: #3897f0;
                 color: #fff;
+            }
+            .pushComment {
+                background-image: url("/img/icon.png");
+                background-size: 435px 401px;
+                background-position: -388px 2px;
+                width: 24px;
+                height: 24px;
+                display: inline-block;
+                margin-top: 3px;
+                margin-left: -4px;
+                transform: rotate(28deg);
+                transition: 0.25s;
+            }
+            button:hover .pushComment{
+                filter: brightness(800%);
             }
         }
     }
