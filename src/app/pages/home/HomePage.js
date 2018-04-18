@@ -50,7 +50,7 @@ class HomePage extends Component {
                 {listPostData}
             </div>
         )
-        
+
 
     }
 }
