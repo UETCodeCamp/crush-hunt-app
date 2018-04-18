@@ -6,6 +6,7 @@ class ProfilePage extends Component {
         return (
             <div className="ProfilePage">
                 <h1>Profile</h1>
+                <h1>test</h1>
             </div>
         );
     }
