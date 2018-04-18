@@ -53,12 +53,10 @@ body {
         }
 
         .loadComment {
-            background: 0 0;
-            border: 0;
+            font-size: 13px;
             color: #999;
-            font-size: inherit;
             margin: 0;
-            padding: 0 12px;
+            padding: 4px 12px 8px;
             cursor: pointer;
         }
 
@@ -98,7 +96,7 @@ body {
         }
 
         .commentList {
-            padding: 9px 12px;
+            padding: 9px 12px 0;
             font-size: 14px;
         }
 
