@@ -1,6 +1,6 @@
 import "./HomePage.css";
 import PropTypes from 'prop-types';
-import React, { Component } from "react";
+import React, {Component} from "react";
 import Post from "./Post";
 
 class HomePage extends Component {
@@ -35,10 +35,7 @@ class HomePage extends Component {
                         userNameComment: 'Cô Zô Dép',
                         commentText: 'chị Xơn quá đáng lắm lun á'
                     },
-                    {
-                        userNameComment: 'noname',
-                        commentText: 'hahah eheheh'
-                    }
+
                 ],
             }, {
                 userName: 'Tui la ai',
@@ -76,14 +73,15 @@ class HomePage extends Component {
             ],
         }
     }
+
     render() {
 
         var listPostData = this.state.listPost.map((e) => {
-            return <Post dataPost={e} />;
+            return <Post dataPost={e}/>;
         });
 
         return (
-            <div className={'HomePage'} >
+            <div className={'HomePage'}>
                 {listPostData}
             </div>
         )
