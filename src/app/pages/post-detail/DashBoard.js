@@ -45,7 +45,7 @@ class DashBoard extends React.Component{
                     <section className="soluonglike">
                         <div>
                             <a>
-                                <span>12</span>
+                                <span>12 </span>
                                 likes
                             </a>
                         </div>
