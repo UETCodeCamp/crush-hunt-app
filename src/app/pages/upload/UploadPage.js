@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import PropTypes from "prop-types";
-import "./Style.css";
+
+import "./UploadPage.css"
 
 class UploadPage extends Component {
     render() {
@@ -33,6 +34,9 @@ class UploadPage extends Component {
                             </div>
                         </form>
                     </div>
+
+
+                    <div className="inforUser">infor</div>
                 </section>
             </div>
         );
