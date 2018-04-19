@@ -4,24 +4,26 @@ class Footer extends React.Component{
     render(){
         return(
             <footer id="post-detail-footer">
-                 <nav >
-                 <ul>
-                    <li><a href="#">ABOUT US</a></li>
-                    <li><a href="#">SUPPORT</a></li>
-                    <li><a href="#">BLOG</a></li>
-                    <li><a href="#">PRESS</a></li>
-                    <li><a href="#">API</a></li>
-                    <li><a href="#">JOBS</a></li>
-                    <li><a href="#">PRIVACY</a></li>
-                    <li><a href="#">TERMS</a></li>
-                    <li><a href="#">DIRECTORY</a></li>
-                    <li><a href="#">PROFILES</a></li>
-                    <li><a href="#">HASHTAGS</a></li>
-                    <li><a href="#">LANGUAGE</a></li>
-                    
-                 </ul>
-                 <span>&copy; 2018 UETCODECAMP</span>
-                 </nav>
+                <div className="wrap3">
+                     <nav >
+                         <ul>
+                            <li className="item-footer"><a href="#">ABOUT US</a></li>
+                            <li className="item-footer"><a href="#">SUPPORT</a></li>
+                            <li className="item-footer"><a href="#">BLOG</a></li>
+                            <li className="item-footer"><a href="#">PRESS</a></li>
+                            <li className="item-footer"><a href="#">API</a></li>
+                            <li className="item-footer"><a href="#">JOBS</a></li>
+                            <li className="item-footer"><a href="#">PRIVACY</a></li>
+                            <li className="item-footer"><a href="#">TERMS</a></li>
+                            <li className="item-footer"><a href="#">DIRECTORY</a></li>
+                            <li className="item-footer"><a href="#">PROFILES</a></li>
+                            <li className="item-footer"><a href="#">HASHTAGS</a></li>
+                            <li className="item-footer"><a href="#">LANGUAGE</a></li>
+
+                         </ul>
+                     <span>&copy; 2018 UETCODECAMP</span>
+                     </nav>
+                </div>
             </footer>
         )
     }

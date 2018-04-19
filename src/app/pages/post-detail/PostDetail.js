@@ -2,13 +2,11 @@ import React, {Component} from "react";
 import PropTypes from "prop-types";
 import Post from "./Post"
 import Footer from "./Footer"
-import Nav from "./Nav"
 import "./style.css"
 class PostDetail extends Component {
     render() {
         return (
-        <div id="post-detail main">
-          <Nav/>
+        <div id="post-detail-main">
           <Post/>
           <Footer/>
         </div>
