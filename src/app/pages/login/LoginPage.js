@@ -26,17 +26,15 @@ class LoginPage extends Component {
                         <h1 className="TitleLogin">Crush Hunt</h1>
                         <form className="FormLogin">
                             <h2>Sign up to see photos and videos from your friends.</h2>
-                            <input type="text" value={this.mobileNumberOrEmail} placeholder="Mobile Number or Email"/>
-                            <input type="text" placeholder="Full Name"/>
-                            <input type="text" placeholder="Username"/>
-                            <input type="text" placeholder="Password"/>
-                            <button>Sign up</button>
-                            <p>By signing up, you agree to our Terms & Privacy Policy.</p>
+                            <input type="email" value={this.mobileNumberOrEmail} placeholder="Email"/>
+                            <input type="password" placeholder="Password"/>
+                            <button>Log in</button>
+                            <p><Link to="/reset-password">Forgot Password?</Link></p>
                         </form>
                     </div>
 
                     <div className="RedirectLoginPage">
-                        <p>Have an account? <Link to="/login">Log in</Link></p>
+                        <p>Don't have an account? <Link to="/register">Sign up</Link></p>
                     </div>
                 </div>
             </div>

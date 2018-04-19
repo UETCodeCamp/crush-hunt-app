@@ -1,6 +1,8 @@
 import React, {Component} from "react";
 import PropTypes from "prop-types";
-import {Redirect} from "react-router-dom";
+import {Redirect, Link} from "react-router-dom";
+import "./RegisterPage.css";
+
 
 class RegisterPage extends Component {
     state = {
@@ -14,11 +16,24 @@ class RegisterPage extends Component {
 
         return (
             <div className="RegisterPage">
-                <h1>Register</h1>
+                <div className="MainRegister">
+                    <div className="DivFormRegister">
+                        <h1 className="TitleRegister">Crush Hunt</h1>
+                        <form className="FormRegister">
+                            <h2>Sign up to see photos and videos from your friends.</h2>
+                            <input type="email" placeholder="Email"/>
+                            <input type="text" placeholder="Full Name"/>
+                            <input type="password" placeholder="Password"/>
+                            <input type="password" placeholder="Confirm Password"/>
+                            <button onClick={this._handleSubmit}>Sign up</button>
+                            <p>By signing up, you agree to our Terms & Privacy Policy.</p>
+                        </form>
+                    </div>
 
-                <form>
-                    <button onClick={this._handleSubmit}>Register</button>
-                </form>
+                    <div className="RedirectRegisterPage">
+                        <p>Have an account? <Link to="/login">Log in</Link></p>
+                    </div>
+                </div>
             </div>
         );
     }
