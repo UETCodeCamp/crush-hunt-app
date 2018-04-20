@@ -76,7 +76,7 @@ body {
             padding: 4px 12px;
             font-size: 20px;
 
-            .unlike, .comment {
+            .unlike, .like, .comment {
                 width: 24px;
                 height: 24px;
                 background-size: 435px 401px;
@@ -94,7 +94,9 @@ body {
             }
 
             .unlike {
-                background-position: -388px -350px;
+                background-image: url("https://www.instagram.com/static/bundles/base/sprite_core_2x.png/866b2a01d908.png");
+                background-size: 435px 406px;
+                background-position: 0px -382px;
             }
 
             .comment {
