@@ -1,11 +1,11 @@
-import React , {Component} from 'react';
+import React, { Component } from 'react';
 import moment from "moment";
 import Content from "./Content";
 import Comment from "./Comment";
 import CommentInput from "./CommentInput";
 
-class Post extends React.Component{
-    constructor(){
+class Post extends React.Component {
+    constructor() {
         super();
         moment.updateLocale('en', {
             relativeTime: {
@@ -27,16 +27,16 @@ class Post extends React.Component{
         });
     }
 
-    render(){
+    render() {
 
         return (
-            <div className={'post'}>
-                <Content dataPost={this.props.dataPost}/>
-                <Comment dataPost={this.props.dataPost}/>
+            <div id={this.props.index} className={'post'}>
+                <Content dataPost={this.props.dataPost} />
+                <Comment id={this.props.index} dataPost={this.props.dataPost} />
                 <div className="time">
-                {moment(this.props.dataPost.timePost).fromNow().toUpperCase()}
+                    {moment(this.props.dataPost.timePost).fromNow().toUpperCase()}
                 </div>
-                <CommentInput dataPost={this.props.dataPost}/>
+                <CommentInput dataPost={this.props.dataPost} />
             </div>
         );
 
@@ -44,4 +44,4 @@ class Post extends React.Component{
 
 }
 
-export  default  Post;
+export default Post;
