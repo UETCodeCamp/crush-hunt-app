@@ -36,10 +36,14 @@ class Post extends Component {
                 <div className="time">
                     {moment(this.props.dataPost.timePost).fromNow().toUpperCase()}
                 </div>
-                <CommentInput dataPost={this.props.dataPost} />
+                <CommentInput dataPost={this.props.dataPost} summitComment={this.summitCommentPost}/>
             </div>
         );
 
+    }
+
+    summitCommentPost =(e,t)=>{
+        this.props.summitComment(e,t);
     }
 
 }

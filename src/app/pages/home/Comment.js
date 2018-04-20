@@ -24,7 +24,7 @@ class Comment extends Component {
             <div>
                 <div className="likeButton">
                     <span className={(this.state.isLiked)?'unlike':'like'} onClick={this.likeButton}/>
-                    <span className="comment"/>
+                    <span className="comment" onClick={this.commentFocus}/>
                 </div>
                 <div className="likeText">
                     {this.props.dataPost.likeText}
@@ -93,6 +93,10 @@ class Comment extends Component {
                 isLiked:false
             });
         }
+    }
+
+    commentFocus=()=>{
+        document.getElementById(this.props.dataPost.idPost).focus();
     }
 }
 

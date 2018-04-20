@@ -14,6 +14,7 @@ class HomePage extends Component {
                 likeText: ['không ai thèm like'],
                 timePost: 1523986145507,
                 postText: "Sinh nhật zui zẻ cùng với các pé iu của Dép!",
+                idPost:'post1',
                 topComments: [{
                     userNameComment: 'Bà Zôn Xơn',
                     commentText: 'không like cho Dép nha.'
@@ -41,7 +42,7 @@ class HomePage extends Component {
                 likeText: ['ahihi2'],
                 timePost: 1523303045507,
                 postText: "Phuong dep trai",
-
+                idPost:'post2',
                 topComments: [{
                     userNameComment: 'ahihi1',
                     commentText: 'dep qua ne'
@@ -72,7 +73,7 @@ class HomePage extends Component {
     render() {
 
         const listPostData = this.state.listPost.map((e, index) => {
-            return <Post dataPost={e} key={index} id={index}/>;
+            return <Post dataPost={e} key={index} id={index} summitComment={this._handleSummitComment} />;
         });
 
         return (
@@ -81,7 +82,21 @@ class HomePage extends Component {
 
 
     }
+
+    _handleSummitComment =(e,t)=>{
+        for(var i = 0 ; i < this.state.listPost.length ; i++ ){
+            if(t === this.state.listPost[i].idPost){
+                this.state.listPost[i].topComments.push({userNameComment:'testsummit',
+                                                        commentText:e});
+                this.state.listPost[i].comments.push({userNameComment:'testsummit',
+                                                        commentText:e});
+            }
+        }
+        this.setState(this.state);
+    }
 }
+
+
 
 HomePage.propTypes = {
     history: PropTypes.object
