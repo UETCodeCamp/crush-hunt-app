@@ -7,12 +7,13 @@
     text-decoration: none;
     color: #3897f0;
   }
+
   .Main {
-    //font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
     text-align: center;
     color: #262626;
     margin: 12px auto;
     max-width: 350px;
+
     .MainForm {
       border: 1px solid #E6E6E6;
       padding: 10px 0;
@@ -34,7 +35,6 @@
           height: 36px;
           width: 100%;
           text-overflow: ellipsis;
-          //font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
           font-size: 14px;
           line-height: 18px;
           padding: 10px;
@@ -47,7 +47,6 @@
           outline: none;
         }
         button {
-          //font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
           cursor: pointer;
           background: #3897f0;
           color: #fff;
@@ -74,7 +73,6 @@
     }
 
     .RedirectLoginPage {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       color: #262626;
       font-size: 14px;
       text-align: center;
