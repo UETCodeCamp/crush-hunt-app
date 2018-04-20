@@ -1,6 +1,6 @@
 import "./HomePage.css";
 import PropTypes from 'prop-types';
-import React, { Component } from "react";
+import React, {Component} from "react";
 import Post from "./Post";
 
 class HomePage extends Component {
@@ -14,11 +14,10 @@ class HomePage extends Component {
                 likeText: ['không ai thèm like'],
                 timePost: 1523986145507,
                 postText: "Sinh nhật zui zẻ cùng với các pé iu của Dép!",
-                topComments: [
-                    {
-                        userNameComment: 'Bà Zôn Xơn',
-                        commentText: 'không like cho Dép nha.'
-                    },
+                topComments: [{
+                    userNameComment: 'Bà Zôn Xơn',
+                    commentText: 'không like cho Dép nha.'
+                },
                     {
                         userNameComment: 'Cô Zô Dép',
                         commentText: 'chị Xơn quá đáng lắm lun á'
@@ -26,15 +25,14 @@ class HomePage extends Component {
                 ]
 
                 ,
-                comments: [
-                    {
-                        userNameComment: 'Bà Zôn Xơn',
-                        commentText: 'không like cho Dép nha.'
-                    },
+                comments: [{
+                    userNameComment: 'Bà Zôn Xơn',
+                    commentText: 'không like cho Dép nha.'
+                },
                     {
                         userNameComment: 'Cô Zô Dép',
                         commentText: 'chị Xơn quá đáng lắm lun á'
-                    },
+                    }
 
                 ],
             }, {
@@ -44,21 +42,19 @@ class HomePage extends Component {
                 timePost: 1523303045507,
                 postText: "Phuong dep trai",
 
-                topComments: [
-                    {
-                        userNameComment: 'ahihi1',
-                        commentText: 'dep qua ne'
-                    },
+                topComments: [{
+                    userNameComment: 'ahihi1',
+                    commentText: 'dep qua ne'
+                },
                     {
                         userNameComment: 'ahihi2',
                         commentText: 'ok hehe dep!'
                     }
                 ],
-                comments: [
-                    {
-                        userNameComment: 'ahihi1',
-                        commentText: 'de qua ne'
-                    },
+                comments: [{
+                    userNameComment: 'ahihi1',
+                    commentText: 'de qua ne'
+                },
                     {
                         userNameComment: 'ahihi2',
                         commentText: 'ok hehe dep'
@@ -69,21 +65,18 @@ class HomePage extends Component {
                     }
                 ],
 
-            }
-            ],
+            }],
         }
     }
 
     render() {
 
-        var listPostData = this.state.listPost.map((e, index) => {
-            return <Post dataPost={e} index={index} />;
+        const listPostData = this.state.listPost.map((e, index) => {
+            return <Post dataPost={e} key={index} id={index}/>;
         });
 
         return (
-            <div className={'HomePage'}>
-                {listPostData}
-            </div>
+            <div className={'HomePage'}> {listPostData}</div>
         )
 
 

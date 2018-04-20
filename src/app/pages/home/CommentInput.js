@@ -1,15 +1,15 @@
-import React , {Component} from 'react';
+import React, {Component} from 'react';
 
 
-class CommentInput extends  React.Component{
+class CommentInput extends Component {
 
-    render(){
+    render() {
 
-        return(
+        return (
             <div className={'commentForm'}>
-                <form >
+                <form>
                     <input type="text" className={'commentInput'} placeholder={'Nhập bình luận của bạn...'}/>
-                    <button><span className="pushComment"></span></button>
+                    <button><span className="pushComment"/></button>
                 </form>
             </div>
         );
@@ -17,4 +17,4 @@ class CommentInput extends  React.Component{
 
 }
 
-export  default CommentInput;
+export default CommentInput;
