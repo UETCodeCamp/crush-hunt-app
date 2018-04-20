@@ -1,6 +1,6 @@
 import "./HomePage.css";
 import PropTypes from 'prop-types';
-import React, {Component} from "react";
+import React, { Component } from "react";
 import Post from "./Post";
 
 class HomePage extends Component {
@@ -76,8 +76,8 @@ class HomePage extends Component {
 
     render() {
 
-        var listPostData = this.state.listPost.map((e) => {
-            return <Post dataPost={e}/>;
+        var listPostData = this.state.listPost.map((e, index) => {
+            return <Post dataPost={e} index={index} />;
         });
 
         return (

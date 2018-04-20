@@ -42,14 +42,14 @@ class Comment extends React.Component {
 
         const comments = this.props.dataPost.comments;
         const topComments = this.props.dataPost.topComments;
-        const id = this.props.dataPost.userName;
+        const id = this.props.id;
         const isShowComment = this.state.isShowComment;
         if (comments.length === topComments.length && !isShowComment) {
             this.setState({
-                commentsShow: [],
+                commentsShow: comments,
                 isShowComment: false,
             })
-            document.getElementById(id).innerText = 'Load comments...';
+            document.getElementsByClassName("post")[id].getElementsByClassName("loadComment")[0].style.display="none";
         }
 
     }
@@ -57,7 +57,7 @@ class Comment extends React.Component {
     loadComment = () => {
         const comments = this.props.dataPost.comments;
         const topComments = this.props.dataPost.topComments;
-        const id = this.props.dataPost.userName;
+        const id = this.props.id;
         const isShowComment = this.state.isShowComment;
         /*if(comments.length === topComments.length && !isShowComment){
             this.setState({
@@ -71,21 +71,17 @@ class Comment extends React.Component {
                 commentsShow: comments,
                 isShowComment: true,
             })
-            document.getElementById(id).innerText = 'Hiden comment...';
+            document.getElementsByClassName("post")[id].getElementsByClassName("loadComment")[0].innerText = 'Hiden comment...';
         } else {
             if (comments.length !== topComments.length) {
                 this.setState({
                     commentsShow: topComments,
                     isShowComment: false,
                 })
-                document.getElementById(id).innerText = 'Load more comments...';
+                document.getElementsByClassName("post")[id].getElementsByClassName("loadComment")[0].innerText = 'Load more comments...';
             }
             else {
-                this.setState({
-                    commentsShow: [],
-                    isShowComment: false,
-                })
-                document.getElementById(id).innerText = 'Load comments...';
+                document.getElementsByClassName("post")[id].getElementsByClassName("loadComment")[0].style.display="none";
             }
 
         }
