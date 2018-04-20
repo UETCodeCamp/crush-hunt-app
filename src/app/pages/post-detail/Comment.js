@@ -9,8 +9,9 @@ class Comment extends React.Component {
     }
     handleSubmit = (e) => {
          if(e.key === 'Enter'){
-            this.props.handleSubmit(this.state.text)
-            this.setState({text: ""})
+            this.props.handleSubmit(this.state.text);
+            this.setState({text: ""});
+            e.target.blur();
          }
     }
     render() {
@@ -19,7 +20,6 @@ class Comment extends React.Component {
                 <form className="form-comment">
                     <textarea 
                     placeholder="Add a comment..." 
-                    autoComplete="off" 
                     id="commentArea"
                     onChange={this.handleChange}
                     value={this.state.text}

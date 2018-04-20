@@ -14,7 +14,10 @@ class DashBoard extends React.Component{
         liked:true,
         saved:false,
         commentArray: [],
-        numberOfLike: 1
+        numberOfLike: 1,
+    
+       
+
     }
     toggleFollow = (e) => {
         e.preventDefault();
@@ -29,10 +32,14 @@ class DashBoard extends React.Component{
         e.preventDefault();
         this.setState({saved: !this.state.saved})
     }
+
     handleSubmit = (text) => {
          array.push(text)
          this.setState({commentArray:array})
- 
+    }
+    toggleExist = (e) => {
+        e.preventDefault();
+        this.setState({existed: !this.state.existed})
     }
     render(){
         return(
@@ -55,6 +62,7 @@ class DashBoard extends React.Component{
                     <PostDate/>
                     <Comment handleSubmit={this.handleSubmit}/>
                     <PostOption/>
+                
                 </div>
             </article>
 

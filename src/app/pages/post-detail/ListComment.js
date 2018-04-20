@@ -1,15 +1,13 @@
 import React from "react"
-
+import {Link} from "react-router-dom"
 class ListComment extends React.Component {
     render() {
         return (
             <li className="item">
-                <a className="anhcanhan">
-                    Oppagou
-                </a>
-                <span className="text">
-                    <span>{this.props.comment}</span>
-                </span>
+                        <Link to="/profile" className="user-name">OppaGou</Link>
+                        <span className="text">
+                            <span>{this.props.comment}</span>
+                        </span>
             </li>
 
         )
