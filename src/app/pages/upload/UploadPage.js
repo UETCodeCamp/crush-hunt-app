@@ -1,11 +1,14 @@
 import React, {Component} from "react";
 import PropTypes from "prop-types";
-
+import "./UploadPage.css"
 class UploadPage extends Component {
     render() {
         return (
             <div className="UploadPage">
-                <h1>Upload a post 1234</h1>
+                <section className="Upload">
+                    <div className="Content">Something</div>
+                    <div className="inforUser">infor</div>
+                </section>
             </div>
         );
     }
