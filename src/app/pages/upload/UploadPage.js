@@ -11,15 +11,17 @@ class UploadPage extends Component {
                     <div className="content">
                         <h1>UPLOAD IMAGE</h1>
 
-                        <form className="input">
-                            <div>
+                        <form>
+
                                 <input className="link" placeholder="Link ảnh"/>
 
                                 <button>Brower</button>
-                            </div>
 
-                            <img className="thumb" src="https://3.bp.blogspot.com/-tw-rSrfdYq8/V44qWz9DezI/AAAAAAAAAtQ/a_h_avH6RKEwnfN9KNAjarW5bybcilnowCLcB/s640/hinh-anh-girl-xinh-de-thuong-12.jpg"/>
+                        </form>
 
+                        <img className="thumb" src="https://3.bp.blogspot.com/-tw-rSrfdYq8/V44qWz9DezI/AAAAAAAAAtQ/a_h_avH6RKEwnfN9KNAjarW5bybcilnowCLcB/s640/hinh-anh-girl-xinh-de-thuong-12.jpg"/>
+
+                        <form>
                             <div className="comment">
                                 <input placeholder="Nói gì đó về bức ảnh"/>
 
