@@ -21,10 +21,10 @@ class LoginPage extends Component {
 
         return (
             <div className="LoginPage">
-                <div className="MainLogin">
-                    <div className="DivFormLogin">
-                        <h1 className="TitleLogin">Crush Hunt</h1>
-                        <form className="FormLogin">
+                <div className="Main">
+                    <div className="MainForm">
+                        <h1 className="Title">Crush Hunt</h1>
+                        <form className="Form">
                             <h2>Sign up to see photos and videos from your friends.</h2>
                             <input type="email" value={this.mobileNumberOrEmail} placeholder="Email"/>
                             <input type="password" placeholder="Password"/>

@@ -1,14 +1,14 @@
 .RegisterPage {
     background-color: #FAFAFA;
     width: 100%;
-    .MainRegister {
+    .Main {
         font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
         text-align: center;
         color: #262626;
         margin-top: 12px;
         max-width: 350px;
         margin: auto;
-        .DivFormRegister {
+        .MainForm {
             border: 1px solid #E6E6E6;
             padding: 10px 0;
             background-color: #fff;
@@ -18,7 +18,7 @@
                 background-repeat: no-repeat;
                 background-position: center;
             }
-            .FormRegister {
+            .Form {
                 color: #999999;
                 width: 100%;
                 padding: 0 40px;

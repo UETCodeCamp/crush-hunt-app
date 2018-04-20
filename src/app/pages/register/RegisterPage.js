@@ -16,10 +16,10 @@ class RegisterPage extends Component {
 
         return (
             <div className="RegisterPage">
-                <div className="MainRegister">
-                    <div className="DivFormRegister">
-                        <h1 className="TitleRegister">Crush Hunt</h1>
-                        <form className="FormRegister">
+                <div className="Main">
+                    <div className="MainForm">
+                        <h1 className="Title">Crush Hunt</h1>
+                        <form className="Form">
                             <h2>Sign up to see photos and videos from your friends.</h2>
                             <input type="email" placeholder="Email"/>
                             <input type="text" placeholder="Full Name"/>
