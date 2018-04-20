@@ -17,10 +17,12 @@ class DashBoard extends React.Component{
     toggleFollow = () => {
         this.setState({follow: !(this.state.follow)})
     }
-    toggleLike = () => {
+    toggleLike = (e) => {
+        e.preventDefault();
         this.setState({liked: !this.state.liked})
     }
-    toggleSave = () => {
+    toggleSave = (e) => {
+        e.preventDefault();
         this.setState({saved: !this.state.saved})
     }
     render(){
@@ -33,11 +35,11 @@ class DashBoard extends React.Component{
                      />
                     <Status/>
                     <Icon 
-                    liked={this.state.liked}
-                    saved={this.state.saved}
-                    comment={this.state.comment}
-                    toggleLike={this.toggleLike}
-                    toggleSave={this.toggleSave}
+                        liked={this.state.liked}
+                        saved={this.state.saved}
+                        comment={this.state.comment}
+                        toggleLike={this.toggleLike}
+                        toggleSave={this.toggleSave}
                     />
                     <Like/>
                     <PostDate/>
