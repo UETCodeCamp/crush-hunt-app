@@ -101,7 +101,18 @@ body{
         font: inherit;
         font-weight: 600;
       }
-
+      .follow{
+        position: absolute;
+        top: 31px;
+        left: 140px;
+        font: inherit;
+        font-weight:600px;
+        color:rgb(56,151,240);
+       
+      }
+      .follow a, .following a {
+        text-decoration:none;
+      }
       .status {
         position: absolute;
         top: 80px;
