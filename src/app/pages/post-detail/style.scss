@@ -60,6 +60,10 @@ body{
         padding: 20px 0;
         right: 28px;
         border-bottom: 1px solid #efefef;
+        a.user-name {
+          text-decoration: none;
+          color: black;
+        }
       }
 
       .profile-img {
@@ -111,7 +115,11 @@ body{
        
       }
       .follow a, .following a {
-        text-decoration:none;
+        text-decoration: none;
+        color: black;
+        margin-right: 5px;
+        font: inherit;
+        font-weight: 600;
       }
       .status {
         position: absolute;
