@@ -6,9 +6,9 @@ class Like extends React.Component {
             <section className="soluonglike">
                 <div>
                     <a>
-                        <span>12 </span>
-                        likes
-                </a>
+                        <span>{this.props.numberOfLike} </span>
+                        {this.props.numberOfLike === 1 || this.props.numberOfLike == 0 ? "like" : "likes"}
+                    </a>
                 </div>
             </section>
         )

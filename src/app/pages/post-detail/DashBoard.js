@@ -6,24 +6,33 @@ import Icon from "./Icon"
 import Comment from "./Comment"
 import PostDate from "./PostDate"
 import PostOption from "./PostOption"
+const array = [];
 class DashBoard extends React.Component{
 
     state = {
         follow: false,
         liked:true,
         saved:false,
-        comment:false,
+        commentArray: [],
+        numberOfLike: 1
     }
-    toggleFollow = () => {
+    toggleFollow = (e) => {
+        e.preventDefault();
         this.setState({follow: !(this.state.follow)})
     }
     toggleLike = (e) => {
         e.preventDefault();
-        this.setState({liked: !this.state.liked})
+        var likes = this.state.numberOfLike;
+        this.setState({numberOfLike: (this.state.liked) ? (likes-1) : (likes+1),liked: !this.state.liked})
     }
     toggleSave = (e) => {
         e.preventDefault();
         this.setState({saved: !this.state.saved})
+    }
+    handleSubmit = (text) => {
+         array.push(text)
+         this.setState({commentArray:array})
+ 
     }
     render(){
         return(
@@ -33,17 +42,18 @@ class DashBoard extends React.Component{
                      follow={this.state.follow}
                      toggleFollow={this.toggleFollow}
                      />
-                    <Status/>
+                    <Status comment={this.state.commentArray}/>
                     <Icon 
                         liked={this.state.liked}
                         saved={this.state.saved}
                         comment={this.state.comment}
                         toggleLike={this.toggleLike}
                         toggleSave={this.toggleSave}
+                        handleSubmit={this.handleSubmit}
                     />
-                    <Like/>
+                    <Like numberOfLike={this.state.numberOfLike}/>
                     <PostDate/>
-                    <Comment/>
+                    <Comment handleSubmit={this.handleSubmit}/>
                     <PostOption/>
                 </div>
             </article>
