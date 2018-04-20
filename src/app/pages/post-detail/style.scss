@@ -145,13 +145,19 @@ body{
         height: 43px;
       }
 
-      a#unlike {
+      a#liked {
         position: absolute;
         left: -6px;
         width: 40px;
         height: 40px;
       }
-
+      a#like {
+        position: absolute;
+        left: -6px;
+        width: 40px;
+        height: 40px;
+      }
+      
       a#comment {
         position: absolute;
         left: 50px;
@@ -165,8 +171,13 @@ body{
         width: 40px;
         left: 220px;
       }
-
-      #unlike span {
+      a#saved{
+        position: absolute;
+        height: 40px;
+        width: 40px;
+        left: 220px;
+      }
+      #liked span {
         height: 24px;
         width: 24px;
         left: 8px;
@@ -178,7 +189,19 @@ body{
         display: inline-block;
         background-position: -388px -350px;
       }
-
+      #like span{
+        height: 24px;
+        width: 24px;
+        left: 8px;
+        position: absolute;
+        top: 8px;
+        background-image: url(/img/icon.png);
+        background-repeat: no-repeat;
+        background-size: 435px 401px;
+        display: inline-block;
+        background-position: -388px -350px;
+      
+      }
       #comment span {
         height: 24px;
         width: 24px;
@@ -204,6 +227,19 @@ body{
         display: inline-block;
         background-position: -353px -219px;
       }
+      #saved span {
+          height: 24px;
+          width: 24px;
+          left: 40px;
+          position: absolute;
+          top: 8px;
+          background-image: url(/img/icon.png);
+          background-repeat: no-repeat;
+          background-size: 435px 401px;
+          display: inline-block;
+          background-position: -353px -219px;
+        }
+        
       section.soluonglike {
         position: absolute;
         top: 340px;
