@@ -15,6 +15,17 @@ div.UploadPage {
       margin-right: 28px;
       max-width: 614px;
       width: 100%;
+      div {
+        img.thumb {
+          width: 400px;
+          height: 500px;
+          background-color: #3e3e3e;
+          background-image: none;
+          background-repeat: no-repeat;
+          background-position: center center;
+          background-size: cover;
+        }
+      }
     }
     div.inforUser{
       background-color: #fafafa;
