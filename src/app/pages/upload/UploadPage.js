@@ -6,7 +6,7 @@ class UploadPage extends Component {
         return (
             <div className="UploadPage">
                 <section className="Upload">
-                    <div className="Content">Something</div>
+                    <div className="Content">something</div>
                     <div className="inforUser">infor</div>
                 </section>
             </div>
