@@ -4,16 +4,16 @@ class Icon extends React.Component{
     render(){
         return(
             <section className="tim">
-                        <a href="#" id={this.props.liked ?  "liked" : "like" }>
-                            <span onClick={this.props.toggleLike}/>
-                        </a>
-                        <a href="#" id="comment">
-                            <span />
-                        </a>
-                        <a href="#" id={this.props.saved ? "saved" : "save"}>
-                            <span onClick={this.props.toggleSave}/>
-                        </a>
-                    </section>
+                <a href="#" id={this.props.liked ?  "liked" : "like" }>
+                    <span onClick={this.props.toggleLike}/>
+                </a>
+                <a href="#" id="comment">
+                    <span />
+                </a>
+                <a href="#" id={this.props.saved ? "saved" : "save"}>
+                    <span onClick={this.props.toggleSave}/>
+                </a>
+            </section>
         )
     }
 }

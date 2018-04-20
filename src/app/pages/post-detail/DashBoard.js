@@ -13,6 +13,7 @@ class DashBoard extends React.Component{
         liked:true,
         saved:false,
         comment:false,
+        existed :false,
     }
     toggleFollow = () => {
         this.setState({follow: !(this.state.follow)})
@@ -24,6 +25,10 @@ class DashBoard extends React.Component{
     toggleSave = (e) => {
         e.preventDefault();
         this.setState({saved: !this.state.saved})
+    }
+    toggleExist = (e) => {
+        e.preventDefault();
+        this.setState({existed: !this.state.existed})
     }
     render(){
         return(
@@ -44,7 +49,10 @@ class DashBoard extends React.Component{
                     <Like/>
                     <PostDate/>
                     <Comment/>
-                    <PostOption/>
+                    <PostOption
+                        existed={this.state.existed}
+                        toggleExist={this.toggleExist}
+                    />
                 </div>
             </article>
 
