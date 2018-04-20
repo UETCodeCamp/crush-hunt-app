@@ -1,20 +1,24 @@
 import React, {Component} from "react";
 
 
-class Comment extends React.Component {
+class Comment extends Component {
 
     state = {
         commentsShow: this.props.dataPost.topComments,
         isShowComment: false,
+        isLengthCommentEqualTop: (this.props.dataPost.topComments.length === this.props.dataPost.comments.length),
+        contentLoadComment: 'Tải thêm bình luận ...'
     }
 
     render() {
 
-
-        const listComent = this.state.commentsShow.map((data) => {
-            return <div className={'comment'}><span
+        const listComment = this.state.commentsShow.map((data, index) => {
+            return <div className={'comment'} key={index}><span
                 className={'userComment'}>{data.userNameComment}</span>{data.commentText}</div>
         });
+
+        const loadCommnetButton = this.loadCommentButton();
+
 
         return (
             <div>
@@ -29,61 +33,51 @@ class Comment extends React.Component {
                     {this.props.dataPost.postText}
                 </div>
                 <div className={'commentList'}>
-                    {listComent}
+                    {listComment}
                 </div>
-                <div className={'loadComment'} onClick={this.loadComment} id={this.props.dataPost.userName}>
-                    Load more comments...
+                <div>
+                    {loadCommnetButton}
                 </div>
+
             </div>
         );
     }
 
+    loadCommentButton = () => {
+        if (!this.state.isLengthCommentEqualTop) {
+            return (
+                <div className={'loadComment'} onClick={this.loadComment}>
+                    {this.state.contentLoadComment}
+                </div>
+            );
+        } else {
+            return null;
+        }
+    }
+
     componentDidMount() {
 
-        const comments = this.props.dataPost.comments;
-        const topComments = this.props.dataPost.topComments;
-        const id = this.props.id;
-        const isShowComment = this.state.isShowComment;
-        if (comments.length === topComments.length && !isShowComment) {
-            this.setState({
-                commentsShow: comments,
-                isShowComment: false,
-            })
-            document.getElementsByClassName("post")[id].getElementsByClassName("loadComment")[0].style.display="none";
-        }
-
     }
+
 
     loadComment = () => {
         const comments = this.props.dataPost.comments;
         const topComments = this.props.dataPost.topComments;
-        const id = this.props.id;
         const isShowComment = this.state.isShowComment;
-        /*if(comments.length === topComments.length && !isShowComment){
-            this.setState({
-                commentsShow: [],
-                isShowComment: false,
-            })
-            document.getElementById(id).innerText = 'Load more comments...';
-        }*/
+
         if (!isShowComment) {
             this.setState({
                 commentsShow: comments,
                 isShowComment: true,
-            })
-            document.getElementsByClassName("post")[id].getElementsByClassName("loadComment")[0].innerText = 'Hiden comment...';
-        } else {
-            if (comments.length !== topComments.length) {
-                this.setState({
-                    commentsShow: topComments,
-                    isShowComment: false,
-                })
-                document.getElementsByClassName("post")[id].getElementsByClassName("loadComment")[0].innerText = 'Load more comments...';
-            }
-            else {
-                document.getElementsByClassName("post")[id].getElementsByClassName("loadComment")[0].style.display="none";
-            }
-
+                contentLoadComment: "Ẩn đi một số bình luận..."
+            });
+        }
+        else {
+            this.setState({
+                commentsShow: topComments,
+                isShowComment: false,
+                contentLoadComment: 'Tải thêm bình luận ...'
+            });
         }
 
     }

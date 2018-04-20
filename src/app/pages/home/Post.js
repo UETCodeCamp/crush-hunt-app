@@ -4,7 +4,7 @@ import Content from "./Content";
 import Comment from "./Comment";
 import CommentInput from "./CommentInput";
 
-class Post extends React.Component {
+class Post extends Component {
     constructor() {
         super();
         moment.updateLocale('en', {
@@ -30,9 +30,9 @@ class Post extends React.Component {
     render() {
 
         return (
-            <div id={this.props.index} className={'post'}>
+            <div id={this.props.id} className={'post'}>
                 <Content dataPost={this.props.dataPost} />
-                <Comment id={this.props.index} dataPost={this.props.dataPost} />
+                <Comment id={this.props.id} dataPost={this.props.dataPost} />
                 <div className="time">
                     {moment(this.props.dataPost.timePost).fromNow().toUpperCase()}
                 </div>

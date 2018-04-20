@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
-import {Link, Route, Switch} from 'react-router-dom';
-import moment from "moment";
 
-class Content extends React.Component {
+class Content extends Component {
 
 
     render() {
@@ -16,7 +14,7 @@ class Content extends React.Component {
                         {this.props.dataPost.userName}
                     </span>
                 </div>
-                <img src={this.props.dataPost.imgSrc}/>
+                <img src={this.props.dataPost.imgSrc} alt={"pic"}/>
             </div>
         );
     }
