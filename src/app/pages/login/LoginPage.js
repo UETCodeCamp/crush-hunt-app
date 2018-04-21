@@ -7,7 +7,7 @@ import Footer from "../../shared-components/footer/Footer";
 
 
 class LoginPage extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
             auth: isAuthenticated(),
@@ -42,8 +42,8 @@ class LoginPage extends Component {
                         <h1 className="Title">Crush Hunt</h1>
                         <form className="Form">
                             <h2>Sign up to see photos and videos from your friends.</h2>
-                            <input type="email" placeholder="Email" onChange={e => onChange={e => this.handleChangePassword(e)}this.handleChangeEmail(e)}/>
-                            <input type="password" placeholder="Password" />
+                            <input type="email" placeholder="Email" onChange={e => this.handleChangeEmail(e)}/>
+                            <input type="password" placeholder="Password"/>
                             <button>Log in</button>
                             <p><Link to="/reset-password">Forgot Password?</Link></p>
                         </form>
