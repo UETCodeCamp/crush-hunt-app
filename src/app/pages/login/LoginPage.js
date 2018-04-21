@@ -3,6 +3,9 @@ import PropTypes from "prop-types";
 import {isAuthenticated} from "../../../services/AuthServices";
 import {Redirect, Link} from "react-router-dom";
 import "./LoginPage.css";
+import Footer from "../../shared-components/footer/Footer";
+
+
 
 class LoginPage extends Component {
     state = {
@@ -37,6 +40,7 @@ class LoginPage extends Component {
                         <p>Don't have an account? <Link to="/register">Sign up</Link></p>
                     </div>
                 </div>
+                <Footer/>
             </div>
         );
     }

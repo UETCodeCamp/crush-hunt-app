@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import PropTypes from "prop-types";
 import {Redirect, Link} from "react-router-dom";
 import "./RegisterPage.css";
+import Footer from "../../shared-components/footer/Footer";
 
 
 class RegisterPage extends Component {
@@ -34,6 +35,7 @@ class RegisterPage extends Component {
                         <p>Have an account? <Link to="/login">Log in</Link></p>
                     </div>
                 </div>
+                <Footer/>
             </div>
         );
     }
