@@ -3,10 +3,10 @@ import React from 'react';
 class Contents extends React.Component {
 
     createArrImg = () => {
-        const { ArrContents } = this.props;
+        const { arrContents } = this.props;
         let listLi = [];
-        for (let i = 0; i < ArrContents.length; i++) {
-            listLi.push(<img src={ArrContents[i]} alt="" />);
+        for (let i = 0; i < arrContents.length; i++) {
+            listLi.push(<img src={arrContents[i]} alt="" />);
         }
         return listLi;
     }

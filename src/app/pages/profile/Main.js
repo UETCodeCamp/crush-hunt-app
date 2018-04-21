@@ -7,25 +7,25 @@ import NoSave from "./NoSave.js";
 class Main extends React.Component {
 
     render() {
-        const { ArrContents } = this.props;
-        const { ArrSaves } = this.props;
-        const {GotoSaved} = this.props;
+        const { arrContents } = this.props;
+        const { arrSaves } = this.props;
+        const {gotoSaved} = this.props;
         
-        if(!GotoSaved){
-            if (ArrContents.length === 0) {
+        if(!gotoSaved){
+            if (arrContents.length === 0) {
                 return (<NoContent />);
             }
             else {               
-                return (<Contents ArrContents={this.props.ArrContents}/>);
+                return (<Contents arrContents={this.props.arrContents}/>);
             }
     
         }
         else{
-            if (ArrSaves.length === 0) {
+            if (arrSaves.length === 0) {
                 return (<NoSave />);
             }
             else {
-                return (<Saved ArrSaves={this.props.ArrSaves}/>);
+                return (<Saved arrSaves={this.props.arrSaves}/>);
             }
         }
     }

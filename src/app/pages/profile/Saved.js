@@ -5,10 +5,10 @@ class Saved extends React.Component {
 
 
     createArrImg = () => {
-        const { ArrSaves } = this.props;
+        const { arrSaves } = this.props;
         let listLi = [];
-        for (let i = 0; i < ArrSaves.length; i++) {
-            listLi.push(<img src={ArrSaves[i]} alt = "" />);
+        for (let i = 0; i < arrSaves.length; i++) {
+            listLi.push(<img src={arrSaves[i]} alt = "" />);
         }
         return listLi;
     }
