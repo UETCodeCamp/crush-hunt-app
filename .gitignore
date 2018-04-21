@@ -23,3 +23,7 @@ yarn-error.log*
 .idea/
 
 **/*.css
+
+package-lock.json
+
+yarn.lock
