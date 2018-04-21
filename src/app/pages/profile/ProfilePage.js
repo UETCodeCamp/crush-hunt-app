@@ -4,6 +4,7 @@ import "./ProfilePage.css"
 import Header from "./Header.js";
 import NavSavePost from "./NavSavePost.js";
 import Main from "./Main.js";
+import Footer from "../../shared-components/footer/Footer.js";
 //import {Header} from "../../shared-components/header/Header.js";
 
 class ProfilePage extends Component {
@@ -36,7 +37,7 @@ class ProfilePage extends Component {
                     <Header />
                     <NavSavePost gotoSaved={this.state.gotoSaved} changeGotoSaved={this.changeGotoSaved} />
                     <Main gotoSaved={this.state.gotoSaved} arrContents={this.state.arrContents} arrSaves={this.state.arrSaves} />
-
+                    <Footer/>
                 </div>
 
             </div>
