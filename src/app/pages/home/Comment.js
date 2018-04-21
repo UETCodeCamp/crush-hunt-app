@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 
 
 class Comment extends Component {
@@ -23,8 +23,8 @@ class Comment extends Component {
         return (
             <div>
                 <div className="likeButton">
-                    <span className={(this.state.isLiked) ? 'unlike' : 'like'} onClick={this.likeButton} />
-                    <span className="comment" onClick={this.commentClick} />
+                    <span className={(this.state.isLiked)?'unlike':'like'} onClick={this.likeButton}/>
+                    <span className="comment"/>
                 </div>
                 <div className="likeText">
                     {this.props.dataPost.likeText}
@@ -82,21 +82,17 @@ class Comment extends Component {
 
     }
 
-    likeButton = () => {
-        if (!this.state.isLiked) {
+    likeButton = ()=>{
+        if(!this.state.isLiked){
             this.setState({
-                isLiked: true
+                isLiked:true
             });
         }
-        else {
+        else{
             this.setState({
-                isLiked: false
+                isLiked:false
             });
         }
-    }
-
-    commentClick = () => {
-        document.getElementsByClassName('post')[this.props.id].getElementsByClassName('commentInput')[0].focus();
     }
 }
 

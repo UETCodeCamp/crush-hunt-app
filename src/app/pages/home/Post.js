@@ -36,7 +36,7 @@ class Post extends Component {
                 <div className="time">
                     {moment(this.props.dataPost.timePost).fromNow().toUpperCase()}
                 </div>
-                <CommentInput id={this.props.id} dataPost={this.props.dataPost} />
+                <CommentInput dataPost={this.props.dataPost} />
             </div>
         );
 
