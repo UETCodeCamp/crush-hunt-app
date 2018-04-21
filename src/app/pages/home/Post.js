@@ -32,7 +32,7 @@ class Post extends Component {
         return (
             <div id={this.props.id} className={'post'}>
                 <Content dataPost={this.props.dataPost} />
-                <Comment id={this.props.id} dataPost={this.props.dataPost} />
+                <Comment id={this.props.id} dataPost={this.props.dataPost} likeButton={this.likeButtonPost} />
                 <div className="time">
                     {moment(this.props.dataPost.timePost).fromNow().toUpperCase()}
                 </div>
@@ -41,6 +41,11 @@ class Post extends Component {
         );
 
     }
+
+    likeButtonPost = (e,t)=>{
+        this.props.likeButton(e,t);
+    }
+
 
     summitCommentPost =(e,t)=>{
         this.props.summitComment(e,t);

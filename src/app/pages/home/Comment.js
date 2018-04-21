@@ -8,7 +8,7 @@ class Comment extends Component {
         isShowComment: false,
         isLengthCommentEqualTop: (this.props.dataPost.topComments.length === this.props.dataPost.comments.length),
         contentLoadComment: 'Tải thêm bình luận ...',
-        isLiked: true
+        isLiked: false,
     }
 
     render() {
@@ -23,7 +23,7 @@ class Comment extends Component {
         return (
             <div>
                 <div className="likeButton">
-                    <span className={(this.state.isLiked)?'unlike':'like'} onClick={this.likeButton}/>
+                    <span className={(this.state.isLiked)?'like':'unlike'} onClick={this.likeButton}/>
                     <span className="comment" onClick={this.commentFocus}/>
                 </div>
                 <div className="likeText">
@@ -84,11 +84,13 @@ class Comment extends Component {
 
     likeButton = ()=>{
         if(!this.state.isLiked){
+            this.props.likeButton(true,this.props.dataPost.idPost);
             this.setState({
                 isLiked:true
             });
         }
         else{
+            this.props.likeButton(false,this.props.dataPost.idPost);
             this.setState({
                 isLiked:false
             });
