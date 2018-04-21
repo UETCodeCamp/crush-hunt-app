@@ -18,9 +18,9 @@ class UploadPage extends Component {
                         <form>
                             <input className="link" placeholder="Link ảnh"/>
 
-                            <button className="link_button">Browse...</button>
+                            <button className="link_button">Browse</button>
                             <br/>
-                            <div className="x">
+                            <div>
                                 <button className="border">
                                     <svg viewBox="0 0 18 18">
                                         <path  d="M5,4H9.5A2.5,2.5,0,0,1,12,6.5v0A2.5,2.5,0,0,1,9.5,9H5A0,0,0,0,1,5,9V4A0,0,0,0,1,5,4Z"/>
