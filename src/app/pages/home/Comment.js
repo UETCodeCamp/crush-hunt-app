@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 
 
 class Comment extends Component {
@@ -8,7 +8,7 @@ class Comment extends Component {
         isShowComment: false,
         isLengthCommentEqualTop: (this.props.dataPost.topComments.length === this.props.dataPost.comments.length),
         contentLoadComment: 'Tải thêm bình luận ...',
-        isLiked: true
+        isLiked: false,
     }
 
     render() {
@@ -23,8 +23,8 @@ class Comment extends Component {
         return (
             <div>
                 <div className="likeButton">
-                    <span className={(this.state.isLiked) ? 'unlike' : 'like'} onClick={this.likeButton} />
-                    <span className="comment" onClick={this.commentClick} />
+                    <span className={(this.state.isLiked)?'like':'unlike'} onClick={this.likeButton}/>
+                    <span className="comment" onClick={this.commentFocus}/>
                 </div>
                 <div className="likeText">
                     {this.props.dataPost.likeText}
@@ -82,21 +82,23 @@ class Comment extends Component {
 
     }
 
-    likeButton = () => {
-        if (!this.state.isLiked) {
+    likeButton = ()=>{
+        if(!this.state.isLiked){
+            this.props.likeButton(true,this.props.dataPost.idPost);
             this.setState({
-                isLiked: true
+                isLiked:true
             });
         }
-        else {
+        else{
+            this.props.likeButton(false,this.props.dataPost.idPost);
             this.setState({
-                isLiked: false
+                isLiked:false
             });
         }
     }
 
-    commentClick = () => {
-        document.getElementsByClassName('post')[this.props.id].getElementsByClassName('commentInput')[0].focus();
+    commentFocus=()=>{
+        document.getElementById(this.props.dataPost.idPost).focus();
     }
 }
 
