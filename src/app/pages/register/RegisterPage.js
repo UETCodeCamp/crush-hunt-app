@@ -1,14 +1,38 @@
 import React, {Component} from "react";
 import PropTypes from "prop-types";
-import {Redirect, Link} from "react-router-dom";
+import {Link, Redirect} from "react-router-dom";
 import "./RegisterPage.css";
 import Footer from "../../shared-components/footer/Footer";
 
 
 class RegisterPage extends Component {
-    state = {
-        success: false
-    };
+    constructor(props){
+        super(props);
+        this.state = {
+            success: false,
+            email: '',
+            name: '',
+            password: '',
+        };
+    }
+
+
+
+    handleChangeEmail(e) {
+        const email = e.target.value;
+        this.setState({email: email});
+    }
+
+    handleChangeName(e) {
+        const name = e.target.value;
+        this.setState({name: name});
+    }
+
+    handleChangePassword(e) {
+        const password = e.target.value;
+        this.setState({password: password});
+
+    }
 
     render() {
         if (this.state.success) {
@@ -22,11 +46,11 @@ class RegisterPage extends Component {
                         <h1 className="Title">Crush Hunt</h1>
                         <form className="Form">
                             <h2>Sign up to see photos and videos from your friends.</h2>
-                            <input type="email" placeholder="Email"/>
-                            <input type="text" placeholder="Full Name"/>
-                            <input type="password" placeholder="Password"/>
+                            <input type="email" placeholder="Email" onChange={e => this.handleChangeEmail(e)}/>
+                            <input type="text" placeholder="Full Name" onChange={e => this.handleChangeName(e)}/>
+                            <input type="password" placeholder="Password" onChange={e => this.handleChangePassword(e)}/>
                             <input type="password" placeholder="Confirm Password"/>
-                            <button onClick={this._handleSubmit}>Sign up</button>
+                            <button onClick={this.handleSubmit}>Sign up</button>
                             <p>By signing up, you agree to our Terms & Privacy Policy.</p>
                         </form>
                     </div>
@@ -40,7 +64,7 @@ class RegisterPage extends Component {
         );
     }
 
-    _handleSubmit = (e) => {
+    handleSubmit = (e) => {
         e.preventDefault();
 
         setTimeout(() => {
