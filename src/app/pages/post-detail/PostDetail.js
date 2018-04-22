@@ -7,12 +7,12 @@ class PostDetail extends Component {
     render() {
         return (
             <div>
-            <div id="post-detail-main">
-                <div className="wrap">
-                    <DashBoardPostDetails />
+                <div id="post-detail-main">
+                    <div className="wrap">
+                        <DashBoardPostDetails />
+                    </div>
                 </div>
-            </div>
-            <Footer/>
+                <Footer />
             </div>
         );
     }
