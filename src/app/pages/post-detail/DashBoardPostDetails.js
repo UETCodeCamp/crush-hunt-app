@@ -15,7 +15,7 @@ class DashBoardPostDetails extends React.Component {
         follow: false,
         liked: true,
         saved: false,
-        commentArray: ["Sample Comment 1" , "Sample Comment 2","3","4","5","6"],
+        commentArray: ["1" , "2","3","4","5","6" ,"7" ,"8"],
         numberOfLike: 1,
     };
     toggleFollow = (e) => {
