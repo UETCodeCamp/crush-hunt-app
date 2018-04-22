@@ -1,29 +1,27 @@
 import React, {Component} from "react";
-
+import PropTypes from "prop-types";
 
 class Comment extends Component {
-
     state = {
         commentsShow: this.props.dataPost.topComments,
         isShowComment: false,
         isLengthCommentEqualTop: (this.props.dataPost.topComments.length === this.props.dataPost.comments.length),
         contentLoadComment: 'Tải thêm bình luận ...',
         isLiked: false,
-    }
+    };
 
     render() {
-
         const listComment = this.state.commentsShow.map((data, index) => {
             return <div className={'comment'} key={index}><span
                 className={'userComment'}>{data.userNameComment}</span>{data.commentText}</div>
         });
 
-        const loadCommnetButton = this.loadCommentButton();
+        const loadCommentButton = this.loadCommentButton();
 
         return (
             <div>
                 <div className="likeButton">
-                    <span className={(this.state.isLiked)?'like':'unlike'} onClick={this.likeButton}/>
+                    <span className={(this.state.isLiked) ? 'like' : 'unlike'} onClick={this.likeButton}/>
                     <span className="comment" onClick={this.commentFocus}/>
                 </div>
                 <div className="likeText">
@@ -36,7 +34,7 @@ class Comment extends Component {
                     {listComment}
                 </div>
                 <div>
-                    {loadCommnetButton}
+                    {loadCommentButton}
                 </div>
 
             </div>
@@ -53,12 +51,7 @@ class Comment extends Component {
         } else {
             return null;
         }
-    }
-
-    componentDidMount() {
-
-    }
-
+    };
 
     loadComment = () => {
         const comments = this.props.dataPost.comments;
@@ -79,27 +72,31 @@ class Comment extends Component {
                 contentLoadComment: 'Tải thêm bình luận ...'
             });
         }
+    };
 
-    }
-
-    likeButton = ()=>{
-        if(!this.state.isLiked){
-            this.props.likeButton(true,this.props.dataPost.idPost);
+    likeButton = () => {
+        if (!this.state.isLiked) {
+            this.props.likeButton(true, this.props.dataPost.idPost);
             this.setState({
-                isLiked:true
+                isLiked: true
+            });
+        } else {
+            this.props.likeButton(false, this.props.dataPost.idPost);
+            this.setState({
+                isLiked: false
             });
         }
-        else{
-            this.props.likeButton(false,this.props.dataPost.idPost);
-            this.setState({
-                isLiked:false
-            });
-        }
-    }
+    };
 
-    commentFocus=()=>{
+    commentFocus = () => {
+        //@todo use ref instead of `document.getElementById`. See more: https://reactjs.org/docs/refs-and-the-dom.html
         document.getElementById(this.props.dataPost.idPost).focus();
     }
 }
+
+Comment.propsTypes = {
+    dataPost: PropTypes.object.isRequired,
+    likeButton: PropTypes.func.isRequired,
+};
 
 export default Comment;
