@@ -1,8 +1,8 @@
-import React from 'react';
+import React, {Component} from 'react';
 
-class OptionHidden extends React.Component{
+class OptionHidden extends Component {
     render() {
-        return(
+        return (
             <div className="hidden">
                 <div className="wrap-hidden">
                     <div className="content-op">
@@ -20,7 +20,8 @@ class OptionHidden extends React.Component{
                     </div>
                 </div>
             </div>
-        )
+        );
     }
 }
+
 export default OptionHidden;

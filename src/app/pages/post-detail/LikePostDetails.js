@@ -1,6 +1,7 @@
-import React from "react"
+import React, {Component} from "react";
+import PropTypes from "prop-types";
 
-class LikePostDetails extends React.Component {
+class LikePostDetails extends Component {
     render() {
         return (
             <section className="like_number">
@@ -11,8 +12,12 @@ class LikePostDetails extends React.Component {
                     </a>
                 </div>
             </section>
-        )
+        );
     }
 }
 
-export default LikePostDetails
+LikePostDetails.propTypes = {
+    numberOfLike: PropTypes.number,
+};
+
+export default LikePostDetails;

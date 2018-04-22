@@ -1,4 +1,4 @@
-import React from "react";
+import React, {Component} from "react";
 import HeaderPostDetail from "./HeaderPostDetail";
 import Status from "./Status";
 import LikePostDetails from "./LikePostDetails";
@@ -7,26 +7,28 @@ import CommentPostDetail from "./CommentPostDetail";
 import DatePost from "./DatePost";
 import PostOption from "./PostOption";
 
-const array = ["Sample Comment 1" , "Sample Comment 2","3","4","5","6"];
+const array = ["Sample Comment 1", "Sample Comment 2", "3", "4", "5", "6"];
 
-class DashBoardPostDetails extends React.Component {
-
+class DashBoardPostDetails extends Component {
     state = {
         follow: false,
         liked: true,
         saved: false,
-        commentArray: ["1" , "2","3","4","5","6" ,"7" ,"8"],
+        commentArray: ["1", "2", "3", "4", "5", "6", "7", "8"],
         numberOfLike: 1,
     };
+
     toggleFollow = (e) => {
         e.preventDefault();
         this.setState({follow: !(this.state.follow)});
     };
+
     toggleLike = (e) => {
         e.preventDefault();
         const likes = this.state.numberOfLike;
         this.setState({numberOfLike: (this.state.liked) ? (likes - 1) : (likes + 1), liked: !this.state.liked});
     };
+
     toggleSave = (e) => {
         e.preventDefault();
         this.setState({saved: !this.state.saved});
@@ -36,6 +38,7 @@ class DashBoardPostDetails extends React.Component {
         array.push(text);
         this.setState({commentArray: array});
     };
+
     toggleExist = (e) => {
         e.preventDefault();
         this.setState({existed: !this.state.existed});
@@ -68,13 +71,12 @@ class DashBoardPostDetails extends React.Component {
                         <LikePostDetails numberOfLike={this.state.numberOfLike}/>
                         <DatePost/>
                         <CommentPostDetail handleSubmit={this.handleSubmit}/>
-                        <PostOption/>
+                        <PostOption existed={this.state.existed} toggleExist={this.toggleExist}/>
                     </div>
                 </article>
             </div>
-
-        )
+        );
     }
 }
 
-export default DashBoardPostDetails
+export default DashBoardPostDetails;
