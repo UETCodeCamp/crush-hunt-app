@@ -1,13 +1,17 @@
 div.UploadPage {
   display: flex;
   align-items: stretch;
-  background-color: #fafafa;
+  background-color: white;
   box-sizing: border-box;
   font-family: sans-serif;
 
   div.header {
     h2 {
+<<<<<<< HEAD
       color: #ff6423;
+=======
+      color: red;
+>>>>>>> e328686bb6894501b096ddee7b861562f063a625
     }
   }
 
@@ -19,36 +23,43 @@ div.UploadPage {
     display: flex;
     flex-flow: row nowrap;
     flex-grow: 1;
-    width: 100%;
+
     max-width: 935px;
     div.content {
       background-color: white;
       align-items: center;
       margin: 0 auto;
+<<<<<<< HEAD
       max-width: 614px;
+=======
+
+>>>>>>> e328686bb6894501b096ddee7b861562f063a625
       width: 100%;
       border-radius: 3px;
-      box-shadow: 0 9px 16px #aaaaaa;
 
       div.header {
         text-align: center;
         padding-top: 13px;
         padding-bottom: 13px;
-        border-bottom: 1px solid #efefef;
+
       }
 
       div.img_upload {
-        width: 614px;
-        height: 614px;
-        border: 3px dashed #aaaaaa;
+        width: 100%; //614px
+        height: auto;
+        border: 3px dashed darkgray;
+
         img.thumb {
           height: auto;
-          width: auto;
-          top: 243px;
+          width: 80%;
+          top: auto;
           left: 243px;
           margin: 0 auto;
+          image-rendering: pixelated;
+          margin-left: 80px;
         }
       }
+<<<<<<< HEAD
       form.informationUpload {
 
         div {
@@ -80,6 +91,38 @@ div.UploadPage {
             margin-top: 4px;
             cursor: pointer;
           }
+=======
+
+      form.informationUpload {
+
+        input.link {
+          width: 75%;
+          margin-top: 4px;
+          margin-left: 10px;
+          box-sizing: border-box;
+          padding-bottom: 5px;
+          padding-top: 5px;
+          border-left: #cfcfcf;
+          border-top: 1px solid #cfcfcf;
+          border-left: 1px solid #cfcfcf;
+          border-right: 1px solid #cfcfcf;
+          border-radius: 3px;
+
+        }
+
+        button.link_button {
+          width: 10%;
+          padding-top: 7px;
+          padding-bottom: 5px;
+          border: 2px solid deepskyblue;
+          background-color: deepskyblue;
+          color: white;
+          font-family: sans-serif;
+          border-radius: 3px;
+          margin-left: 2px;
+          margin-top: 4px;
+          cursor: pointer;
+>>>>>>> e328686bb6894501b096ddee7b861562f063a625
         }
 
         input.caption {
@@ -93,6 +136,7 @@ div.UploadPage {
           border: 4px solid #efefef;
         }
 
+<<<<<<< HEAD
         button.button_form[disabled] {
           cursor: not-allowed;
           background-color: #ebebeb;
@@ -108,6 +152,11 @@ div.UploadPage {
         button.button_form {
           float: right;
           background-color: #de5d18;
+=======
+        button.button_form {
+          float: right;
+          background-color: deepskyblue;
+>>>>>>> e328686bb6894501b096ddee7b861562f063a625
           margin-top: 5px;
           margin-bottom: 10px;
           min-width: 150px;
@@ -125,6 +174,11 @@ div.UploadPage {
           text-rendering: auto;
           border: 1px solid white;
           color: white;
+<<<<<<< HEAD
+=======
+          padding-bottom: 11px;
+        }
+>>>>>>> e328686bb6894501b096ddee7b861562f063a625
 
         }
         button.button_form:hover {

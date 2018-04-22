@@ -7,7 +7,12 @@ class ImageUpload extends Component {
 
     render() {
         return (
+<<<<<<< HEAD
             <div className="img_upload"><img className="thumb" alt="camera" src={cameraImg}/>
+=======
+            <div className="img_upload">
+                <img className="thumb" alt="camera" src={cameraImg}/>
+>>>>>>> e328686bb6894501b096ddee7b861562f063a625
             </div>
         );
     }
