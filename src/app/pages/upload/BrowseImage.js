@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
-import "./UploadPage.css"
 
 class BrowseImage extends Component {
-
     render() {
         return (
             <div>

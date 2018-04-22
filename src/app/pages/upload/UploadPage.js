@@ -5,34 +5,37 @@ import heartImg2 from "./image/anh1.1.jpg"
 import "./UploadPage.css"
 import ImageUpload from "./ImageUpload";
 import DataUpload from "./DataUpload";
+import Footer from "../../shared-components/footer/Footer";
 
 class UploadPage extends Component {
     render() {
         return (
             <div className="UploadPage">
+                <div className="wrapper">
+                    <img className="heartUpload" alt="heart" src={heartImg1}/>
+                    <section className="Upload">
 
-                <img className="heartUpload" alt="heart" src={heartImg1}/>
-                <section className="Upload">
+                        <div className="content">
+                            <div className="header">
+                                <h2>Upload Your Crush</h2>
+                            </div>
 
-                    <div className="content">
-                        <div className="header">
-                            <h2>Upload Your Crush</h2>
+                            <ImageUpload/>
+
+                            <DataUpload/>
                         </div>
+                    </section>
+                    <img className="heartUpload" alt="heart" src={heartImg2}/>
+                </div>
 
-                        <ImageUpload/>
-
-                        <DataUpload/>
-                    </div>
-                </section>
-                <img className="heartUpload" alt="heart" src={heartImg2}/>
+                <Footer/>
             </div>
-
         );
     }
 }
 
 UploadPage.propTypes = {
-    history: PropTypes.object
+    history: PropTypes.object,
 };
 
 export default UploadPage;

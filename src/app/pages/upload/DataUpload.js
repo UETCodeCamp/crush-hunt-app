@@ -1,10 +1,7 @@
 import React, {Component} from 'react';
 import BrowseImage from "./BrowseImage";
-import "./UploadPage.css"
-
 
 class DataUpload extends Component {
-
     render() {
         return (
             <div>
