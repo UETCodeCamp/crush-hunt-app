@@ -3,37 +3,58 @@ div.UploadPage {
   align-items: stretch;
   background-color: #fafafa;
   box-sizing: border-box;
+  font-family: sans-serif;
+
+  div.header{
+    h2{
+      color: #ff6423;
+    }
+  }
+
+  img.heartUpload{
+    width: 330px;
+  }
+
   section {
     display: flex;
     flex-flow: row nowrap;
     flex-grow: 1;
-    margin: 0 auto;
     width: 100%;
     max-width: 935px;
     div.content {
       background-color: white;
-      float: left;
-      height: 1025px;
-      margin-right: 28px;
+      align-items: center;
+      margin: 0 auto ;
       max-width: 614px;
       width: 100%;
       border-radius: 3px;
       box-shadow: 0 9px 16px #aaaaaa;
+
       div.header{
         text-align: center;
         padding-top: 13px;
         padding-bottom: 13px;
         border-bottom: 1px solid #efefef;
       }
-      img.thumb{
+
+      div.img_upload {
+        width: 614px;
         height: 614px;
-        width: 100%;
-        left: 0;
-        top: 0;
+        border: 3px dashed #aaaaaa;
+        img.thumb {
+          height: auto;
+          width: auto;
+          top: 243px;
+          left: 243px;
+          margin: 0 auto;
+        }
       }
-      form{
+
+      form.informationUpload{
+
         input.link{
           width: 75%;
+          margin-top: 4px;
           margin-left: 10px;
           box-sizing: border-box;
           padding-bottom: 5px;
@@ -45,113 +66,62 @@ div.UploadPage {
           border-radius: 3px ;
 
         }
+
         button.link_button{
           width: 10%;
           padding-top: 7px;
           padding-bottom: 5px;
-          border: 1px solid #247dde;
-          background-color: #247dde;
+          border: 2px solid #de7621;
+          background-color: #de7621;
           color: white;
           font-family: sans-serif;
           border-radius: 3px;
           margin-left: 2px;
-        }
-        div {
-          margin-top: 12px;
-          border-top: 1px solid #efefef;
-          button {
-            background: none;
-            border: none;
-            cursor: pointer;
-            display: inline-block;
-            float: left;
-            height: 24px;
-            padding: 3px 5px;
-            width: 28px;
-            color: #999999;
-            align-items: flex-start;
-            text-align: center;
-            fill: none;
-            stroke: #aaaaaa;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-            stroke-width: 1.5px;
-          }
+          margin-top: 4px;
         }
 
-        input#caption{
+        input.caption{
           height: 100%;
-          padding: 0px 15px 150px;
+          padding: 0 15px 150px;
           text-align: left;
           min-height: 200px;
           font-size: 15px;
           width: 100%;
           margin-top: 20px;
-          border: 1px solid #efefef;
+          border: 4px solid #efefef;
         }
 
 
-        button#post{
-          border: 1px solid white ;
-          color: white;
-          padding-bottom: 11px;
 
-        }
-        button#post:hover {
-          background-color: blueviolet;
-        }
         button.button_form{
-          float: right;
-          background-color: #247dde;
-          margin-top: 5px;
-          margin-bottom: 10px;
-          min-width: 150px;
-          display: inline-block;
-          vertical-align: middle;
-          line-height: 100%;
-          cursor: pointer;
-          font-weight: 700;
-          border: none;
-          text-align: center;
-          padding: 12px 15px;
-          font-size: 17px;
-          text-shadow: 0 1px 1px rgba(0,0,0,.1);
-          border-radius: 7px;
-          transition: all .1s ease-in-out;
-          text-rendering: auto;
-          font-family: sans-serif;
+            float: right;
+            background-color: #de5d18;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            min-width: 150px;
+            display: inline-block;
+            vertical-align: middle;
+            line-height: 100%;
+            cursor: pointer;
+            font-weight: 700;
+            text-align: center;
+            padding: 12px 15px;
+            font-size: 17px;
+            text-shadow: 0 1px 1px rgba(0,0,0,.1);
+            border-radius: 7px;
+            transition: all .1s ease-in-out;
+            text-rendering: auto;
+            border: 1px solid white ;
+            color: white;
+            padding-bottom: 11px;
+         }
 
+        button.button_form:hover {
+          background-color: #ff3228;
+        }
         }
       }
-      }
-    div.inforUser {
-      background-color: #fafafa;
-      height: 200vh;
-      margin-bottom: 30px;
-      padding: 0;
-      top: 60px;
-      img{
-        width: 50px;
-        height: 50px;
-        border-radius: 100px;
-        display: inline-block;
-      }
-      span{
-        background-position: center;
-        background-size: cover;
-        background-repeat: no-repeat;
-        cursor: pointer;
-
-        p{
-          float: right;
-          margin-top: 15px;
-          margin-left: 7px;
-        }
-
-      }
     }
-    }
-
   }
 
 
