@@ -6,7 +6,7 @@ class Footer extends Component {
     render() {
         return (
             <footer className="Footer">
-                <div className="wrapper d-flex justify-content-between align-items-center">
+                <div className="Wrapper d-flex justify-content-between align-items-center">
                     <ul className="links">
                         <li><Link to="/p/about-us">About Us</Link></li>
                         <li><Link to="/p/privacy">Privacy</Link></li>
