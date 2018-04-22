@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
 import "./PostDetailPage.css";
 import DashBoardPostDetails from "./DashBoardPostDetails";
