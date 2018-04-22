@@ -1,18 +1,15 @@
-import React from "react"
-
-
+import React from "react";
 
 class PostOption extends React.Component {
     render() {
         return (
-            <div className="bacham" >
-                <button className="hienthi" id={this.props.existed ? "existed" : "exist"}>
+            <div className="three_dots">
+                <button className="dis_play" id={this.props.existed ? "existed" : "exist"}>
                     <span onClick={this.props.toggleExist}/>
                 </button>
-
             </div>
         )
     }
 }
 
-export default PostOption
+export default PostOption;

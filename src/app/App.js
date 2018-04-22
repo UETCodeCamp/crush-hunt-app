@@ -14,7 +14,6 @@ class App extends Component {
         return (
             <div id="app">
                 <Header/>
-
                 <Switch>
                     <Route exact path="/" component={HomePage}/>
                     <Route path="/posts/:id" component={PostDetail}/>
