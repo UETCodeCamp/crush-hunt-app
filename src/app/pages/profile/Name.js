@@ -6,8 +6,8 @@ class Name extends React.Component {
     render() {
 
         return (
-            <div class="Info3">
-                <div class="Name">
+            <div className="Info3">
+                <div className="Name">
                     <span><b>Phi Xuan Hoan</b></span>
                 </div>
             </div>

@@ -16,11 +16,11 @@ class Saved extends React.Component {
     render() {
 
         return (
-            <div class="Main">
-                <div class="Ramrm">
+            <div className="Main">
+                <div className="Ramrm">
                     <span>Chỉ mình bạn có thể xem mục mình đã lưu</span>
                 </div>
-                <div class="ImagePost">
+                <div className="ImagePost">
                     {this.createArrImg()}
                 </div>
             </div>

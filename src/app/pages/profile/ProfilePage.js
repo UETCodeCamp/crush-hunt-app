@@ -33,7 +33,7 @@ class ProfilePage extends Component {
         return (
             <div className="ProfilePage">
 
-                <div class="Wapper">
+                <div className="Wapper">
                     <Header />
                     <NavSavePost gotoSaved={this.state.gotoSaved} changeGotoSaved={this.changeGotoSaved} />
                     <Main gotoSaved={this.state.gotoSaved} arrContents={this.state.arrContents} arrSaves={this.state.arrSaves} />

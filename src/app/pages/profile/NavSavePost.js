@@ -11,11 +11,11 @@ class NavSavePost extends React.Component {
         };
         const { gotoSaved } = this.props;
         return (
-            <div class="SaveAndPost">
-                <div class="Post" style={!gotoSaved ? styleBox : {}} onClick={this.changePost}>
+            <div className="SaveAndPost">
+                <div className="Post" style={!gotoSaved ? styleBox : {}} onClick={this.changePost}>
                     <span>BÀI VIẾT</span>
                 </div>
-                <div class="Save" style={gotoSaved ? styleBox : {}}  onClick={this.changeSave}>
+                <div className="Save" style={gotoSaved ? styleBox : {}}  onClick={this.changeSave}>
                     <span>ĐÃ LƯU</span>
                 </div>
             </div>

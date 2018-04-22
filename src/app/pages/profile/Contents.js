@@ -6,7 +6,7 @@ class Contents extends React.Component {
         const { arrContents } = this.props;
         let listLi = [];
         for (let i = 0; i < arrContents.length; i++) {
-            listLi.push(<img src={arrContents[i]} alt="" />);
+            listLi.push(<img key ={i}  src={arrContents[i]} alt="" />);
         }
         return listLi;
     }
@@ -14,8 +14,8 @@ class Contents extends React.Component {
     render() {
 
         return (
-            <div class="Main">
-                <div class="Img">
+            <div className="Main">
+                <div className="Img">
                     {this.createArrImg()}
                 </div>
             </div>
