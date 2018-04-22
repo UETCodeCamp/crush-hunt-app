@@ -18,7 +18,29 @@ body {
   padding: 0;
 }
 
-@media only screen and (min-width: 1024px) {
+@media only screen and (min-width: 769px) {
+  #post-detail-main .wrap .wrap1 article {
+    header {
+      width: 278px;
+      position: absolute;
+    }
+    .anh-post {
+      min-height: 450px;
+      position: relative;
+    }
+    .right_comment {
+      position: absolute;
+      width: 36%;
+      top: 78px;
+      .tim {
+        margin: 0;
+      }
+
+    }
+  }
+
+}
+@media only screen and (max-width: 768px) {
   #post-detail-main .wrap .wrap1 article {
     display: flex;
     flex-direction: column;
@@ -43,7 +65,7 @@ body {
 
 }
 
-@media only screen and(max-width: 768px) {
+@media only screen and(max-width: 680px) {
   #post-detail-main .wrap .wrap1 article {
     display: flex;
     flex-direction: column;
