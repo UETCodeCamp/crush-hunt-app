@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import heartImg from "./image/hearthUpload.png"
 import "./UploadPage.css"
 import ImageUpload from "./ImageUpload";
-import FormUpload from "./FormUpload";
+import DataUpload from "./DataUpload";
 
 class UploadPage extends Component {
     render() {
@@ -18,7 +18,7 @@ class UploadPage extends Component {
 
                         <ImageUpload/>
 
-                        <FormUpload/>
+                        <DataUpload/>
                     </div>
                 </section>
                 <img className="heartUpload" alt="heart" src={heartImg}/>

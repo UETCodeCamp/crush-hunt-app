@@ -5,13 +5,13 @@ div.UploadPage {
   box-sizing: border-box;
   font-family: sans-serif;
 
-  div.header{
-    h2{
+  div.header {
+    h2 {
       color: #ff6423;
     }
   }
 
-  img.heartUpload{
+  img.heartUpload {
     width: 330px;
   }
 
@@ -24,13 +24,13 @@ div.UploadPage {
     div.content {
       background-color: white;
       align-items: center;
-      margin: 0 auto ;
+      margin: 0 auto;
       max-width: 614px;
       width: 100%;
       border-radius: 3px;
       box-shadow: 0 9px 16px #aaaaaa;
 
-      div.header{
+      div.header {
         text-align: center;
         padding-top: 13px;
         padding-bottom: 13px;
@@ -49,39 +49,40 @@ div.UploadPage {
           margin: 0 auto;
         }
       }
+      form.informationUpload {
 
-      form.informationUpload{
+        div {
+          input.link {
+            width: 75%;
+            margin-top: 4px;
+            margin-left: 10px;
+            box-sizing: border-box;
+            padding-bottom: 5px;
+            padding-top: 5px;
+            border-left: #cfcfcf;
+            border-top: 1px solid #cfcfcf;
+            border-left: 1px solid #cfcfcf;
+            border-right: 1px solid #cfcfcf;
+            border-radius: 3px;
 
-        input.link{
-          width: 75%;
-          margin-top: 4px;
-          margin-left: 10px;
-          box-sizing: border-box;
-          padding-bottom: 5px;
-          padding-top: 5px;
-          border-left: #cfcfcf;
-          border-top: 1px solid #cfcfcf;
-          border-left: 1px solid #cfcfcf;
-          border-right: 1px solid #cfcfcf;
-          border-radius: 3px ;
+          }
 
+          button.link_button {
+            width: 10%;
+            padding-top: 7px;
+            padding-bottom: 5px;
+            border: 2px solid #de7621;
+            background-color: #de7621;
+            color: white;
+            font-family: sans-serif;
+            border-radius: 3px;
+            margin-left: 2px;
+            margin-top: 4px;
+            cursor: pointer;
+          }
         }
 
-        button.link_button{
-          width: 10%;
-          padding-top: 7px;
-          padding-bottom: 5px;
-          border: 2px solid #de7621;
-          background-color: #de7621;
-          color: white;
-          font-family: sans-serif;
-          border-radius: 3px;
-          margin-left: 2px;
-          margin-top: 4px;
-          cursor: pointer;
-        }
-
-        input.caption{
+        input.caption {
           height: 100%;
           padding: 0 15px 150px;
           text-align: left;
@@ -92,38 +93,47 @@ div.UploadPage {
           border: 4px solid #efefef;
         }
 
+        button.button_form[disabled] {
+          cursor: not-allowed;
+          background-color: #ebebeb;
+          color: white;
+          border: 1px solid #ebebeb;
 
+        }
 
-        button.button_form{
-            float: right;
-            background-color: #de5d18;
-            margin-top: 5px;
-            margin-bottom: 10px;
-            min-width: 150px;
-            display: inline-block;
-            vertical-align: middle;
-            line-height: 100%;
-            cursor: pointer;
-            font-weight: 700;
-            text-align: center;
-            padding: 12px 15px;
-            font-size: 17px;
-            text-shadow: 0 1px 1px rgba(0,0,0,.1);
-            border-radius: 7px;
-            transition: all .1s ease-in-out;
-            text-rendering: auto;
-            border: 1px solid white ;
-            color: white;
-            padding-bottom: 11px;
-         }
+        button.button_form[disabled]:hover {
+          background-color: #ebebeb;
+        }
 
+        button.button_form {
+          float: right;
+          background-color: #de5d18;
+          margin-top: 5px;
+          margin-bottom: 10px;
+          min-width: 150px;
+          display: inline-block;
+          vertical-align: middle;
+          line-height: 100%;
+          cursor: pointer;
+          font-weight: 700;
+          text-align: center;
+          padding: 12px 15px;
+          font-size: 17px;
+          text-shadow: 0 1px 1px rgba(0, 0, 0, .1);
+          border-radius: 7px;
+          transition: all .1s ease-in-out;
+          text-rendering: auto;
+          border: 1px solid white;
+          color: white;
+
+        }
         button.button_form:hover {
           background-color: #ff3228;
-        }
         }
       }
     }
   }
+}
 
 
 
