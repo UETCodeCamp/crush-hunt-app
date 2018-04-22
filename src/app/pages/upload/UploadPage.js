@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import PropTypes from "prop-types";
-import heartImg1 from "./image/anh1.jpg"
-import heartImg2 from "./image/anh2.png"
+import heartImg1 from "./image/anh1.2.jpg"
+import heartImg2 from "./image/anh1.1.jpg"
 import "./UploadPage.css"
 import ImageUpload from "./ImageUpload";
 import FormUpload from "./FormUpload";
@@ -11,20 +11,20 @@ class UploadPage extends Component {
         return (
             <div className="UploadPage">
 
-                                <img className="heartUpload" alt="heart" src={heartImg1}/>
-                                <section className="Upload">
+                <img className="heartUpload" alt="heart" src={heartImg1}/>
+                <section className="Upload">
 
-                                   <div className="content">
-                                        <div className="header">
-                                            <h2>Upload Your Crush</h2>
-                                       </div>
+                    <div className="content">
+                        <div className="header">
+                            <h2>Upload Your Crush</h2>
+                        </div>
 
-                                        <ImageUpload/>
+                        <ImageUpload/>
 
-                                        <FormUpload/>
-                                    </div>
-                               </section>
-                               <img className="heartUpload" alt="heart" src={heartImg2}/>
+                        <FormUpload/>
+                    </div>
+                </section>
+                <img className="heartUpload" alt="heart" src={heartImg2}/>
             </div>
 
         );
@@ -32,7 +32,7 @@ class UploadPage extends Component {
 }
 
 UploadPage.propTypes = {
-       history: PropTypes.object
+    history: PropTypes.object
 };
 
 export default UploadPage;
