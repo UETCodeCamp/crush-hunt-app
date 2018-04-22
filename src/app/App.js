@@ -14,14 +14,13 @@ class App extends Component {
         return (
             <div id="app">
                 <Header/>
-
                 <Switch>
                     <Route exact path="/" component={HomePage}/>
                     <Route path="/posts/:id" component={PostDetail}/>
                     <Route path="/upload" component={UploadPage}/>
                     <Route path="/login" component={LoginPage}/>
                     <Route path="/register" component={RegisterPage}/>
-                    <Route path="/profile" component={ProfilePage}/>
+                    <Route exact path="/profile" component={ProfilePage}/>
                     <Route component={PageNotFound}/>
                 </Switch>
             </div>
