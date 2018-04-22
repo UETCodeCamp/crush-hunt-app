@@ -44,4 +44,19 @@ export const extendsAPIServices = (baseURL) => {
     return new APIServices(baseURL);
 };
 
+export const login = ({email, password}) => {
+    return ({
+        route: '/login',
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            email,
+            password,
+        })
+    });
+};
+
+
 export default new APIServices();
