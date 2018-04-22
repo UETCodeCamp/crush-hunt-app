@@ -21,7 +21,7 @@ class App extends Component {
                     <Route path="/upload" component={UploadPage}/>
                     <Route path="/login" component={LoginPage}/>
                     <Route path="/register" component={RegisterPage}/>
-                    <Route path="/profile" component={ProfilePage}/>
+                    <Route exact path="/profile" component={ProfilePage}/>
                     <Route component={PageNotFound}/>
                 </Switch>
             </div>
