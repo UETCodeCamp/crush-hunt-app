@@ -1,20 +1,18 @@
-import React from 'react';
+import React, {Component} from 'react';
+import PropTypes from "prop-types";
 
-
-class Saved extends React.Component {
-
-
+class SavedPosts extends Component {
     createArrImg = () => {
-        const { arrSaves } = this.props;
+        const {arrSaves} = this.props;
         let listLi = [];
         for (let i = 0; i < arrSaves.length; i++) {
-            listLi.push(<img src={arrSaves[i]} alt = "" />);
+            listLi.push(<img src={arrSaves[i]} alt=""/>);
         }
+
         return listLi;
-    }
+    };
 
     render() {
-
         return (
             <div className="Main">
                 <div className="Ramrm">
@@ -26,7 +24,10 @@ class Saved extends React.Component {
             </div>
         );
     }
-
 }
 
-export default Saved;
+SavedPosts.propTypes = {
+    arrSaves: PropTypes.array,
+};
+
+export default SavedPosts;

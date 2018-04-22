@@ -1,19 +1,15 @@
-import React from 'react';
+import React, {Component} from 'react';
 
-
-class Name extends React.Component {
-
+class UserDetails extends Component {
     render() {
-
         return (
-            <div className="Info3">
+            <div className="UserDetails">
                 <div className="Name">
                     <span><b>Phi Xuan Hoan</b></span>
                 </div>
             </div>
         );
     }
-
 }
 
-export default Name;
+export default UserDetails;

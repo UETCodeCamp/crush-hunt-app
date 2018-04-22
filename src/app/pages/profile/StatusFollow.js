@@ -1,12 +1,9 @@
-import React from 'react';
+import React, {Component} from 'react';
 
-
-class StatusFollow extends React.Component {
-
+class StatusFollow extends Component {
     render() {
-
         return (
-            <div className="Info2">
+            <div className="StatusFollow">
                 <div className="NumPost">
                     <span><b>0</b> bài viết</span>
                 </div>
@@ -19,7 +16,6 @@ class StatusFollow extends React.Component {
             </div>
         );
     }
-
 }
 
 export default StatusFollow;
