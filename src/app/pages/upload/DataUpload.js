@@ -8,19 +8,24 @@ class DataUpload extends Component {
         disabled: true,
     };
 
-
-
     handleOnChange(e){
-        const {value}=e.target.value;
+        const {value}=e.target;
+        console.log(value);
         this.setState({
-            text: value
+            text: value,
         });
-        if(value!=null) {
+        this.handleDisabled();
+    }
+
+    handleDisabled(){
+        if(this.state.text != null)
             this.setState({
                 disabled: false,
             });
-        }
-
+        else
+            this.setState({
+                disabled: true,
+            });
     }
 
     handleOnSubmit(e){
