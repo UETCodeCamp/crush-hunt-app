@@ -10,6 +10,7 @@ class UploadPage extends Component {
         return (
             <div className="UploadPage">
                 <div className="wrapper">
+
                     <section className="Upload">
 
                         <div className="content">
