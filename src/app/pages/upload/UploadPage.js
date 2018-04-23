@@ -1,7 +1,5 @@
 import React, {Component} from "react";
 import PropTypes from "prop-types";
-import heartImg1 from "./image/anh1.2.jpg"
-import heartImg2 from "./image/anh1.1.jpg"
 import "./UploadPage.css"
 import ImageUpload from "./ImageUpload";
 import DataUpload from "./DataUpload";
@@ -12,7 +10,6 @@ class UploadPage extends Component {
         return (
             <div className="UploadPage">
                 <div className="wrapper">
-                    <img className="heartUpload" alt="heart" src={heartImg1}/>
                     <section className="Upload">
 
                         <div className="content">
@@ -25,7 +22,6 @@ class UploadPage extends Component {
                             <DataUpload/>
                         </div>
                     </section>
-                    <img className="heartUpload" alt="heart" src={heartImg2}/>
                 </div>
 
                 <Footer/>

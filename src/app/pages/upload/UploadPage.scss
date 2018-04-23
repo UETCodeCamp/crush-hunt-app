@@ -6,10 +6,6 @@
         box-sizing: border-box;
     }
 
-    img.heartUpload {
-        width: 26%;
-    }
-
     section {
         display: flex;
         flex-flow: row nowrap;
@@ -21,7 +17,6 @@
             margin: 0 auto;
             max-width: 700px;;
             border-radius: 3px;
-            box-shadow: 0 12px 18px #aaaaaa;
             height: auto;
             div.header {
                 text-align: center;
