@@ -14,20 +14,20 @@
         display: flex;
         flex-flow: row nowrap;
         flex-grow: 1;
-        max-width: 48%;
+        max-width: 80%;
+        margin-left: 10%;
         div.content {
             background-color: white;
             align-items: center;
             margin: 0 auto;
-            max-width: 700px;;
+            max-width: 79%;
             border-radius: 3px;
-            box-shadow: 0 12px 18px #aaaaaa;
             height: auto;
             div.header {
                 text-align: center;
                 padding-top: 13px;
                 padding-bottom: 13px;
-                border: 1px solid #ebebeb;
+                border:  solid #ebebeb;
                 h2 {
                     color: red;
                 }
@@ -36,12 +36,12 @@
             div.img_upload {
                 width: auto; //614px
                 height: auto;
+
                 border: 3px dashed darkgray;
+
                 img.thumb {
                     height: auto;
-                    width: auto;
-                    image-rendering: pixelated;
-
+                    width: 95%;
                 }
             }
             form.informationUpload {

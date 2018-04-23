@@ -12,7 +12,7 @@ class UploadPage extends Component {
         return (
             <div className="UploadPage">
                 <div className="wrapper">
-                    <img className="heartUpload" alt="heart" src={heartImg1}/>
+
                     <section className="Upload">
 
                         <div className="content">
@@ -25,7 +25,7 @@ class UploadPage extends Component {
                             <DataUpload/>
                         </div>
                     </section>
-                    <img className="heartUpload" alt="heart" src={heartImg2}/>
+
                 </div>
 
                 <Footer/>
