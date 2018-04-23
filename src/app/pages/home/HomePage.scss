@@ -7,7 +7,8 @@
         width: 95%;
         max-width: 600px;
         border-radius: 4px;
-        box-shadow: 0 9px 16px rgba(0, 0, 0, 0.1), 0 0 2px rgba(0, 0, 0, 0.1);
+        border:1px solid #ddd;
+        background: #fff;
         overflow: hidden;
         margin: auto auto 16px;
 
@@ -136,7 +137,7 @@
                 width: 50px;
                 height: 100%;
                 border: none;
-                background: #eee;
+                background: #fff;
                 transition: 0.25s;
                 color: #444;
                 font-size: 14px;
