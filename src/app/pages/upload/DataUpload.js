@@ -12,6 +12,7 @@ class DataUpload extends Component {
                     <BrowseImage/>
 
                     <br/>
+
                     <input className="caption" placeholder="Nói gì đó về bức ảnh"/>
 
                     <button className="button_form" type="submit" disabled={true}>Đăng Ảnh</button>
