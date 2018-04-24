@@ -25,18 +25,30 @@ moment.updateLocale('en', {
 });
 
 class Post extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            commentInputRefs:null
+        }
+    }
     render() {
         return (
             <div id={this.props.id} className={'post'}>
                 <Content dataPost={this.props.dataPost}/>
-                <Comment id={this.props.id} dataPost={this.props.dataPost} likeButton={this.likeButtonPost}/>
+                <Comment id={this.props.id} dataPost={this.props.dataPost} likeButton={this.likeButtonPost} refsCommentInput={this.state.commentInputRefs}/>
                 <div className="time">
                     {moment(this.props.dataPost.timePost).fromNow().toUpperCase()}
                 </div>
-                <CommentInput dataPost={this.props.dataPost} submitComment={this.submitCommentPost}/>
+                <CommentInput dataPost={this.props.dataPost} submitComment={this.submitCommentPost} getRefs={this._handleGetRefs} />
             </div>
         );
 
+    }
+
+    _handleGetRefs = (e)=>{
+        this.setState({
+            commentInputRefs:e,
+        })
     }
 
     likeButtonPost = (e, t) => {

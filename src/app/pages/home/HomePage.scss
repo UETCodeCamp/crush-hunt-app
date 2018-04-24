@@ -4,7 +4,7 @@
 }
 
 @media only screen and (max-width: 700px) {
-    body .HomePage {
+    body .home-page {
         .home-display {
             width: 95%;
             overflow: hidden;
@@ -27,7 +27,7 @@
     text-align: center;
 }
 
-.HomePage {
+.home-page {
     background: #fafafa;
     display: block;
 
@@ -123,7 +123,7 @@
             width: 100%;
         }
 
-        .userDetails {
+        .user-details {
             padding: 12px;
 
             .avatar {
@@ -136,18 +136,18 @@
                 vertical-align: middle;
             }
 
-            .userName {
+            .user-name {
                 margin-left: 12px;
                 font-size: 15px;
                 font-weight: 500;
             }
         }
 
-        .postText {
+        .post-text {
             padding: 12px 0 0 12px;
         }
 
-        .loadComment {
+        .load-comment {
             font-size: 13px;
             color: #999;
             margin: 0;
@@ -155,7 +155,7 @@
             cursor: pointer;
         }
 
-        .likeText {
+        .like-text {
             padding: 0 12px;
             font-size: 14px;
             font-weight: 600;
@@ -167,7 +167,7 @@
             color: #aaa;
         }
 
-        .likeButton {
+        .like-button {
             padding: 4px 12px;
             font-size: 20px;
 
@@ -202,23 +202,23 @@
             }
         }
 
-        .commentList {
+        .comment-list {
             padding: 9px 12px 4px;
             font-size: 14px;
         }
 
-        .userComment {
+        .user-comment {
             font-weight: 600;
             margin-right: 5px;
         }
 
-        .commentForm {
+        .comment-form {
             position: relative;
             height: 50px;
             width: 100%;
             border-top: 0.5px solid #eee;
 
-            .commentInput {
+            .comment-input {
                 position: absolute;
                 left: 0;
                 right: 50px;
@@ -252,7 +252,7 @@
                 color: #fff;
             }
 
-            .pushComment {
+            .push-comment {
                 background-image: url("/img/icon.png");
                 background-size: 435px 401px;
                 background-position: -388px 2px;
@@ -265,7 +265,7 @@
                 transition: 0.25s;
             }
 
-            button:hover .pushComment {
+            button:hover .push-comment {
                 filter: brightness(800%);
             }
         }

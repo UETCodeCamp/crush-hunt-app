@@ -82,7 +82,7 @@ class HomePage extends Component {
         });
 
         return (
-            <div className='HomePage'>
+            <div className='home-page'>
                 <div className="home-display">
                     <div className="list-post">
                         {listPostData}
@@ -125,7 +125,6 @@ class HomePage extends Component {
                 else {
                     for (let k = 0; k < this.state.listPost[j].likeText.length; k++) {
                         if (this.state.listPost[j].likeText[k] === ' and you like this') {
-                            console.log("akjsdkjahd");
                             this.state.listPost[j].likeText.slice(k, 1);
                             this.setState(this.state);
                         }
