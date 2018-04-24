@@ -22,11 +22,8 @@ class App extends Component {
                     <Route path="/upload" component={UploadPage}/>
                     <Route path="/login" component={LoginPage}/>
                     <Route path="/register" component={RegisterPage}/>
-<<<<<<< HEAD
                     <Route path="/change" component={ChangePassword}/>
                     <Route path="/reset" component={ResetPassword}/>
-=======
->>>>>>> b493f5668854886673286c9067b2dce06828a2fc
                     <Route exact path="/profile" component={ProfilePage}/>
                     <Route component={PageNotFound}/>
                 </Switch>
