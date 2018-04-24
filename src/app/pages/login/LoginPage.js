@@ -58,6 +58,7 @@ class LoginPage extends Component {
 
     _handleChangeInput(field, e) {
         const {value} = e.target;
+        console.log(value);
 
         this.setState({
             [field]: value
