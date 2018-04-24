@@ -3,10 +3,11 @@ import PropTypes from "prop-types";
 import {Link, Redirect} from "react-router-dom";
 import "./RegisterPage.css";
 import Footer from "../../shared-components/footer/Footer";
+import {register} from "../../../services/APIServices";
 
 
 class RegisterPage extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
             success: false,
@@ -14,23 +15,25 @@ class RegisterPage extends Component {
             name: '',
             password: '',
         };
+
     }
 
+    handleChangeInput(field, e) {
+        const {value} = e.target;
 
-
-    handleChangeEmail(e) {
-        const email = e.target.value;
-        this.setState({email: email});
+        this.setState({
+            [field]: value
+        });
     }
 
-    handleChangeName(e) {
-        const name = e.target.value;
-        this.setState({name: name});
-    }
+    handleSubmit = (e) => {
+        e.preventDefault();
+        const {email, name, password} = this.state;
+        register(email, name, password).then(response => {
+            if(response.success){
 
-    handleChangePassword(e) {
-        const password = e.target.value;
-        this.setState({password: password});
+            }
+        }).catch();
 
     }
 
@@ -46,9 +49,12 @@ class RegisterPage extends Component {
                         <h1 className="Title">Crush Hunt</h1>
                         <form className="Form">
                             <h2>Sign up to see photos and videos from your friends.</h2>
-                            <input type="email" placeholder="Email" onChange={e => this.handleChangeEmail(e)}/>
-                            <input type="text" placeholder="Full Name" onChange={e => this.handleChangeName(e)}/>
-                            <input type="password" placeholder="Password" onChange={e => this.handleChangePassword(e)}/>
+                            <input type="email" placeholder="Email"
+                                   onChange={this.handleChangeInput.bind(this, 'email')}/>
+                            <input type="text" placeholder="Full Name"
+                                   onChange={this.handleChangeInput.bind(this, 'name')}/>
+                            <input type="password" placeholder="Password"
+                                   onChange={this.handleChangeInput.bind(this, 'password')}/>
                             <input type="password" placeholder="Confirm Password"/>
                             <button onClick={this.handleSubmit}>Sign up</button>
                             <p>By signing up, you agree to our Terms & Privacy Policy.</p>
@@ -64,15 +70,7 @@ class RegisterPage extends Component {
         );
     }
 
-    handleSubmit = (e) => {
-        e.preventDefault();
 
-        setTimeout(() => {
-            this.setState({
-                success: true
-            });
-        }, 1000);
-    }
 }
 
 RegisterPage.propTypes = {
