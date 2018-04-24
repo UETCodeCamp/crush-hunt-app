@@ -1,7 +1,8 @@
-import React from "react";
+import React, {Component} from "react";
 import {Link} from "react-router-dom";
+import PropTypes from "prop-types";
 
-class HeaderPostDetail extends React.Component {
+class HeaderPostDetail extends Component {
     render() {
         const follow = (this.props.follow) ?
             <div className="following">
@@ -11,6 +12,7 @@ class HeaderPostDetail extends React.Component {
             <div className="follow">
                 <a href="/" onClick={this.props.toggleFollow}>Follow</a>
             </div>;
+
         return (
             <header>
                 <div className="profile-img">
@@ -26,8 +28,13 @@ class HeaderPostDetail extends React.Component {
                 </div>
                 {follow}
             </header>
-        )
+        );
     }
 }
 
-export default HeaderPostDetail
+HeaderPostDetail.propsTypes = {
+    follow: PropTypes.bool.isRequired,
+    toggleFollow: PropTypes.func.isRequired,
+};
+
+export default HeaderPostDetail;

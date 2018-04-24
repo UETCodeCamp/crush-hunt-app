@@ -1,12 +1,14 @@
-import React from "react";
+import React, {Component} from "react";
 
-class CommentPostDetail extends React.Component {
+class CommentPostDetail extends Component {
     state = {
         text: "",
     };
+
     handleChange = (e) => {
         this.setState({text: e.target.value});
     };
+
     handleSubmit = (e) => {
         if (e.key === 'Enter') {
             this.props.handleSubmit(this.state.text);
@@ -28,7 +30,7 @@ class CommentPostDetail extends React.Component {
                     />
                 </form>
             </section>
-        )
+        );
     }
 }
 
