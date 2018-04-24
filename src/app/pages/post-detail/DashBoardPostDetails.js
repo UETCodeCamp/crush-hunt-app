@@ -7,7 +7,7 @@ import CommentPostDetail from "./CommentPostDetail";
 import DatePost from "./DatePost";
 import PostOption from "./PostOption";
 
-const array = [];
+const array = ["Sample Comment 1" , "Sample Comment 2","3","4","5","6"];
 
 class DashBoardPostDetails extends React.Component {
 
@@ -15,7 +15,7 @@ class DashBoardPostDetails extends React.Component {
         follow: false,
         liked: true,
         saved: false,
-        commentArray: [],
+        commentArray: ["Sample Comment 1" , "Sample Comment 2","3","4","5","6"],
         numberOfLike: 1,
     };
     toggleFollow = (e) => {
