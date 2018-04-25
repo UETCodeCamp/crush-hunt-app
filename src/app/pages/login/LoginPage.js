@@ -1,27 +1,40 @@
 import React, {Component} from "react";
 import PropTypes from "prop-types";
-import {isAuthenticated} from "../../../services/AuthServices";
+import {isAuthenticated, setAuthState, addAuthListener, removeAuthListener} from "../../../services/AuthServices";
 import {Link, Redirect} from "react-router-dom";
 import "./LoginPage.css";
 import {login} from "../../../services/APIServices";
-import {setToken} from "../../../services/StorageServices";
 import Footer from "../../shared-components/footer/Footer";
 
 
 class LoginPage extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            auth: false,
-            loading: false,
-            email: '',
-            password: ''
-        };
+    state = {
+        auth: isAuthenticated(),
+        loading: false,
+        email: '',
+        password: ''
+    };
 
-
+    componentDidMount() {
+        addAuthListener(this._handleOnChangeAuth);
     }
 
-    handleChangeInput(field, e) {
+    componentWillUnmount() {
+        removeAuthListener(this._handleOnChangeAuth);
+    }
+
+    _handleOnChangeAuth = () => {
+        const {auth} = this.state;
+
+        const authUpdated = isAuthenticated();
+        if (authUpdated !== auth) {
+            this.setState({
+                auth: authUpdated
+            });
+        }
+    };
+
+    _handleChangeInput(field, e) {
         const {value} = e.target;
 
         this.setState({
@@ -29,15 +42,16 @@ class LoginPage extends Component {
         });
     }
 
-    handleSubmit(e) {
+    _handleSubmit(e) {
         e.preventDefault();
         const {email, password} = this.state;
-        if (this.checkForm())
+
+        if (this._checkForm())
             login(email, password).then(response => {
                 if (response.success) {
                     const {data} = response;
-                    setToken(data.accessToken);
-                    this.setState({auth:true});
+                    const {accessToken, user} = data;
+                    setAuthState({accessToken, user});
                 } else {
                     this.setState({
                         errorMessage: response.message //Display error if server return success false
@@ -47,7 +61,7 @@ class LoginPage extends Component {
 
     }
 
-    checkForm() {
+    _checkForm() {
         const {email, password} = this.state;
         let errorMessage = '';
         if (email === '') {
@@ -65,7 +79,7 @@ class LoginPage extends Component {
 
     render() {
         const {auth} = this.state;
-        const errorMessage = this.state.errorMessage ? <p className="ErrorMessage" >{this.state.errorMessage}</p> : '';
+        const errorMessage = this.state.errorMessage ? <p className="ErrorMessage">{this.state.errorMessage}</p> : '';
         if (auth) {
             return <Redirect to="/"/>;
         }
@@ -80,11 +94,11 @@ class LoginPage extends Component {
                         <form className="Form">
                             <h2>Sign up to see photos and videos from your friends.</h2>
                             <input type="text" placeholder="Email"
-                                   onChange={this.handleChangeInput.bind(this, 'email')} value={email} name="email"/>
+                                   onChange={this._handleChangeInput.bind(this, 'email')} value={email} name="email"/>
                             <input type="password" placeholder="Password"
-                                   onChange={this.handleChangeInput.bind(this, 'password')} value={password}
+                                   onChange={this._handleChangeInput.bind(this, 'password')} value={password}
                                    name="password"/>
-                            <button onClick={this.handleSubmit.bind(this)}>Log in</button>
+                            <button onClick={this._handleSubmit.bind(this)}>Log in</button>
                             <p><Link to="/reset-password">Forgot Password?</Link></p>
                             {errorMessage}
                         </form>
@@ -98,8 +112,6 @@ class LoginPage extends Component {
             </div>
         );
     }
-
-
 }
 
 LoginPage.propTypes = {
