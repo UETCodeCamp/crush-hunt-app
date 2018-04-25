@@ -43,6 +43,10 @@ export const isAuthenticated = () => {
     return !!accessToken;
 };
 
+export const logout = () => {
+    setAuthState(_initState);
+};
+
 export const setAuthState = (state) => {
     _state = {
         ..._state,
