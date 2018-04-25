@@ -38,3 +38,7 @@ export const setLocalData = (key, value, noPrefix = false) => {
 
     return value;
 };
+
+export const setToken = (token) => {
+    return localStorage.setItem('token', token);
+};

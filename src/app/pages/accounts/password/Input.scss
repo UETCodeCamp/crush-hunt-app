@@ -1,0 +1,47 @@
+.Input {
+  margin-bottom: 16px;
+  clear: both;
+  overflow: hidden;
+
+  .Title {
+    margin-top: 6px;
+    color: #262626;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 18px;
+    padding-right: 32px;
+    padding-left: 32px;
+    text-align: right;
+    width: 194px;
+    float: left;
+  }
+
+  .TextInput {
+    flex-direction: row;
+    color: #262626;
+    font-size: 16px;
+    float: left;
+    max-width: 247px;
+    width: 100%;
+
+    input {
+      border: 1px solid #efefef;
+      border-radius: 3px;
+      color: #262626;
+      font-size: 16px;
+      height: 32px;
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: 735px) {
+  .Input {
+    .Title {
+      float: none;
+      padding-left: 0;
+      text-align: left;
+      width: 100%;
+    }
+  }
+}

@@ -44,4 +44,41 @@ export const extendsAPIServices = (baseURL) => {
     return new APIServices(baseURL);
 };
 
+export const login = (email, password) => {
+    const url = 'https://crush.blogk.xyz/login';
+    const request = new Request(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            email: email,
+            password: password,
+        })
+    });
+
+    return fetch(request).then(response => {
+        return response.json();
+    });
+};
+
+export const register = (email, name, password) => {
+    const url = 'https://crush.blogk.xyz/register';
+    const request = new Request(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            email: email,
+            name: name,
+            password: password,
+        })
+    });
+
+    return fetch(request).then(response => {
+        return response.json();
+    });
+}
+
 export default new APIServices();
