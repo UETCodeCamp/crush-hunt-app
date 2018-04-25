@@ -12,17 +12,16 @@ class LoginPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            auth: isAuthenticated(),
+            auth: false,
             loading: false,
-            error: '',
             email: '',
             password: ''
         };
 
-        this._handleSubmit = this._handleSubmit.bind(this);
+
     }
 
-    _handleChangeInput(field, e) {
+    handleChangeInput(field, e) {
         const {value} = e.target;
 
         this.setState({
@@ -30,22 +29,43 @@ class LoginPage extends Component {
         });
     }
 
-    _handleSubmit(e) {
+    handleSubmit(e) {
         e.preventDefault();
         const {email, password} = this.state;
-        login(email, password).then(response => {
-            if (response.success) {
-                const {data} = response;
-                setToken(data.accessToken);
-            }
-        }).catch();
+        if (this.checkForm())
+            login(email, password).then(response => {
+                if (response.success) {
+                    const {data} = response;
+                    setToken(data.accessToken);
+                    this.setState({auth:true});
+                } else {
+                    this.setState({
+                        errorMessage: response.message //Display error if server return success false
+                    })
+                }
+            }).catch();
 
     }
 
+    checkForm() {
+        const {email, password} = this.state;
+        let errorMessage = '';
+        if (email === '') {
+            errorMessage = 'Email must not be empty';
+        } else if (password === '') {
+            errorMessage = 'Password must not be empty';
+        }
+
+        this.setState({
+            errorMessage: errorMessage
+        });
+
+        return !errorMessage;
+    }
 
     render() {
         const {auth} = this.state;
-
+        const errorMessage = this.state.errorMessage ? <p className="ErrorMessage" >{this.state.errorMessage}</p> : '';
         if (auth) {
             return <Redirect to="/"/>;
         }
@@ -60,12 +80,13 @@ class LoginPage extends Component {
                         <form className="Form">
                             <h2>Sign up to see photos and videos from your friends.</h2>
                             <input type="text" placeholder="Email"
-                                   onChange={this._handleChangeInput.bind(this, 'email')} value={email} name="email"/>
+                                   onChange={this.handleChangeInput.bind(this, 'email')} value={email} name="email"/>
                             <input type="password" placeholder="Password"
-                                   onChange={this._handleChangeInput.bind(this, 'password')} value={password}
+                                   onChange={this.handleChangeInput.bind(this, 'password')} value={password}
                                    name="password"/>
-                            <button onClick={this._handleSubmit}>Log in</button>
+                            <button onClick={this.handleSubmit.bind(this)}>Log in</button>
                             <p><Link to="/reset-password">Forgot Password?</Link></p>
+                            {errorMessage}
                         </form>
                     </div>
 
