@@ -4,28 +4,31 @@ import "./UploadPage.css"
 import ImageUpload from "./ImageUpload";
 import DataUpload from "./DataUpload";
 import Footer from "../../shared-components/footer/Footer";
+import EnsureLoggedIn from "../../shared-components/EnsureLoggedIn";
 
 class UploadPage extends Component {
     render() {
         return (
-            <div className="UploadPage main-pusher">
-                <div className="wrapper">
-                    <section className="Upload">
+            <EnsureLoggedIn>
+                <div className="UploadPage main-pusher">
+                    <div className="wrapper">
+                        <section className="Upload">
 
-                        <div className="content">
-                            <div className="header">
-                                <h2>Upload Your Crush</h2>
+                            <div className="content">
+                                <div className="header">
+                                    <h2>Upload Your Crush</h2>
+                                </div>
+
+                                <ImageUpload/>
+
+                                <DataUpload/>
                             </div>
+                        </section>
+                    </div>
 
-                            <ImageUpload/>
-
-                            <DataUpload/>
-                        </div>
-                    </section>
+                    <Footer/>
                 </div>
-
-                <Footer/>
-            </div>
+            </EnsureLoggedIn>
         );
     }
 }
