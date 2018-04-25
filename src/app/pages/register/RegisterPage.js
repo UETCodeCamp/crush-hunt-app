@@ -3,23 +3,18 @@ import PropTypes from "prop-types";
 import {Link, Redirect} from "react-router-dom";
 import "./RegisterPage.css";
 import Footer from "../../shared-components/footer/Footer";
-import {register} from "../../../services/APIServices";
+import {_register} from "../../../services/UserServices";
 
 
 class RegisterPage extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            success: false,
-            email: '',
-            name: '',
-            password: '',
-            confirmPassword: '',
-            errorMessage: ''
-        };
-
-
-    }
+    state = {
+        success: false,
+        email: '',
+        name: '',
+        password: '',
+        confirmPassword: '',
+        errorMessage: ''
+    };
 
     handleChangeInput(field, e) {
         const {value} = e.target;
@@ -32,7 +27,7 @@ class RegisterPage extends Component {
         e.preventDefault();
         const {email, name, password} = this.state;
         if (this.checkForm()) {
-            register(email, name, password).then(response => {
+            _register(email, name, password).then(response => {
                 if (response.success) {
                     this.setState({
                         success: true
@@ -75,7 +70,7 @@ class RegisterPage extends Component {
             return <Redirect to="/login"/>
         }
 
-        const errorMessage = this.state.errorMessage ? <p className="ErrorMessage" >{this.state.errorMessage}</p> : '';
+        const errorMessage = this.state.errorMessage ? <p className="ErrorMessage">{this.state.errorMessage}</p> : '';
 
         return (
             <div className="RegisterPage">

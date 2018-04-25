@@ -1,6 +1,7 @@
 import axios from "axios";
 import {getLocalData} from "./StorageServices";
 import getEnv from "../helpers/getEnv";
+import {getAuthState} from "./AuthServices";
 
 const _getAppVersion = () => {
     const app = getLocalData('app');
@@ -16,6 +17,25 @@ class APIServices {
             baseURL: _baseURL,
             timeout: 15000,
         });
+    }
+
+    makeAuthRequest(args) {
+        const {accessToken} = getAuthState();
+        const _headers = args.headers ? args.headers : {};
+
+        const defaultHeaders = {
+            'Authorization': accessToken,
+        };
+
+        const argsUpdated = {
+            ...args,
+            headers: {
+                ...defaultHeaders,
+                ..._headers
+            }
+        };
+
+        return this.makeRequest(argsUpdated);
     }
 
     makeRequest(args) {
@@ -43,42 +63,5 @@ class APIServices {
 export const extendsAPIServices = (baseURL) => {
     return new APIServices(baseURL);
 };
-
-export const login = (email, password) => {
-    const url = 'https://crush.blogk.xyz/login';
-    const request = new Request(url, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            email: email,
-            password: password,
-        })
-    });
-
-    return fetch(request).then(response => {
-        return response.json();
-    });
-};
-
-export const register = (email, name, password) => {
-    const url = 'https://crush.blogk.xyz/register';
-    const request = new Request(url, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            email: email,
-            name: name,
-            password: password,
-        })
-    });
-
-    return fetch(request).then(response => {
-        return response.json();
-    });
-}
 
 export default new APIServices();

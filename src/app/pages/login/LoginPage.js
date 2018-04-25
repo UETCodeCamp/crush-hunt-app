@@ -3,8 +3,8 @@ import PropTypes from "prop-types";
 import {isAuthenticated, setAuthState, addAuthListener, removeAuthListener} from "../../../services/AuthServices";
 import {Link, Redirect} from "react-router-dom";
 import "./LoginPage.css";
-import {login} from "../../../services/APIServices";
 import Footer from "../../shared-components/footer/Footer";
+import {_login} from "../../../services/UserServices";
 
 
 class LoginPage extends Component {
@@ -47,7 +47,7 @@ class LoginPage extends Component {
         const {email, password} = this.state;
 
         if (this._checkForm())
-            login(email, password).then(response => {
+            _login(email, password).then(response => {
                 if (response.success) {
                     const {data} = response;
                     const {accessToken, user} = data;
