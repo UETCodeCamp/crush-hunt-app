@@ -8,9 +8,8 @@ import Footer from "../../shared-components/footer/Footer";
 class UploadPage extends Component {
     render() {
         return (
-            <div className="UploadPage">
+            <div className="UploadPage main-pusher">
                 <div className="wrapper">
-
                     <section className="Upload">
 
                         <div className="content">

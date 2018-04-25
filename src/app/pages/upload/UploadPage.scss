@@ -4,6 +4,7 @@
         align-items: stretch;
         background-color: white;
         box-sizing: border-box;
+        margin-bottom: 50px;
     }
 
     section {
@@ -12,37 +13,39 @@
         flex-grow: 1;
         max-width: 80%;
         margin-left: 10%;
-        div.content {
+
+        .content {
             background-color: white;
             align-items: center;
             margin: 0 auto;
             max-width: 79%;
             border-radius: 3px;
             height: auto;
-            div.header {
+
+            .header {
                 text-align: center;
                 padding-top: 13px;
                 padding-bottom: 13px;
-                border:  solid #ebebeb;
+                border: solid #ebebeb;
                 h2 {
                     color: red;
                 }
             }
 
-            div.img_upload {
+            .img_upload {
                 width: auto; //614px
                 height: auto;
 
                 border: 3px dashed darkgray;
 
-                img.thumb {
+                .thumb {
                     height: auto;
                     width: 95%;
                 }
             }
-            form.informationUpload {
+            .informationUpload {
 
-                input.link {
+                .link {
                     width: 75%;
                     margin-top: 4px;
                     margin-left: 10px;
@@ -54,13 +57,10 @@
                     border-left: 1px solid #cfcfcf;
                     border-right: 1px solid #cfcfcf;
                     border-radius: 3px;
-
                 }
 
-                button.link_button {
-                    width: 10%;
-                    padding-top: 7px;
-                    padding-bottom: 5px;
+                .link_button {
+                    padding: 5px 10px;
                     border: 2px solid deepskyblue;
                     background-color: deepskyblue;
                     color: white;
@@ -71,7 +71,7 @@
                     cursor: pointer;
                 }
 
-                input.caption {
+                .caption {
                     height: 100%;
                     padding: 0 15px 150px;
                     text-align: left;
@@ -82,7 +82,7 @@
                     border: 4px solid #efefef;
                 }
 
-                button.button_form[disabled] {
+                .button_form[disabled] {
                     cursor: not-allowed;
                     background-color: #dcdcdc;
                     color: white;
@@ -90,11 +90,11 @@
 
                 }
 
-                button.button_form[disabled]:hover {
+                .button_form[disabled]:hover {
                     background-color: #dcdcdc;
                 }
 
-                button.button_form {
+                .button_form {
                     float: right;
                     background-color: deepskyblue;
                     margin-top: 5px;
@@ -115,7 +115,8 @@
                     border: 1px solid white;
                     color: white;
                 }
-                button.button_form:hover {
+
+                .button_form:hover {
                     background-color: #ff3228;
                 }
             }
