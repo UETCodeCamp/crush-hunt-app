@@ -1,0 +1,56 @@
+.HeaderAccount {
+  flex-direction: row;
+  margin: 32px 0 16px;
+  justify-content: flex-start;
+  display: table;
+  clear: both;
+
+  .Picture {
+    margin: 2px 32px 0 124px;
+    height: 38px;
+    width: 38px;
+    background-color: #fafafa;
+    border-radius: 50%;
+    box-sizing: border-box;
+    overflow: hidden;
+    position: relative;
+    float: left;
+
+    button {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      cursor: pointer;
+      padding: 0;
+
+      img {
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+      }
+    }
+  }
+
+  .TextName {
+    float: left;
+    flex: 0 1 auto;
+    margin-right: 20px;
+    overflow-x: hidden;
+
+    h1 {
+      font-size: 24px;
+      font-weight: 400;
+      line-height: 38px;
+    }
+  }
+}
+
+@media (max-width: 735px) {
+  .HeaderAccount {
+    .Picture {
+      margin: 2px 32px 0 0;
+    }
+  }
+}
