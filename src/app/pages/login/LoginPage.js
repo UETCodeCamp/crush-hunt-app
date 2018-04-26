@@ -99,7 +99,7 @@ class LoginPage extends Component {
                                    onChange={this._handleChangeInput.bind(this, 'password')} value={password}
                                    name="password"/>
                             <button onClick={this._handleSubmit.bind(this)}>Log in</button>
-                            <p><Link to="/reset-password">Forgot Password?</Link></p>
+                            <p><Link to="/accounts/password/reset">Forgot Password?</Link></p>
                             {errorMessage}
                         </form>
                     </div>
