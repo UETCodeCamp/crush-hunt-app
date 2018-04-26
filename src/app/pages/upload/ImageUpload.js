@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import cameraImg from "./image/camera.png";
 
+
+
 class ImageUpload extends Component {
     render() {
         return (

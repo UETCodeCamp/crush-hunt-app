@@ -1,8 +1,10 @@
 import React, {Component} from 'react';
 import BrowseImage from "./BrowseImage";
+import {_Post} from "../../../services/UploadService";
 
 class DataUpload extends Component {
-    state= {
+
+    state = {
         text: '',
         imageSrc: '',
         disabled: true,
@@ -18,19 +20,21 @@ class DataUpload extends Component {
     }
 
     handleDisabled(){
-        if(this.state.text != null)
-            this.setState({
-                disabled: false,
-            });
-        else
+
+        if(this.state.text === '' )
             this.setState({
                 disabled: true,
+            });
+        else if(this.state.text !== ''&& this.state.imageSrc !== '')
+            this.setState({
+                disabled: false,
             });
     }
 
     handleOnSubmit(e){
         e.preventDefault();
         const{text,imageSrc}=this.state;
+        _Post(text,imageSrc);
     }
 
 
