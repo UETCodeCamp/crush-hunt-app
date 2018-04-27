@@ -1,23 +1,29 @@
 import React, {Component} from 'react';
-import BrowseImage from "./BrowseImage";
 import {_Post} from "../../../services/UploadService";
 
 class DataUpload extends Component {
 
     state = {
         text: '',
-        imageSrc: '',
+        seclectedImage: [],
         disabled: true,
     };
 
-    handleOnChange(e){
-        const {value}=e.target;
-        console.log(value);
+    handleOnChange= e =>{
         this.setState({
-            text: value,
+            text: e.target.value,
         });
         this.handleDisabled();
-    }
+    };
+
+    handleOnFileChange = event =>{
+        console.log(event.target.files[0]);
+        this.setState({
+            seclectedImage: event.target.files[0],
+        });
+        console.log(this.state.seclectedImage);
+        this.props.seclectedFile(this.state.seclectedImage);
+    };
 
     handleDisabled(){
 
@@ -25,7 +31,7 @@ class DataUpload extends Component {
             this.setState({
                 disabled: true,
             });
-        else if(this.state.text !== ''&& this.state.imageSrc !== '')
+        else if(this.state.text !== '')
             this.setState({
                 disabled: false,
             });
@@ -33,19 +39,29 @@ class DataUpload extends Component {
 
     handleOnSubmit(e){
         e.preventDefault();
-        const{text,imageSrc}=this.state;
-        _Post(text,imageSrc);
+        const{text}=this.state;
+        _Post(text)
+            .then (() =>{
+                this.clearUpload();
+        });
     }
 
+
+    clearUpload(){
+        this.setState({
+            text: '',
+            imageSrc: '',
+        });
+    }
 
     render() {
         return (
             <div>
                 <form className="informationUpload" onSubmit={this.handleOnSubmit.bind(this)}>
-                    <BrowseImage/>
+                    <input type="file" className="link"  onChange={this.handleOnFileChange.bind(this)}/>
                     <br/>
 
-                    <input className="caption" value={this.state.text} onChange={this.handleOnChange.bind(this)} placeholder="Nói gì đó về bức ảnh"/>
+                    <input className="caption" value={this.state.text} onChange={this.handleOnChange.bind(this)}/>
                     <button className="button_form" type="submit" disabled={this.state.disabled}>Đăng Ảnh</button>
                 </form>
             </div>
