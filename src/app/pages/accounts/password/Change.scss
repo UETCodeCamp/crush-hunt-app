@@ -1,0 +1,41 @@
+.Change {
+  min-width: 50px;
+  max-width: 600px;
+  width: calc(100% - 250px);
+  float: left;
+
+  form {
+    align-items: stretch;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
+    margin-top: 32px;
+
+    button {
+      cursor: pointer;
+      padding: 0 24px;
+      background: #3897f0;
+      color: #fff;
+      border-radius: 3px;
+      border: 1px solid #3897f0;
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 26px;
+      margin-left: 194px;
+      max-width: 165px;
+    }
+  }
+}
+
+@media (max-width: 735px) {
+  .Change {
+    padding: 16px;
+    width: auto;
+
+    form {
+      button {
+        margin-left: 0;
+      }
+    }
+  }
+}

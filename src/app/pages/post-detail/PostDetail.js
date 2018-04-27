@@ -1,21 +1,26 @@
 import React, {Component} from "react";
 import PropTypes from "prop-types";
+import "./PostDetailPage.css";
+import DashBoardPostDetails from "./DashBoardPostDetails";
+import Footer from "../../shared-components/footer/Footer"
 
 class PostDetail extends Component {
     render() {
-
         return (
-            <div className="PostDetail">
-                <h1>Post Detail</h1>
-                <h2>1123581321</h2>
-                <h3>lan 3</h3>
+            <div>
+                <div id="post-detail-main">
+                    <div className="wrap">
+                        <DashBoardPostDetails/>
+                    </div>
+                </div>
+                <Footer/>
             </div>
         );
     }
 }
 
 PostDetail.propTypes = {
-    history: PropTypes.object
+    history: PropTypes.object,
 };
 
 export default PostDetail;

@@ -1,13 +1,13 @@
 const config = {
     baseUrl: {
         $default: 'http://localhost:3000',
-        staging: 'https://staging.crushunt.me',
-        production: 'https://crushunt.me',
+        staging: 'https://crushunt.netlify.com',
+        production: 'https://crushunt.netlify.com',
     },
     baseAPIUrl: {
-        $default: 'http://localhost:6001',
-        staging: 'https://api-staging.crushunt.me',
-        production: 'https://api.crushunt.me',
+        $default: 'https://crush.blogk.xyz',
+        staging: 'https://crush.blogk.xyz',
+        production: 'https://crush.blogk.xyz',
     },
 };
 
