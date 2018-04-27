@@ -1,0 +1,61 @@
+.Reset {
+  min-width: 50px;
+  max-width: 600px;
+  width: calc(100% - 250px);
+  float: left;
+
+
+  .TextReset {
+    margin: 32px 32px 16px 124px;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 38px;
+  }
+
+  .CommentReset {
+    margin: 0 32px 0 124px;
+
+  }
+  form {
+    align-items: stretch;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
+    margin-top: 32px;
+
+    button {
+      cursor: pointer;
+      padding: 0 24px;
+      background: #3897f0;
+      color: #fff;
+      border-radius: 3px;
+      border: 1px solid #3897f0;
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 26px;
+      margin-left: 194px;
+      max-width: 165px;
+    }
+  }
+}
+
+@media (max-width: 735px) {
+  .Reset {
+    padding: 16px;
+    width: auto;
+
+    .TextReset {
+      margin-left: 0;
+    }
+
+    .CommentReset {
+      margin: 0;
+    }
+
+    form {
+      button {
+        margin-left: 0;
+      }
+    }
+  }
+}
