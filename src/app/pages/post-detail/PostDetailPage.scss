@@ -18,100 +18,82 @@ body {
   padding: 0;
 }
 
-@media only screen and (min-width: 1024px) {
-  #post-detail-main .wrap .wrap1 article {
-    display: flex;
-    flex-direction: column;
-    header {
-      width: 278px;
-      position: absolute;
+@media screen and (max-width: 1024px) {
+  body {
+    #post-detail-main {
+      padding: 0 6%;
     }
-    .anh-post {
-      min-height: 450px;
-      position: relative;
+    #post-detail-main .wrap .wrap1 article .right_comment .status {
+      margin-top: 4%;
     }
-    .right_comment {
-      position: absolute;
-      width: 36%;
-      top: 78px;
-      .tim {
-        margin: 0;
-      }
-
-    }
-  }
-
-}
-
-@media only screen and(max-width: 768px) {
-  #post-detail-main .wrap .wrap1 article {
-    display: flex;
-    flex-direction: column;
-    header {
-      width: 100%;
-      position: relative;
-      left: 10px;
-    }
-    .anh-post {
-      width: 100%;
-    }
-    .right_comment {
-      width: 100%;
-      position: relative;
-
+    #post-detail-main .wrap .wrap1 article .anh-post {
+      min-height: 350px;
     }
   }
 }
 
-@media screen and(max-width: 480px) {
+@media screen and (max-width: 735px) {
+  body {
+    #post-detail-main {
+      padding: 0 3%;
+    }
+    #post-detail-main .wrap .wrap1 article .anh-post {
+      min-height: 400px;
+    }
+  }
+}
 
-  #post-detail-main .wrap .wrap1 article {
-    display: flex;
-    flex-direction: column;
-    header {
-      width: 50%;
-      position: relative;
-      left: 10px;
-      justify-content: center;
-    }
-    .anh-post {
-      width: 64%;
-    }
-    .right_comment {
-      width: 64%;
-      position: relative;
-      .tim {
+@media screen and (max-width: 680px) {
+  body {
+    #post-detail-main .wrap .wrap1 article {
+      display: flex;
+      flex-direction: column;
+      header {
+        left: 2%;
+        width: 95%;
+        position: relative;
+      }
+      .anh-post {
+        width: 100%;
+        position: relative;
+        min-height: 60%;
+      }
+      .right_comment {
+        width: 100%;
+        position: relative;
+        left: 0;
+        margin-top: 0;
+        .status {
+          margin-top: 0;
+        }
+        .tim {
+          #save, #saved {
+            margin-left: 79%;
+          }
+        }
       }
     }
   }
-
 }
 
 #post-detail-main {
   position: relative;
   margin: 0;
-  padding: 0;
+  padding: 0 15%;
   background-color: #fafafa;
   border: 1px solid #efeaea;
   display: flex;
   box-sizing: inherit;
   .wrap {
-    position: relative;
     padding: 40px 0;
-    min-width: 736px;
-    max-width: 935px;
-    margin: 0 auto 16px;
+    min-width: 60%;
+    max-width: 100%;
+    margin: 0 auto 4%;
     border: 0 solid #000;
     box-sizing: inherit;
     .wrap1 {
-      margin: 0 auto;
-      width: 100%;
-      align-items: center;
-      min-width: 736px;
       border: 0 solid #000;
       padding: 0;
-      position: relative;
-      box-sizing: inherit;
       article {
         background-color: white;
         border-bottom-right-radius: 3px;
@@ -127,10 +109,10 @@ body {
           height: 78px;
           margin-right: 0;
           padding: 20px 0;
-
+          width: 31%;
+          position: absolute;
           right: 24px;
           top: 0;
-
           .profile {
             position: absolute;
             left: 50px;
@@ -178,10 +160,9 @@ body {
 
         }
         .anh-post {
-
+          position: relative;
           background-color: #fafafa;
-          margin-right: 335px;
-
+          margin-right: 36%;
           img {
             height: 100%;
             width: 100%;
@@ -190,7 +171,11 @@ body {
           }
         }
         .right_comment {
-          right: 0;
+          position: absolute;
+          top: 10%;
+          left: 64%;
+          width: 36%;
+          margin-top: 5%;
           display: flex;
           flex-direction: column;
           padding-left: 24px;
@@ -198,7 +183,8 @@ body {
           bottom: 0;
           .tim {
             position: relative;
-
+            max-width: 100%;
+            max-height: 40px;
             border-top: 1px solid #efefef;
             #liked, #like {
               text-decoration: none;
@@ -246,14 +232,14 @@ body {
               text-decoration: none;
               display: inline-block;
               padding: 20px;
-              margin-left: 170px;
+              margin-left: 60%;
               cursor: pointer;
               span {
                 position: absolute;
                 height: 24px;
                 width: 24px;
                 top: 10px;
-                left: 253px;
+                left: 93%;
                 background: url(/img/icon.png);
                 background-size: 435px 401px;
                 background-repeat: no-repeat;
@@ -266,13 +252,15 @@ body {
               background-position: -352px -218px;
             }
           }
-
           .status {
             margin: 0 -24px auto;
             padding: 12px 24px;
             overflow: auto;
             min-height: 0;
             position: relative;
+            span{
+              cursor: pointer;
+            }
             .list {
               list-style: none;
               margin: 0;
@@ -294,7 +282,6 @@ body {
                   box-sizing: inherit;
                   font-weight: 600;
                   overflow: hidden;
-
                 }
               }
             }
@@ -329,13 +316,12 @@ body {
             position: relative;
             form {
               font: inherit;
-              position: relative;
               textarea {
                 border: 0;
                 padding: 0;
                 resize: none;
                 outline: none;
-                width: 100%;
+                width: 94%;
                 height: 18px;
                 max-height: 80px;
                 font: inherit;
@@ -345,7 +331,7 @@ body {
           .three_dots {
             position: absolute;
             bottom: 0;
-            right: 18px;
+            right: 6%;
             height: 52px;
             top: auto;
             justify-content: center;
@@ -368,10 +354,8 @@ body {
                 background-position: -413px -326px;
                 background-size: 435px 401px
               }
-
             }
           }
-
         }
       }
     }
