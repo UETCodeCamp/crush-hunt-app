@@ -9,6 +9,7 @@ import {_login} from "../../../services/UserServices";
 
 class LoginPage extends Component {
     state = {
+        passwordShowed:true,
         auth: isAuthenticated(),
         loading: false,
         email: '',
@@ -116,7 +117,7 @@ class LoginPage extends Component {
                             <h2>Sign up to see photos and videos from your friends.</h2>
                             <input type="text" placeholder="Email"
                                    onChange={this._handleChangeInput.bind(this, 'email')} value={email} name="email"/>
-                            <input type="password" placeholder="Password"
+                            <input type={this.state.passwordShowed?"password":"text"} placeholder="Password"
                                    onChange={this._handleChangeInput.bind(this, 'password')} value={password}
                                    name="password"/>
 
