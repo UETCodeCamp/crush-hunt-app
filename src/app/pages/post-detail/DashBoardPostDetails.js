@@ -16,6 +16,7 @@ class DashBoardPostDetails extends Component {
         saved: false,
         commentArray: ["1", "2", "3", "4", "5", "6", "7", "8"],
         numberOfLike: 1,
+        focus:true
     };
 
     toggleFollow = (e) => {
@@ -36,14 +37,16 @@ class DashBoardPostDetails extends Component {
 
     handleSubmit = (text) => {
         array.push(text);
-        this.setState({commentArray: array});
+        this.setState({commentArray: array,focus:false});
     };
 
     toggleExist = (e) => {
         e.preventDefault();
         this.setState({existed: !this.state.existed});
     };
-
+    toggleFocus = () => {
+       this.setState({focus:true})
+    }
     render() {
         return (
             <div className="wrap1">
@@ -67,10 +70,11 @@ class DashBoardPostDetails extends Component {
                             toggleLike={this.toggleLike}
                             toggleSave={this.toggleSave}
                             handleSubmit={this.handleSubmit}
+                            toggleFocus={this.toggleFocus}
                         />
                         <LikePostDetails numberOfLike={this.state.numberOfLike}/>
                         <DatePost/>
-                        <CommentPostDetail handleSubmit={this.handleSubmit}/>
+                        <CommentPostDetail handleSubmit={this.handleSubmit} focus={this.state.focus}/>
                         <PostOption existed={this.state.existed} toggleExist={this.toggleExist}/>
                     </div>
                 </article>

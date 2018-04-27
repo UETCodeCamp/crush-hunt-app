@@ -1,6 +1,10 @@
 import React, {Component} from "react";
 
 class CommentPostDetail extends Component {
+    constructor(){
+        super();
+        this.textInput = React.createRef();
+    }
     state = {
         text: "",
     };
@@ -16,8 +20,13 @@ class CommentPostDetail extends Component {
             e.target.blur();
         }
     };
-
+    focusOnText= () => {
+        this.textInput.current.focus();
+    }
+  
     render() {
+       if(this.props.focus && this.textInput.current) this.focusOnText();
+    
         return (
             <section className="sec-form">
                 <form className="form-comment">
@@ -27,6 +36,7 @@ class CommentPostDetail extends Component {
                               onChange={this.handleChange}
                               value={this.state.text}
                               onKeyDown={this.handleSubmit}
+                              ref={this.textInput}
                     />
                 </form>
             </section>

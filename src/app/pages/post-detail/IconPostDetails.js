@@ -4,11 +4,9 @@ import PropTypes from "prop-types";
 class IconPostDetails extends Component {
     toggleFocus = (e) => {
         e.preventDefault();
-
-        //@todo use refs instead of document query. See more: https://reactjs.org/docs/refs-and-the-dom.html
-        document.getElementById("commentArea").focus();
+        this.props.toggleFocus();
     };
-
+    
     render() {
         return (
             <section className="tim">
