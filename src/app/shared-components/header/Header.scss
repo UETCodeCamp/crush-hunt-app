@@ -45,6 +45,11 @@
             li {
                 .btn-outline {
                     border: 1px solid #dbdbdb;
+
+                    &:hover {
+                        border-color: #b1b1b1;
+
+                    }
                 }
 
                 a {
@@ -52,6 +57,12 @@
                     padding: 4px 12px;
                     border-radius: 3px;
                     line-height: 21px;
+                    color: #666;
+                    transition: all 500ms ease-in-out;
+
+                    &:hover {
+                        color: #111;
+                    }
                 }
             }
         }
