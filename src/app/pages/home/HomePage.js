@@ -3,8 +3,15 @@ import PropTypes from 'prop-types';
 import "./HomePage.css";
 import Post from "./Post";
 import TopPost from "./TopPost";
+import { dataTrending } from "./../../../services/HomeServices";
 
 class HomePage extends Component {
+    constructor(props) {
+        super(props);
+        dataTrending(1, 10).then(data => {
+            console.log(data);
+        });
+    }
     state = {
         listPost: [{
             userName: 'Cô Zô Dép',
