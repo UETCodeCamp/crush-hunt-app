@@ -4,7 +4,7 @@ import "./HomePage.css";
 import Post from "./Post";
 import TopPost from "./TopPost";
 import { dataTrending } from "./../../../services/HomeServices";
-import {dataHot} from "../../../services/HomeServices";
+import {dataFresh, dataHot} from "../../../services/HomeServices";
 
 class HomePage extends Component {
     constructor(props) {
@@ -17,6 +17,12 @@ class HomePage extends Component {
             .then(data=>{
                 console.log(data);
             });
+
+        dataFresh(1,10)
+            .then(data=>{
+                console.log(data);
+            });
+
     }
     state = {
         listPost: [{
@@ -81,6 +87,7 @@ class HomePage extends Component {
             ],
 
         }],
+        trendingPost : dataTrending(1,10),
     };
 
     render() {
