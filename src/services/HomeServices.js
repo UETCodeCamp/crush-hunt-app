@@ -38,9 +38,10 @@ export const dataHot = (page = 1, limit = 10) => {
         .catch((error) => {
             return console.log(error);
         })
-}
+};
+
 export const dataFresh = (page = 1, limit = 10) => {
-    return axios.get(APIUrl + '/home/hot', {
+    return axios.get(APIUrl + '/home/fresh', {
         headers: {
             "Authorization": localStorage.token,
         },
@@ -55,4 +56,40 @@ export const dataFresh = (page = 1, limit = 10) => {
         .catch((error) => {
             return console.log(error);
         })
-}
+};
+
+export const likePost = (_id) => {
+    return axios.post(APIUrl + '/posts/:'+_id+'/vote', {
+        headers: {
+            "Authorization": localStorage.token,
+        },
+        params: {
+            id: _id,
+        }
+    })
+        .then((response) => {
+            return response.data;
+        })
+        .catch((error) => {
+            return console.log(error);
+        })
+};
+
+export const unlikePost = (_id) => {
+    return axios.post(APIUrl + '/posts/:'+_id+'/un-vote', {
+        headers: {
+            "Authorization": localStorage.token,
+        },
+        params: {
+            id: _id,
+        }
+    })
+        .then((response) => {
+            return response.data;
+        })
+        .catch((error) => {
+            return console.log(error);
+        })
+};
+
+

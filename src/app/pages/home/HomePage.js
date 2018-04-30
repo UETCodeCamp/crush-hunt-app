@@ -4,7 +4,7 @@ import "./HomePage.css";
 import Post from "./Post";
 import TopPost from "./TopPost";
 import { dataTrending } from "./../../../services/HomeServices";
-import {dataFresh, dataHot} from "../../../services/HomeServices";
+import {dataFresh, dataHot, likePost, unlikePost} from "../../../services/HomeServices";
 
 class HomePage extends Component {
     constructor(props) {
@@ -19,6 +19,16 @@ class HomePage extends Component {
             });
 
         dataFresh(1,10)
+            .then(data=>{
+                console.log(data);
+            });
+
+        likePost('5ae31c1350fab01e2b9cd798')
+            .then(data=>{
+                console.log(data);
+            });
+
+        unlikePost('5ae31c1350fab01e2b9cd798')
             .then(data=>{
                 console.log(data);
             });
