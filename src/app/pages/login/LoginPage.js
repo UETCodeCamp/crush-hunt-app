@@ -9,10 +9,14 @@ import {_login} from "../../../services/UserServices";
 
 class LoginPage extends Component {
     state = {
+        passwordShowed:true,
         auth: isAuthenticated(),
         loading: false,
         email: '',
-        password: ''
+        password: '',
+        errorMessage: '',
+        disabledButton: false,
+        loadingButton: false
     };
 
     componentDidMount() {
@@ -21,6 +25,12 @@ class LoginPage extends Component {
 
     componentWillUnmount() {
         removeAuthListener(this._handleOnChangeAuth);
+    }
+
+    setLoadingButton(checkLoading) {
+        this.setState({
+            loadingButton: checkLoading
+        });
     }
 
     _handleOnChangeAuth = () => {
@@ -36,7 +46,6 @@ class LoginPage extends Component {
 
     _handleChangeInput(field, e) {
         const {value} = e.target;
-
         this.setState({
             [field]: value
         });
@@ -44,6 +53,7 @@ class LoginPage extends Component {
 
     _handleSubmit(e) {
         e.preventDefault();
+        this.setLoadingButton(true);
         const {email, password} = this.state;
 
         if (this._checkForm())
@@ -57,8 +67,10 @@ class LoginPage extends Component {
                         errorMessage: response.message //Display error if server return success false
                     })
                 }
-            }).catch();
-
+                this.setLoadingButton(false);
+            }).catch(response => {
+                this.setLoadingButton(false);
+            });
     }
 
     _checkForm() {
@@ -84,7 +96,17 @@ class LoginPage extends Component {
             return <Redirect to="/"/>;
         }
 
-        const {email, password} = this.state;
+        const {email, password, disabledButton, loadingButton} = this.state;
+
+        const ButtonForm = <button
+            onClick={this._handleSubmit.bind(this)}
+            className={disabledButton || loadingButton ? "DisabledButton" : ''}
+            disabled={disabledButton || loadingButton}
+        >
+            Log in
+        </button>;
+
+        const Loading = loadingButton ? <div className="Loading"></div> : <div></div>;
 
         return (
             <div className="LoginPage">
@@ -95,11 +117,16 @@ class LoginPage extends Component {
                             <h2>Sign up to see photos and videos from your friends.</h2>
                             <input type="text" placeholder="Email"
                                    onChange={this._handleChangeInput.bind(this, 'email')} value={email} name="email"/>
-                            <input type="password" placeholder="Password"
+                            <input type={this.state.passwordShowed?"password":"text"} placeholder="Password"
                                    onChange={this._handleChangeInput.bind(this, 'password')} value={password}
                                    name="password"/>
-                            <button onClick={this._handleSubmit.bind(this)}>Log in</button>
-                            <p><Link to="/reset-password">Forgot Password?</Link></p>
+
+                            <div className="Button">
+                                {/*<button onClick={this._handleSubmit.bind(this)}>Log in</button>*/}
+                                {ButtonForm}
+                                {Loading}
+                            </div>
+                            <p><Link to="/accounts/password/reset">Forgot Password?</Link></p>
                             {errorMessage}
                         </form>
                     </div>
