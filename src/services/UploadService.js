@@ -9,3 +9,11 @@ export const _Post = (title) => {
         }
     });
 };
+
+export const _PostUpload = (data) => {
+    return APIServices.makeRequest({
+        url: '/posts/upload',
+        method: 'POST',
+        data: data,
+    })
+};

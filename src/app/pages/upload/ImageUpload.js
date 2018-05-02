@@ -5,7 +5,7 @@ class ImageUpload extends Component {
     render() {
         return (
             <div className="img_upload">
-                <img className="thumb" alt="camera" src={this.props.imageFile}/>
+                <img className="thumb" alt="camera" ref={this.props.imageFile}/>
             </div>
         );
     }
