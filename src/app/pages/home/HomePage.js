@@ -5,32 +5,34 @@ import Post from "./Post";
 import TopPost from "./TopPost";
 import { dataTrending } from "./../../../services/HomeServices";
 import {dataFresh, dataHot, likePost, unlikePost} from "../../../services/HomeServices";
+import {getAuthState} from "../../../services/AuthServices";
+import Redirect from "react-router-dom/es/Redirect";
 
 class HomePage extends Component {
     constructor(props) {
         super(props);
         dataTrending(1, 10).then(data => {
-            console.log(data);
+           console.log(data);
         });
 
         dataHot(1,10)
             .then(data=>{
-                console.log(data);
+              //  console.log(data);
             });
 
         dataFresh(1,10)
             .then(data=>{
-                console.log(data);
+              //  console.log(data);
             });
 
         likePost('5ae31c1350fab01e2b9cd798')
             .then(data=>{
-                console.log(data);
+               // console.log(data);
             });
 
         unlikePost('5ae31c1350fab01e2b9cd798')
             .then(data=>{
-                console.log(data);
+               // console.log(data);
             });
 
     }
@@ -111,16 +113,23 @@ class HomePage extends Component {
             );
         });
 
-        return (
-            <div className='home-page'>
-                <div className="home-display">
-                    <div className="list-post">
-                        {listPostData}
+        const isLogin = getAuthState();
+        if(isLogin.accessToken !== ""){
+            return (
+                <div className='home-page'>
+                    <div className="home-display">
+                        <div className="list-post">
+                            {listPostData}
+                        </div>
+                        <TopPost />
                     </div>
-                    <TopPost />
                 </div>
-            </div>
-        );
+            );
+        }
+        else {
+            return(<Redirect to={'/login'}/>);
+        }
+
     }
 
     _handleSummitComment = (e, t) => {

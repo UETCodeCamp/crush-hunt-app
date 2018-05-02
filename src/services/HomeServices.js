@@ -20,7 +20,7 @@ export const dataTrending = (page = 1, limit = 10) => {
             // console.log(error);
             return error;
         });
-}
+};
 
 export const dataHot = (page = 1, limit = 10) => {
     return axios.get(APIUrl + '/home/hot', {
