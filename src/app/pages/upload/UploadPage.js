@@ -5,8 +5,21 @@ import ImageUpload from "./ImageUpload";
 import DataUpload from "./DataUpload";
 import Footer from "../../shared-components/footer/Footer";
 import EnsureLoggedIn from "../../shared-components/EnsureLoggedIn";
+import cameraImg from "./image/camera.png";
+
 
 class UploadPage extends Component {
+    state = {
+        imageUp: cameraImg,
+    };
+
+    handleSeclected(image) {
+
+        this.setState({
+            imageUp: image,
+        });
+    }
+
     render() {
         return (
             <EnsureLoggedIn>
@@ -19,9 +32,9 @@ class UploadPage extends Component {
                                     <h2>Upload Your Crush</h2>
                                 </div>
 
-                                <ImageUpload/>
+                                <ImageUpload imageFile={this.state.imageUp}/>
 
-                                <DataUpload/>
+                                <DataUpload seclectedFile={this.handleSeclected.bind(this)}/>
                             </div>
                         </section>
                     </div>
