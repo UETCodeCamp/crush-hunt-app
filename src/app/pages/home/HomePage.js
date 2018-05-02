@@ -1,9 +1,41 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import PropTypes from 'prop-types';
 import "./HomePage.css";
 import Post from "./Post";
+import TopPost from "./TopPost";
+import { dataTrending } from "./../../../services/HomeServices";
+import {dataFresh, dataHot, likePost, unlikePost} from "../../../services/HomeServices";
+import {getAuthState} from "../../../services/AuthServices";
+import Redirect from "react-router-dom/es/Redirect";
 
 class HomePage extends Component {
+    constructor(props) {
+        super(props);
+        dataTrending(1, 10).then(data => {
+           console.log(data);
+        });
+
+        dataHot(1,10)
+            .then(data=>{
+              //  console.log(data);
+            });
+
+        dataFresh(1,10)
+            .then(data=>{
+              //  console.log(data);
+            });
+
+        likePost('5ae31c1350fab01e2b9cd798')
+            .then(data=>{
+               // console.log(data);
+            });
+
+        unlikePost('5ae31c1350fab01e2b9cd798')
+            .then(data=>{
+               // console.log(data);
+            });
+
+    }
     state = {
         listPost: [{
             userName: 'Cô Zô Dép',
@@ -18,10 +50,10 @@ class HomePage extends Component {
                 userNameComment: 'Bà Zôn Xơn',
                 commentText: 'không like cho Dép nha.'
             },
-                {
-                    userNameComment: 'Cô Zô Dép',
-                    commentText: 'chị Xơn quá đáng lắm lun á'
-                }
+            {
+                userNameComment: 'Cô Zô Dép',
+                commentText: 'chị Xơn quá đáng lắm lun á'
+            }
             ]
 
             ,
@@ -29,10 +61,10 @@ class HomePage extends Component {
                 userNameComment: 'Bà Zôn Xơn',
                 commentText: 'không like cho Dép nha.'
             },
-                {
-                    userNameComment: 'Cô Zô Dép',
-                    commentText: 'chị Xơn quá đáng lắm lun á'
-                }
+            {
+                userNameComment: 'Cô Zô Dép',
+                commentText: 'chị Xơn quá đáng lắm lun á'
+            }
 
             ],
         }, {
@@ -47,42 +79,57 @@ class HomePage extends Component {
                 userNameComment: 'ahihi1',
                 commentText: 'dep qua ne'
             },
-                {
-                    userNameComment: 'ahihi2',
-                    commentText: 'ok hehe dep!'
-                }
+            {
+                userNameComment: 'ahihi2',
+                commentText: 'ok hehe dep!'
+            }
             ],
             comments: [{
                 userNameComment: 'ahihi1',
                 commentText: 'de qua ne'
             },
-                {
-                    userNameComment: 'ahihi2',
-                    commentText: 'ok hehe dep'
-                },
-                {
-                    userNameComment: 'noname',
-                    commentText: 'hahah eheheh'
-                }
+            {
+                userNameComment: 'ahihi2',
+                commentText: 'ok hehe dep'
+            },
+            {
+                userNameComment: 'noname',
+                commentText: 'hahah eheheh'
+            }
             ],
 
         }],
+        trendingPost : dataTrending(1,10),
     };
 
     render() {
         const listPostData = this.state.listPost.map((e, index) => {
             return (
                 <Post dataPost={e}
-                      key={index}
-                      id={index}
-                      submitComment={this._handleSummitComment}
-                      likeButton={this._handleLike}/>
+                    key={index}
+                    id={index}
+                    submitComment={this._handleSummitComment}
+                    likeButton={this._handleLike} />
             );
         });
 
-        return (
-            <div className='HomePage main-pusher'>{listPostData}</div>
-        );
+        const isLogin = getAuthState();
+        if(isLogin.accessToken !== ""){
+            return (
+                <div className='home-page'>
+                    <div className="home-display">
+                        <div className="list-post">
+                            {listPostData}
+                        </div>
+                        <TopPost />
+                    </div>
+                </div>
+            );
+        }
+        else {
+            return(<Redirect to={'/login'}/>);
+        }
+
     }
 
     _handleSummitComment = (e, t) => {
@@ -117,7 +164,6 @@ class HomePage extends Component {
                 else {
                     for (let k = 0; k < this.state.listPost[j].likeText.length; k++) {
                         if (this.state.listPost[j].likeText[k] === ' and you like this') {
-                            console.log("akjsdkjahd");
                             this.state.listPost[j].likeText.slice(k, 1);
                             this.setState(this.state);
                         }
