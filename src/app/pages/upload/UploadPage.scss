@@ -21,6 +21,7 @@
             max-width: 79%;
             border-radius: 3px;
             height: auto;
+            position: relative;
 
             .header {
                 text-align: center;
@@ -33,9 +34,9 @@
             }
 
             .img_upload {
-                width: auto; //614px
+                width: auto;
                 height: auto;
-
+                position: relative;
                 border: 3px dashed darkgray;
 
                 .thumb {

@@ -1,10 +1,11 @@
 import APIServices from "./APIServices";
 
-export const _Post = (title) => {
+export const _Post = (imageUrl,title) => {
     return APIServices.makeRequest({
         url: '/posts',
         method: 'POST',
         data: {
+            url: imageUrl,
             title: title,
         }
     });
