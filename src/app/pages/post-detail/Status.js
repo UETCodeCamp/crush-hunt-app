@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
 import ListCommentPostDetails from "./ListCommentPostDetails.js";
 
@@ -8,7 +8,7 @@ class Status extends Component {
     };
 
     loadMoreComment = () => {
-        this.setState({numberOfComments: this.state.numberOfComments + 7});
+        this.setState({ numberOfComments: this.state.numberOfComments + 7 });
     };
 
     render() {
@@ -16,7 +16,9 @@ class Status extends Component {
             return (
                 <ListCommentPostDetails
                     key={"key" + i}
-                    comment={text}/>
+                    comment={text}
+                    username={this.props.username}
+                />
             );
         });
 
@@ -30,8 +32,12 @@ class Status extends Component {
 
         return (
             <div className="status">
-                {loadCommentElement}
                 <ul className="list">
+                    <ListCommentPostDetails
+                        comment={this.props.title}
+                        username={this.props.username}
+                    />
+                    {loadCommentElement}
                     {displayComment}
                 </ul>
             </div>
@@ -44,3 +50,4 @@ Status.propTypes = {
 };
 
 export default Status;
+

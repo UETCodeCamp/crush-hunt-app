@@ -6,7 +6,7 @@ class ListCommentPostDetails extends Component {
     render() {
         return (
             <li className="item">
-                <Link to="/profile" className="user-name">OppaGou</Link>
+                <Link to="/profile" className="user-name">{this.props.username}</Link>
                 <span className="text">
                     <span>{this.props.comment}</span>
                 </span>
