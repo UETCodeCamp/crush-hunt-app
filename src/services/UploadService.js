@@ -1,7 +1,7 @@
 import APIServices from "./APIServices";
 
-export const _Post = (imageUrl,title) => {
-    return APIServices.makeRequest({
+export const PostUrlAndTitle = (imageUrl,title) => {
+    return APIServices.makeAuthRequest({
         url: '/posts',
         method: 'POST',
         data: {
@@ -11,8 +11,8 @@ export const _Post = (imageUrl,title) => {
     });
 };
 
-export const _PostUpload = (data) => {
-    return APIServices.makeRequest({
+export const UploadImage = (data) => {
+    return APIServices.makeAuthRequest({
         url: '/posts/upload',
         method: 'POST',
         data: data,

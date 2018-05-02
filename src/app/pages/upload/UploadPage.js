@@ -13,12 +13,13 @@ class UploadPage extends Component {
         imageUp: cameraImg,
     };
 
-    handleSeclected (image){
+    handleSeclected(image) {
 
         this.setState({
             imageUp: image,
         });
     }
+
     render() {
         return (
             <EnsureLoggedIn>
