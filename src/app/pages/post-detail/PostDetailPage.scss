@@ -283,6 +283,19 @@ body {
                   font-weight: 600;
                   overflow: hidden;
                 }
+                .delete{
+                  position: absolute;
+                  top:0;
+                  right:0;
+                  padding-top: 5px;
+                  font-size: 10x;
+                  color: rgb(201, 201, 201);
+                  text-align: center;
+                  display: inline;
+                }
+                .test{
+                  display: none;
+                }
               }
             }
           }

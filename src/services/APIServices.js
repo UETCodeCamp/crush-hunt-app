@@ -23,7 +23,6 @@ class APIServices {
         
         const {accessToken} = getAuthState();
         const _headers = args.headers ? args.headers : {};
-        console.log("auth", accessToken);
         const defaultHeaders = {
             'Authorization': accessToken,
         };

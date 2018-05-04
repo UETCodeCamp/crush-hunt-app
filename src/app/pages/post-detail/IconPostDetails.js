@@ -10,7 +10,7 @@ class IconPostDetails extends Component {
     render() {
         return (
             <section className="tim">
-                <a href="/" id={this.props.liked ? "liked" : "like"}>
+                <a href="/" id={this.props.voted ? "liked" : "like"}>
                     <span onClick={this.props.toggleLike}/>
                 </a>
                 <a href="/" id="comment">

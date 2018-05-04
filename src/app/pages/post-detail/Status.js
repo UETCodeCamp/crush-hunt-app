@@ -12,12 +12,14 @@ class Status extends Component {
     };
 
     render() {
-        const commentArray = this.props.comment.map((text, i) => {
+        const commentArray = this.props.comment.map((obj, i) => {
             return (
                 <ListCommentPostDetails
                     key={"key" + i}
-                    comment={text}
+                    comment={obj.content}
                     username={this.props.username}
+                    id={obj._id}
+                    deleteComment={this.props.deleteComment}
                 />
             );
         });
@@ -36,6 +38,7 @@ class Status extends Component {
                     <ListCommentPostDetails
                         comment={this.props.title}
                         username={this.props.username}
+                        title={true}
                     />
                     {loadCommentElement}
                     {displayComment}

@@ -6,38 +6,65 @@ import IconPostDetails from "./IconPostDetails";
 import CommentPostDetail from "./CommentPostDetail";
 import DatePost from "./DatePost";
 import PostOption from "./PostOption";
-import { save ,getPostDetail} from "../../../services/PostDetailServices"
-import {handleTime} from "./helpers"
-
-const array = ["Sample Comment 1", "Sample Comment 2", "3", "4", "5", "6"];
+import { save, unsave, getPostDetail, vote, unvote, getPostComments, addComment ,deleteComment } from "../../../services/PostDetailServices"
 
 class DashBoardPostDetails extends Component {
     state = {
-        commentArray: ["1", "2", "3", "4", "5", "6", "7", "8"],
-        focus: true,
+        commentArray: [],
+        focus: false,
         totalVotes: 0,
         totalComments: 0,
         scoreTrend: 0,
         created: "",
         title: "",
         url: "",
-        owner: {name:""}
-        
+        owner: { name: "" },
+        voted: false,
+        saved: false,
+        favID: "",
     };
-    componentDidMount(){
-        getPostDetail(this.props.id).then(res => {
-            const obj = res.data;
-            this.setState({
-                totalComments: obj.totalComments,
-                totalVotes: obj.totalVotes,
-                scoreTrend: obj.scoreTrend,
-                created: obj.created,
-                title: obj.title,
-                url: obj.url,
-                owner: obj.owner,
+    componentDidMount() {
+        let voted = true;
+        let saved = true;
+        let arr = [];
+        Promise.all([
+            vote(this.props.id),
+            save(this.props.id),
+            getPostComments(this.props.id),
+        ]).then((res) => {
+            arr = res[2].data;
+            if (res[0].success) {
+                unvote(this.props.id);
+                voted = false;
+            }
+            if (res[1].success) {
+                console.log("UNSAVE");
+                unsave(this.props.id, res[1].data._id).then((res) => {
+                    console.log(res)
+                })
+                saved = false;
+                this.setState({ favID: res[1]._id })
+            }
+        }).then(() => {
+            getPostDetail(this.props.id).then(res => {
+
+                console.log(arr);
+                this.setState({
+                    totalVotes: res.data.totalVotes,
+                    totalComments: res.data.totalComments,
+                    scoreTrend: res.data.scoreTrend,
+                    created: res.data.created,
+                    title: res.data.title,
+                    url: res.data.url,
+                    owner: res.data.owner,
+                    voted: voted,
+                    saved: saved,
+                    commentArray: arr,
+                })
+                console.log(res.data);
             })
-            console.log(obj);
-        });
+        })
+
     }
     toggleFollow = (e) => {
         e.preventDefault();
@@ -46,24 +73,51 @@ class DashBoardPostDetails extends Component {
 
     toggleLike = (e) => {
         e.preventDefault();
-        const likes = this.state.numberOfLike;
-        this.setState({ numberOfLike: (this.state.liked) ? (likes - 1) : (likes + 1), liked: !this.state.liked, focus: false });
+        if (this.state.voted) {
+            unvote(this.props.id).then(res => {
+                this.setState({ voted: false, focus: false, totalVotes: this.state.totalVotes - 1 })
+            })
+        }
+        else {
+            vote(this.props.id).then(res => {
+                this.setState({ voted: true, totalVotes: this.state.totalVotes + 1, focus: false })
+            })
+        }
+
     };
 
     toggleSave = (e) => {
         e.preventDefault();
-        this.setState({ saved: !this.state.saved, focus: false });
-        save().then(obj => {
-            console.log("save", obj);
-        })
+        if (this.state.saved) {
+            unsave(this.props.id, this.state.favID).then(res => {
+                console.log("unsave", res);
+                this.setState({ saved: false, focus: false })
+            })
+        }
+        else {
+            save(this.props.id).then(res => {
+                console.log("save", res);
+                this.setState({ saved: true, focus: false })
+            })
+        }
     };
 
     handleSubmit = (text) => {
-        array.push(text);
-        this.setState({ commentArray: array, focus: false });
-   
-    };
+        addComment(this.props.id, text).then(res => {
+            getPostComments(this.props.id).then(res => {
 
+                this.setState({ commentArray: res.data });
+            })
+        })
+    }
+    deleteComment = (commentID) => {
+        deleteComment(this.props.id, commentID).then(res => {
+            getPostComments(this.props.id).then(res => {
+                console.log(res)
+                this.setState({ commentArray: res.data });
+            })
+        })
+    }
     toggleExist = (e) => {
         e.preventDefault();
         this.setState({ existed: !this.state.existed });
@@ -72,7 +126,7 @@ class DashBoardPostDetails extends Component {
         this.setState({ focus: true })
     }
     render() {
-        handleTime();
+
         return (
             <div className="wrap1">
                 <article id="post-detail-article">
@@ -88,23 +142,22 @@ class DashBoardPostDetails extends Component {
                     </div>
 
                     <div className="right_comment">
-                        <Status 
-                        comment={this.state.commentArray} 
-                        title={this.state.title}
-                        username={this.state.owner.name}
+                        <Status
+                            comment={this.state.commentArray}
+                            title={this.state.title}
+                            username={this.state.owner.name}
+                            deleteComment={this.deleteComment}
                         />
                         <IconPostDetails
-                            liked={this.state.liked}
-                            saved={this.state.saved}
-                            comment={this.state.comment}
                             toggleLike={this.toggleLike}
                             toggleSave={this.toggleSave}
                             handleSubmit={this.handleSubmit}
                             toggleFocus={this.toggleFocus}
-                           
+                            voted={this.state.voted}
+                            saved={this.state.saved}
                         />
-                        <LikePostDetails numberOfLike={this.state.numberOfLike} />
-                        <DatePost />
+                        <LikePostDetails totalVotes={this.state.totalVotes} />
+                        <DatePost created={this.state.created} />
                         <CommentPostDetail handleSubmit={this.handleSubmit} focus={this.state.focus} />
                         <PostOption existed={this.state.existed} toggleExist={this.toggleExist} />
                     </div>
