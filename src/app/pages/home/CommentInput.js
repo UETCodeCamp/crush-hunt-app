@@ -9,7 +9,7 @@ class CommentInput extends Component {
     }
     render() {
         return (
-            <div className={'comment-form'}>
+            <div className= 'comment-form' >
                 <form>
                     <input id={this.props.dataPost.idPost} type="text" className={'comment-input'}
                            placeholder={'Nhập bình luận của bạn...'} ref={'inputComment'}/>

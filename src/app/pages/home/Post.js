@@ -33,7 +33,7 @@ class Post extends Component {
     }
     render() {
         return (
-            <div id={this.props.id} className={'post'}>
+            <div id={this.props.id} className= 'post' >
                 <Content dataPost={this.props.dataPost}/>
                 <Comment id={this.props.id} dataPost={this.props.dataPost} likeButton={this.likeButtonPost} refsCommentInput={this.state.commentInputRefs}/>
                 <div className="time">

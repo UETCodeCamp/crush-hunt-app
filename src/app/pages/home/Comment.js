@@ -12,25 +12,25 @@ class Comment extends Component {
 
     render() {
         const listComment = this.state.commentsShow.map((data, index) => {
-            return <div className={'comment'} key={index}><span
-                className={'user-comment'}>{data.userNameComment}</span>{data.commentText}</div>
+            return <div className='comment' key={index}><span
+                className= 'user-comment' >{data.userNameComment}</span>{data.commentText}</div>
         });
 
         const loadCommentButton = this.loadCommentButton();
 
         return (
             <div>
-                <div className="like-button">
+                <div className = "like-button">
                     <span className={(this.state.isLiked) ? 'like' : 'unlike'} onClick={this.likeButton}/>
                     <span className="comment" onClick={this.commentFocus}/>
                 </div>
-                <div className="like-text">
+                <div className = "like-text">
                     {this.props.dataPost.likeText}
                 </div>
-                <div className="post-text">
+                <div className = "post-text">
                     {this.props.dataPost.postText}
                 </div>
-                <div className={'comment-list'}>
+                <div className = 'comment-list'>
                     {listComment}
                 </div>
                 <div>
@@ -44,7 +44,7 @@ class Comment extends Component {
     loadCommentButton = () => {
         if (!this.state.isLengthCommentEqualTop) {
             return (
-                <div className={'load-comment'} onClick={this.loadComment}>
+                <div className= 'load-comment'  onClick={this.loadComment}>
                     {this.state.contentLoadComment}
                 </div>
             );
