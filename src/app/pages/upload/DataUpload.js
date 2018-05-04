@@ -34,13 +34,19 @@ class DataUpload extends Component {
         e.preventDefault();
         const imageUrl = this.state.seclectedImage;
         const title = this.state.text;
-        console.log(imageUrl, title);
-        PostUrlAndTitle(imageUrl, title)
-            .then = () => {
-            console.log(title);
-            this.clearUpload();
 
-        };
+        PostUrlAndTitle(imageUrl, title)
+            .then(() => {
+                this.clearUpload();
+            })
+            .catch((err) => {
+                const message = err.message || err;
+
+                alert(message);
+                this.setState({
+                    loading: false
+                });
+            });
     }
 
     handleOnImage(e) {
@@ -51,14 +57,23 @@ class DataUpload extends Component {
             loading: true,
         });
         UploadImage(data)
-            .then(res => {
+            .then((res) => {
                 this.setState({
                     seclectedImage: res.data,
                 });
                 const image = this.state.seclectedImage;
-                console.log(image);
                 this.props.seclectedFile(image);
+            })
+            .catch((err) => {
+                const message = err.message || err;
+
+                alert(message);
+                this.setState({
+                    loading: false
+                });
+
             });
+
         this.handleDisabled();
     }
 
