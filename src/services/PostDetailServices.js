@@ -8,12 +8,11 @@ export const save = (id) => {
         
     });
 };
-export const unsave = (id,favID) => {
-    console.log("unsave request");
-    console.log("favID" , favID);
+export const unsave = (id) => {
+    
     return APIServices.makeAuthRequest({
-        url: '/posts/'+ id + '/favorites/' + favID ,
-        method: 'POST',
+        url: '/posts/'+ id + '/favorites/'  ,
+        method: 'DELETE',
         
     });
 };

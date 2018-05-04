@@ -21,50 +21,27 @@ class DashBoardPostDetails extends Component {
         owner: { name: "" },
         voted: false,
         saved: false,
-        favID: "",
+        
     };
     componentDidMount() {
-        let voted = true;
-        let saved = true;
-        let arr = [];
-        Promise.all([
-            vote(this.props.id),
-            save(this.props.id),
-            getPostComments(this.props.id),
-        ]).then((res) => {
-            arr = res[2].data;
-            if (res[0].success) {
-                unvote(this.props.id);
-                voted = false;
-            }
-            if (res[1].success) {
-                console.log("UNSAVE");
-                unsave(this.props.id, res[1].data._id).then((res) => {
-                    console.log(res)
-                })
-                saved = false;
-                this.setState({ favID: res[1]._id })
-            }
-        }).then(() => {
-            getPostDetail(this.props.id).then(res => {
+      getPostDetail(this.props.id).then(res => {
+          const obj = res.data;
+          this.setState({
+              totalVotes: obj.totalVotes,
+              totalComments: obj.totalComments,
+              scoreTrend: obj.scoreTrend,
+              created: obj.created,
+              title: obj.title,
+              url: obj.url,
+              owner: obj.owner,
+              voted: obj.voted,
+              saved: obj.saved,
+          })
 
-                console.log(arr);
-                this.setState({
-                    totalVotes: res.data.totalVotes,
-                    totalComments: res.data.totalComments,
-                    scoreTrend: res.data.scoreTrend,
-                    created: res.data.created,
-                    title: res.data.title,
-                    url: res.data.url,
-                    owner: res.data.owner,
-                    voted: voted,
-                    saved: saved,
-                    commentArray: arr,
-                })
-                console.log(res.data);
-            })
-        })
-
+      })
+      getPostComments(this.props.id).then(res => {
+          this.setState({commentArray: res.data})
+      })
     }
     toggleFollow = (e) => {
         e.preventDefault();
@@ -89,7 +66,7 @@ class DashBoardPostDetails extends Component {
     toggleSave = (e) => {
         e.preventDefault();
         if (this.state.saved) {
-            unsave(this.props.id, this.state.favID).then(res => {
+            unsave(this.props.id).then(res => {
                 console.log("unsave", res);
                 this.setState({ saved: false, focus: false })
             })
