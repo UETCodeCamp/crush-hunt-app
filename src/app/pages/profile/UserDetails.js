@@ -5,7 +5,7 @@ class UserDetails extends Component {
         return (
             <div className="UserDetails">
                 <div className="Name">
-                    <span><b>Phi Xuan Hoan</b></span>
+                    <span><b>{this.props._name}</b></span>
                 </div>
             </div>
         );

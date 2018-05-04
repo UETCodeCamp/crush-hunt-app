@@ -1,11 +1,13 @@
 import React, {Component} from 'react';
 
+
+
 class UserInformation extends Component {
     render() {
         return (
             <div className="UserInformation">
                 <div className="NickName">
-                    <h1>hoan.phi.79</h1>
+                    <h1>{this.props._id}</h1>
                 </div>
                 <div className="EditProfile">
                     <button>Chỉnh sửa trang cá nhân</button>
