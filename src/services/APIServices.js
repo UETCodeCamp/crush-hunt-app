@@ -5,7 +5,6 @@ import {getAuthState} from "./AuthServices";
 
 const _getAppVersion = () => {
     const app = getLocalData('app');
-
     return app ? app.version : '1.0.0';
 };
 
