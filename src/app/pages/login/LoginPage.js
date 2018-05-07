@@ -106,6 +106,8 @@ class LoginPage extends Component {
             Log in
         </button>;
 
+        // this is a commnent
+
         const Loading = loadingButton ? <div className="Loading"></div> : <div></div>;
 
         return (
