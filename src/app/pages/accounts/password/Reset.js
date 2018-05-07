@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import "./Reset.css"
 import Input from "./Input";
+import {forgotPassword} from "../../../../services/ResetPasswordServices";
 
 class Reset extends Component {
     constructor(props){
@@ -19,8 +20,11 @@ class Reset extends Component {
 
     _handleSubmit(e){
         e.preventDefault();
+        const {email} = this.state;
 
-
+        forgotPassword(email).then(response => {
+            console.log(response);
+        })
     }
 
     render () {

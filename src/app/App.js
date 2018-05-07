@@ -24,6 +24,7 @@ class App extends Component {
                     <Route path="/register" component={RegisterPage}/>
                     <Route path="/change" component={ChangePassword}/>
                     <Route path="/accounts/password/reset" component={ResetPassword}/>
+                    <Route path="/accounts/password/reset" component={ResetPassword}/>
                     <Route exact path="/profile" component={ProfilePage}/>
                     <Route component={PageNotFound}/>
                 </Switch>

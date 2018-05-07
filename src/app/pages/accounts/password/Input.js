@@ -14,11 +14,11 @@ class Input extends Component {
             email: value
         });
 
-        this.props.onChangeEmail(this.state.email);
+        this.props.onChangeEmail(value);
     }
 
     render () {
-        const {title, type,onChange} = this.props;
+        const {title, type} = this.props;
 
         return <div className="Input">
             <div className="Title">
