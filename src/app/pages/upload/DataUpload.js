@@ -1,48 +1,102 @@
-import React, {Component} from 'react';
-import BrowseImage from "./BrowseImage";
+import React, {Component, createRef} from 'react';
+import {PostUrlAndTitle, UploadImage} from "../../../services/UploadService";
 
 class DataUpload extends Component {
-    state= {
+
+    state = {
         text: '',
-        imageSrc: '',
-        disabled: true,
+        seclectedImage: [],
+        loading: true,
     };
 
-    handleOnChange(e){
-        const {value}=e.target;
-        console.log(value);
+    inputFile = createRef();
+
+    handleOnChange = e => {
         this.setState({
-            text: value,
+            text: e.target.value,
         });
+    };
+
+
+    handleDisabled() {
+
+        if (this.state.seclectedImage === '')
+            this.setState({
+                loading: true,
+            });
+        else if (this.state.seclectedImage !== '')
+            this.setState({
+                loading: false,
+            });
+    }
+
+    handleToggleUpload(e) {
+        e.preventDefault();
+        const imageUrl = this.state.seclectedImage;
+        const title = this.state.text;
+
+        PostUrlAndTitle(imageUrl, title)
+            .then(() => {
+                this.clearUpload();
+            })
+            .catch((err) => {
+                const message = err.message || err;
+
+                alert(message);
+                this.setState({
+                    loading: false
+                });
+            });
+    }
+
+    handleOnImage(e) {
+        e.preventDefault();
+        const data = new FormData();
+        data.append('image', this.inputFile.current.files[0]);
+        this.setState({
+            loading: true,
+        });
+        UploadImage(data)
+            .then((res) => {
+                this.setState({
+                    seclectedImage: res.data,
+                });
+                const image = this.state.seclectedImage;
+                this.props.seclectedFile(image);
+            })
+            .catch((err) => {
+                const message = err.message || err;
+
+                alert(message);
+                this.setState({
+                    loading: false
+                });
+
+            });
+
         this.handleDisabled();
     }
 
-    handleDisabled(){
-        if(this.state.text != null)
-            this.setState({
-                disabled: false,
-            });
-        else
-            this.setState({
-                disabled: true,
-            });
-    }
 
-    handleOnSubmit(e){
-        e.preventDefault();
-        const{text,imageSrc}=this.state;
+    clearUpload() {
+        this.setState({
+            text: '',
+            seclectedImage: '',
+        });
     }
-
 
     render() {
         return (
             <div>
-                <form className="informationUpload" onSubmit={this.handleOnSubmit.bind(this)}>
-                    <BrowseImage/>
-                    <br/>
 
-                    <input className="caption" value={this.state.text} onChange={this.handleOnChange.bind(this)} placeholder="Nói gì đó về bức ảnh"/>
-                    <button className="button_form" type="submit" disabled={this.state.disabled}>Đăng Ảnh</button>
+                <form className="informationUpload" onSubmit={this.handleToggleUpload.bind(this)}>
+                    <br/>
+                    <input type="file" className="link"
+                           onChange={this.handleOnImage.bind(this)}
+                           ref={this.inputFile}
+                    />
+                    <input className="caption" value={this.state.text} onChange={this.handleOnChange.bind(this)}/>
+                    <button className="button_form" type="Submit" disabled={this.state.loading}>Đăng Ảnh</button>
                 </form>
             </div>
         );
