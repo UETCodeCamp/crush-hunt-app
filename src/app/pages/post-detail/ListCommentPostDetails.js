@@ -12,7 +12,7 @@ class ListCommentPostDetails extends Component {
             <li className="item">
                 <Link to="/profile" className="user-name">{this.props.username}</Link>
                 <span className="text">
-                    <span>{this.props.comment}<span onClick={this.deleteComment} class={(this.props.title) ? "test" : "delete" }>x</span></span>
+                    <span>{this.props.comment}<span onClick={this.deleteComment} className={(this.props.title) ? "test" : "delete" }>x</span></span>
                 </span>
             </li>
         );

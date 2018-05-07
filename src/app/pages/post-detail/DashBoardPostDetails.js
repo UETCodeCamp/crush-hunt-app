@@ -26,6 +26,7 @@ class DashBoardPostDetails extends Component {
     componentDidMount() {
       getPostDetail(this.props.id).then(res => {
           const obj = res.data;
+          console.log(obj)
           this.setState({
               totalVotes: obj.totalVotes,
               totalComments: obj.totalComments,
@@ -82,7 +83,7 @@ class DashBoardPostDetails extends Component {
     handleSubmit = (text) => {
         addComment(this.props.id, text).then(res => {
             getPostComments(this.props.id).then(res => {
-
+                console.log(res)
                 this.setState({ commentArray: res.data });
             })
         })
