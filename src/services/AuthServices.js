@@ -43,6 +43,14 @@ export const isAuthenticated = () => {
     return !!accessToken;
 };
 
+export const getCurrentUser = () => {
+    const {user} = _state;
+
+    return {
+        ...user
+    };
+};
+
 export const logout = () => {
     setAuthState(_initState);
 };
