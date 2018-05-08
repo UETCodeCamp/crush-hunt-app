@@ -73,4 +73,37 @@ export const unlikePost = (id) => {
     })
 };
 
+export const getComments = (id) => {
+    return APIServices.makeAuthRequest({
+        url:'/posts/' + id + '/comments',
+        method: 'GET'
+    })
+};
+
+export const addComment = (id,comment) => {
+    return APIServices.makeAuthRequest({
+        url:'/posts/' + id + '/comments',
+        method:'POST',
+        data: {
+            content: comment
+        }
+    })
+};
+
+export const deleteComment = (id, commentID) => {
+    return APIServices.makeAuthRequest({
+        url:'/posts/' + id + '/comments/' + commentID,
+        method:'DELETE',
+
+    })
+};
+
+export const getPostDetail = (id) => {
+    return APIServices.makeAuthRequest({
+        url: '/posts/' + id ,
+        method: 'GET'
+    })
+}
+
+
 

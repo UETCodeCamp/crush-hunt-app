@@ -4,41 +4,29 @@ import "./HomePage.css";
 import Post from "./Post";
 import TopPost from "./TopPost";
 import { dataTrending } from "./../../../services/HomeServices";
-import {dataFresh, dataHot, likePost, unlikePost} from "../../../services/HomeServices";
+import {
+    addComment,
+    dataFresh,
+    dataHot,
+    deleteComment,
+    getComments, getPostDetail,
+    likePost,
+    unlikePost
+} from "../../../services/HomeServices";
 import {getAuthState} from "../../../services/AuthServices";
 import Redirect from "react-router-dom/es/Redirect";
 
 class HomePage extends Component {
+    state = {
+      trendingPost:[],
+       isLogin:false,
+    }
     constructor(props) {
         super(props);
-        dataTrending(1, 10).then(data => {
-           console.log(data);
-        });
 
-        dataHot(1,10)
-            .then(data=>{
-               console.log(data);
-            });
-
-        dataFresh(1,10)
-            .then(data=>{
-              //  console.log(data);
-            });
-
-        likePost('5ae31a8950fab01e2b9cd796')
-            .then(data=>{
-               console.log(data);
-            });
-
-        unlikePost('5ae31a8950fab01e2b9cd796')
-            .then(data=>{
-               // console.log(data);
-            });
-
-        const isLogin = getAuthState();
-        this.state = {
-            isLogin:isLogin.accessToken,
-            listPost: [{
+        //this.state = {
+           // isLogin:isLogin.accessToken,
+            /*listPost: [{
                 userName: 'Cô Zô Dép',
                 imgSrc: 'https://s.abcnews.com/images/Entertainment/HT_TSpelling_MEM_160101_1x1_1600.jpg',
                 likeText: ['không ai thèm like',],
@@ -99,31 +87,41 @@ class HomePage extends Component {
                     }
                 ],
 
-            }],
-            trendingPost : dataTrending(1,10),
-        }
+            }],*/
+            //trendingPost : tmp,
+
+       // }
 
     }
     componentDidMount(){
         const isLogin = getAuthState();
-        this.setState({
-            isLogin: isLogin.accessToken,
-        })
+        dataTrending(1, 10).then(data => {
+            console.log(data.data);
+            this.setState({
+                isLogin:isLogin.accessToken,
+                trendingPost:data.data,
+            })
+        });
+    }
+
+    componentDidUpdate(){
+
     }
 
     render() {
-        const listPostData = this.state.listPost.map((e, index) => {
+        console.log(this.state.trendingPost);
+        const listPostData = this.state.trendingPost.map((e, index) => {
             return (
                 <Post dataPost={e}
                     key={index}
-                    id={index}
+                    id={e.id}
                     submitComment={this._handleSummitComment}
                     likeButton={this._handleLike} />
             );
         });
 
         const isLogin = this.state.isLogin;
-        if(isLogin!= null){
+        if(isLogin !== null){
             return (
                 <div className='home-page'>
                     <div className="home-display">
@@ -142,7 +140,7 @@ class HomePage extends Component {
     }
 
     _handleSummitComment = (e, t) => {
-        for (let i = 0; i < this.state.listPost.length; i++) {
+        /*for (let i = 0; i < this.state.listPost.length; i++) {
             if (t === this.state.listPost[i].idPost) {
                 this.state.listPost[i].topComments.push({
                     userNameComment: 'testsummit',
@@ -155,11 +153,11 @@ class HomePage extends Component {
             }
         }
 
-        this.setState(this.state);
+        this.setState(this.state);*/
     };
 
     _handleLike = (e, t) => {
-        for (let j = 0; j < this.state.listPost.length; j++) {
+        /*for (let j = 0; j < this.state.listPost.length; j++) {
             if (t === this.state.listPost[j].idPost) {
                 if (e) {
                     for (let i = 0; i < this.state.listPost[j].likeText.length; i++) {
@@ -180,7 +178,7 @@ class HomePage extends Component {
                 }
             }
 
-        }
+        }*/
     }
 }
 

@@ -5,16 +5,16 @@ class Comment extends Component {
     state = {
         commentsShow: this.props.dataPost.topComments,
         isShowComment: false,
-        isLengthCommentEqualTop: (this.props.dataPost.topComments.length === this.props.dataPost.comments.length),
+        //isLengthCommentEqualTop: (this.props.dataPost.topComments.length === this.props.dataPost.comments.length),
         contentLoadComment: 'Tải thêm bình luận ...',
         isLiked: false,
     };
 
     render() {
-        const listComment = this.state.commentsShow.map((data, index) => {
+       /* const listComment = this.state.commentsShow.map((data, index) => {
             return <div className='comment' key={index}><span
                 className= 'user-comment' >{data.userNameComment}</span>{data.commentText}</div>
-        });
+        });*/
 
         const loadCommentButton = this.loadCommentButton();
 
@@ -25,13 +25,14 @@ class Comment extends Component {
                     <span className="comment" onClick={this.commentFocus}/>
                 </div>
                 <div className = "like-text">
-                    {this.props.dataPost.likeText}
+                    {this.props.dataPost.totalVotes}
                 </div>
                 <div className = "post-text">
-                    {this.props.dataPost.postText}
+                    {this.props.dataPost.title}
                 </div>
                 <div className = 'comment-list'>
-                    {listComment}
+                    <div className='comment'><span
+                        className= 'user-comment' >hehe</span>haha</div>
                 </div>
                 <div>
                     {loadCommentButton}
