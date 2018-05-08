@@ -26,7 +26,6 @@ class DashBoardPostDetails extends Component {
     componentDidMount() {
       getPostDetail(this.props.id).then(res => {
           const obj = res.data;
-          console.log(obj)
           this.setState({
               totalVotes: obj.totalVotes,
               totalComments: obj.totalComments,
@@ -68,13 +67,11 @@ class DashBoardPostDetails extends Component {
         e.preventDefault();
         if (this.state.saved) {
             unsave(this.props.id).then(res => {
-                console.log("unsave", res);
                 this.setState({ saved: false, focus: false })
             })
         }
         else {
             save(this.props.id).then(res => {
-                console.log("save", res);
                 this.setState({ saved: true, focus: false })
             })
         }
@@ -83,7 +80,6 @@ class DashBoardPostDetails extends Component {
     handleSubmit = (text) => {
         addComment(this.props.id, text).then(res => {
             getPostComments(this.props.id).then(res => {
-                console.log(res)
                 this.setState({ commentArray: res.data });
             })
         })
@@ -91,7 +87,6 @@ class DashBoardPostDetails extends Component {
     deleteComment = (commentID) => {
         deleteComment(this.props.id, commentID).then(res => {
             getPostComments(this.props.id).then(res => {
-                console.log(res)
                 this.setState({ commentArray: res.data });
             })
         })

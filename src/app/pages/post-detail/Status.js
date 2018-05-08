@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import ListCommentPostDetails from "./ListCommentPostDetails.js";
+import ListCommentPostDetails from "./ListCommentPostDetails";
+import withAuth from "../../shared-components/withAuth";
 
 class Status extends Component {
     state = {
@@ -12,6 +13,8 @@ class Status extends Component {
     };
 
     render() {
+        const currentUser = this.props.currentUser;
+
         const commentArray = this.props.comment.map((obj, i) => {
             return (
                 <ListCommentPostDetails
@@ -19,7 +22,10 @@ class Status extends Component {
                     comment={obj.content}
                     username={this.props.username}
                     id={obj._id}
+                    owner={obj.owner}
                     deleteComment={this.props.deleteComment}
+                    currentUser={currentUser}
+                    title={false}
                 />
             );
         });
@@ -52,5 +58,5 @@ Status.propTypes = {
     comment: PropTypes.array,
 };
 
-export default Status;
+export default withAuth(Status);
 
