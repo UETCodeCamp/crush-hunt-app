@@ -1,11 +1,13 @@
 import APIServices from "./APIServices";
 
-export const forgotPassword = (email) => {
+export const reset_password = (access_token, email, password) => {
     return APIServices.makeAuthRequest({
-        url: '/accounts/forget-password',
+        url: '/accounts/reset-password',
         method: 'POST',
         data: {
-            email: email
+            email: email,
+            token: access_token,
+            password: password
         }
     });
 };

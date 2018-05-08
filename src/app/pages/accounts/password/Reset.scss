@@ -14,8 +14,8 @@
 
   .CommentReset {
     margin: 0 32px 0 124px;
-
   }
+
   form {
     align-items: stretch;
     display: flex;
@@ -35,6 +35,35 @@
       line-height: 26px;
       margin-left: 194px;
       max-width: 165px;
+
+      &:disabled {
+        opacity: .3;
+        cursor: default;
+      }
+    }
+
+    @-webkit-keyframes spin {
+      0% { -webkit-transform: rotate(0deg); }
+      100% { -webkit-transform: rotate(360deg); }
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .Loading {
+      height: 18px;
+      margin-left: -9px;
+      margin-top: -2px;
+      width: 18px;
+      background-image: url("./loading.png");
+      -webkit-animation: spin 1s linear infinite;
+      animation: spin 1s linear infinite;
+      left: 50%;
+      position: absolute;
+      top: 50%;
+      background-size: 100%;
     }
   }
 }

@@ -5,16 +5,16 @@ class Input extends Component {
     constructor(props){
         super(props);
         this.state= {
-            email:''
+            value:''
         }
     }
-    _handleChangeEmail(e) {
+    _handleChange(e) {
         const {value} = e.target;
         this.setState({
-            email: value
+            value: value
         });
 
-        this.props.onChangeEmail(value);
+        this.props.onChange(value);
     }
 
     render () {
@@ -26,7 +26,7 @@ class Input extends Component {
             </div>
 
             <div className="TextInput">
-                <input type={type} value={this.state.email} onChange={this._handleChangeEmail.bind(this)}/>
+                <input type={type} value={this.state.value} onChange={this._handleChange.bind(this)}/>
             </div>
         </div>;
     }
