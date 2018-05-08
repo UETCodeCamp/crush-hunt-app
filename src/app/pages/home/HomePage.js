@@ -17,7 +17,7 @@ class HomePage extends Component {
 
         dataHot(1,10)
             .then(data=>{
-              //  console.log(data);
+               console.log(data);
             });
 
         dataFresh(1,10)
@@ -25,12 +25,12 @@ class HomePage extends Component {
               //  console.log(data);
             });
 
-        likePost('5ae31c1350fab01e2b9cd798')
+        likePost('5ae31a8950fab01e2b9cd796')
             .then(data=>{
-               // console.log(data);
+               console.log(data);
             });
 
-        unlikePost('5ae31c1350fab01e2b9cd798')
+        unlikePost('5ae31a8950fab01e2b9cd796')
             .then(data=>{
                // console.log(data);
             });

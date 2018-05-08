@@ -1,4 +1,5 @@
 import axios from "axios";
+import APIServices from './APIServices.js'
 
 const APIUrl = "https://crush.blogk.xyz";
 
@@ -58,38 +59,18 @@ export const dataFresh = (page = 1, limit = 10) => {
         })
 };
 
-export const likePost = (_id) => {
-    return axios.post(APIUrl + '/posts/:'+_id+'/vote', {
-        headers: {
-            "Authorization": localStorage.token,
-        },
-        params: {
-            id: _id,
-        }
+export const likePost = (id) => {
+    return APIServices.makeAuthRequest({
+        url: '/posts/' + id + '/vote',
+        method: 'POST'
     })
-        .then((response) => {
-            return response.data;
-        })
-        .catch((error) => {
-            return console.log(error);
-        })
 };
 
-export const unlikePost = (_id) => {
-    return axios.post(APIUrl + '/posts/:'+_id+'/un-vote', {
-        headers: {
-            "Authorization": localStorage.token,
-        },
-        params: {
-            id: _id,
-        }
+export const unlikePost = (id) => {
+    return APIServices.makeAuthRequest({
+        url: '/posts/' + id + '/un-vote',
+        method: 'POST'
     })
-        .then((response) => {
-            return response.data;
-        })
-        .catch((error) => {
-            return console.log(error);
-        })
 };
 
 
