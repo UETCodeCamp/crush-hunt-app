@@ -106,4 +106,15 @@ export const getPostDetail = (id) => {
 }
 
 
+export const getProfilePicURL = (id) => {
+    return axios.get(APIUrl + '/public/' + id +'/avatar', {
+        params: {
+            id:id,
+        }
+    })
+        .then((response)=>{
+            return response.request.responseURL;
+        })
+};
+
 

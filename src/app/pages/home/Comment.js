@@ -1,16 +1,18 @@
 import React, {Component} from "react";
 import PropTypes from "prop-types";
+import {likePost, unlikePost} from "../../../services/HomeServices";
 
 class Comment extends Component {
     state = {
         commentsShow: this.props.dataPost.topComments,
         isShowComment: false,
-        //isLengthCommentEqualTop: (this.props.dataPost.topComments.length === this.props.dataPost.comments.length),
         contentLoadComment: 'Tải thêm bình luận ...',
         isLiked: false,
+        totalVote:this.props.dataPost.totalVotes,
     };
 
     render() {
+
        /* const listComment = this.state.commentsShow.map((data, index) => {
             return <div className='comment' key={index}><span
                 className= 'user-comment' >{data.userNameComment}</span>{data.commentText}</div>
@@ -25,7 +27,8 @@ class Comment extends Component {
                     <span className="comment" onClick={this.commentFocus}/>
                 </div>
                 <div className = "like-text">
-                    {this.props.dataPost.totalVotes}
+                    {this.state.totalVote+' '}
+                     lượt thích.
                 </div>
                 <div className = "post-text">
                     {this.props.dataPost.title}
@@ -77,20 +80,22 @@ class Comment extends Component {
 
     likeButton = () => {
         if (!this.state.isLiked) {
-            this.props.likeButton(true, this.props.dataPost.idPost);
+            likePost(this.props.dataPost.id);
             this.setState({
-                isLiked: true
+                isLiked: true,
+                totalVote: this.state.totalVote + 1,
             });
         } else {
-            this.props.likeButton(false, this.props.dataPost.idPost);
+            unlikePost(this.props.dataPost.id);
+            //this.props.likeButton(false, this.props.dataPost.idPost);
             this.setState({
-                isLiked: false
+                isLiked: false,
+                totalVote: this.state.totalVote - 1,
             });
         }
     };
 
     commentFocus = () => {
-        //@todo use ref instead of `document.getElementById`. See more: https://reactjs.org/docs/refs-and-the-dom.html
         this.props.refsCommentInput.inputComment.focus();
     }
 }
