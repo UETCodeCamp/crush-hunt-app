@@ -27,7 +27,7 @@ class App extends Component {
                     <Route exact path="/profile" component={ProfilePage}/>
                     <Route component={PageNotFound}/>
                 </Switch>
-            </div>
+            </div>  
         );
     }
 }
