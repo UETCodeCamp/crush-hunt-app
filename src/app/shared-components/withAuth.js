@@ -1,11 +1,12 @@
 import React, {Component} from "react";
-import {addAuthListener, isAuthenticated, removeAuthListener} from "../../services/AuthServices";
+import {addAuthListener, getCurrentUser, isAuthenticated, removeAuthListener} from "../../services/AuthServices";
 
 export default (ComposedComponent) => class WithAuthentication extends Component {
     static displayName = 'withAuthentication(' + (ComposedComponent.displayName || ComposedComponent.name) + ')';
 
     state = {
-        auth: isAuthenticated()
+        auth: isAuthenticated(),
+        user: getCurrentUser(),
     };
 
     _mounted = false;
@@ -26,14 +27,15 @@ export default (ComposedComponent) => class WithAuthentication extends Component
         }
 
         this.setState({
-            auth: isAuthenticated()
+            auth: isAuthenticated(),
+            user: getCurrentUser()
         });
     };
 
     render() {
-        const {auth} = this.state;
+        const {auth, user} = this.state;
         const {props} = this;
 
-        return <ComposedComponent {...props} auth={auth}/>
+        return <ComposedComponent currentUser={user} {...props} auth={auth}/>
     }
 }
