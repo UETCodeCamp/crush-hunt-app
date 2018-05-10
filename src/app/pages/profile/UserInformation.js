@@ -7,7 +7,7 @@ class UserInformation extends Component {
         return (
             <div className="UserInformation">
                 <div className="NickName">
-                    <h1>{this.props._id}</h1>
+                    <h1>anhdh</h1>
                 </div>
                 <div className="EditProfile">
                     <button>Chỉnh sửa trang cá nhân</button>

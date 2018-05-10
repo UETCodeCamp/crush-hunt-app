@@ -1,12 +1,14 @@
 import React, {Component} from 'react';
 import PropTypes from "prop-types";
+import { Link } from 'react-router-dom'
 
 class SavedPosts extends Component {
     createArrImg = () => {
         const {arrSaves} = this.props;
         let listLi = [];
         for (let i = 0; i < arrSaves.length; i++) {
-            listLi.push(<img src={arrSaves[i]} alt=""/>);
+            var linkto = "/posts/" + arrSaves[i]._id;
+            listLi.push(<Link key={i} to={linkto}><img src={arrSaves[i].url} alt=""/></Link> );
         }
 
         return listLi;

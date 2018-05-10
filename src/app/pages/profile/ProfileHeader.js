@@ -25,9 +25,10 @@ class ProfileHeader extends Component {
     }
 
     render() {
+        
         return (
             <div className="ProfileHeader">
-                <UserAvatar />
+                <UserAvatar  _id={this.state._id}/>
                 <div className="Info">
                     <UserInformation _id={this.state._id} />
                     <StatusFollow />

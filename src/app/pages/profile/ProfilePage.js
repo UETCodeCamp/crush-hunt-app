@@ -21,10 +21,12 @@ class ProfilePage extends Component {
                 const { data } = object;
                 let listUrl = [];
                 for(let i =0; i < data.length; i++){
-                    listUrl.push(data[i].url);
+                    listUrl.push(data[i]);
                 }
                 this.setState({arrContents: listUrl});
+                
             }
+            
         });
         _getMyFavorite().then(object => {
             const { success } = object;
@@ -32,7 +34,7 @@ class ProfilePage extends Component {
                 const { data } = object;
                 let listUrl = [];
                 for(let i =0; i < data.length; i++){
-                    listUrl.push(data[i].url);
+                    listUrl.push(data[i]);
                 }
                 this.setState({arrSaves: listUrl});
             }
