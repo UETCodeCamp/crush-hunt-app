@@ -4,19 +4,48 @@ import HeaderAccount from "./HeaderAccount";
 import Input from "./Input";
 
 class Change extends Component {
-    render () {
-        return (
-            <div className="Change">
-                <HeaderAccount/>
-                <form>
-                    <Input type="password" title="Old Password"/>
-                    <Input type="password" title="New Password"/>
-                    <Input type="password" title="Confirm New Password"/>
+    constructor(props){
+        super(props);
 
-                    <button>Change Password</button>
-                </form>
-            </div>
-        );
+        this.state={
+            password: '',
+            confirm_password: ''
+        }
+    }
+
+    _handleChangePassword(password) {
+        this.setState({
+            password: password
+        });
+    }
+
+    _handleChangeConfirmPassword(password) {
+        this.setState({
+            confirm_password: password
+        })
+    }
+
+    _handleOnSubmit(e) {
+        e.preventDefault();
+        const {password, confirm_password} = this.state;
+        this.props.onClickSubmit(password, confirm_password);
+    }
+
+    render () {
+        const {comment} = this.props;
+        const Comment = !!comment ? <p className="Comment">{comment}</p> : <p></p>;
+
+        return <div className="Change">
+            <HeaderAccount/>
+
+            {Comment}
+            <form>
+                <Input type="password" title="New Password" onChange={this._handleChangePassword.bind(this)} ></Input>
+                <Input type="password" title="Confirm New Password" onChange={this._handleChangeConfirmPassword.bind(this)} ></Input>
+
+                <button onClick={this._handleOnSubmit.bind(this)}>Change Password</button>
+            </form>
+        </div>;
     }
 }
 
