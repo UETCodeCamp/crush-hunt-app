@@ -23,7 +23,7 @@ class ChangePassword extends Component {
     handleOnClick(password, confirm_password) {
         const {access_token} = this.props.match.params;
         const email = this.props.location.search.replace("?email=", "");
-        if (password != confirm_password) {
+        if (password !== confirm_password) {
             this.setState({
                 errorMessage: 'Incorrect Confirm Password.'
             })
@@ -67,8 +67,8 @@ class ChangePassword extends Component {
             <div className="ChangePassword">
                 <div className="Main">
                     <div className="MidContent">
-                        <RightMenu listLink={dataRightMenu} />
-                        <Change comment={errorMessage} onClickSubmit={this.handleOnClick.bind(this)} />
+                        <RightMenu listLink={dataRightMenu}/>
+                        <Change comment={errorMessage} onClickSubmit={this.handleOnClick.bind(this)}/>
                     </div>
                 </div>
 

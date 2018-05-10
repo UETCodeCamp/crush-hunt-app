@@ -2,7 +2,6 @@ import React, {Component} from "react";
 import "./Change.css"
 import HeaderAccount from "./HeaderAccount";
 import Input from "./Input";
-import {forgotPassword} from "../../../../services/ForgotPasswordServices";
 
 class Change extends Component {
     constructor(props){
