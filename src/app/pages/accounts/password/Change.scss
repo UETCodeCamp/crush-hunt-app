@@ -4,6 +4,10 @@
   width: calc(100% - 250px);
   float: left;
 
+  .Comment {
+    margin: 0 32px 0 124px;
+  }
+
   form {
     align-items: stretch;
     display: flex;
@@ -31,6 +35,11 @@
   .Change {
     padding: 16px;
     width: auto;
+
+    .Comment {
+      margin: 0;
+    }
+
 
     form {
       button {
