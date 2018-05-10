@@ -7,8 +7,8 @@ class LikePostDetails extends Component {
             <section className="like_number">
                 <div>
                     <a>
-                        <span>{this.props.numberOfLike} </span>
-                        {this.props.numberOfLike === 1 || this.props.numberOfLike === 0 ? "like" : "likes"}
+                        <span>{this.props.totalVotes} </span>
+                        {this.props.totalVotes === 1 || this.props.totalVotes === 0 ? "like" : "likes"}
                     </a>
                 </div>
             </section>

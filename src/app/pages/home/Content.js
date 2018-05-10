@@ -5,10 +5,10 @@ class Content extends Component {
     render() {
         return (
             <div>
-                <div className='userDetails'>
+                <div className='user-details'>
                     <span className='avatar'
                           style={{backgroundImage: "url('http://d38we5ntdyxyje.cloudfront.net/820641/profile/CRPQIVAX_avatar_medium_square.jpg')"}}/>
-                    <span className='userName'>
+                    <span className='user-name'>
                         {this.props.dataPost.userName}
                     </span>
                 </div>

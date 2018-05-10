@@ -21,10 +21,10 @@ class HeaderPostDetail extends Component {
                         alt="unable to load"/></Link>
                 </div>
                 <div className="profile">
-                    <Link to="/profile" className="user-name">OppaGou</Link>
+                    <Link to="/profile" className="user-name">{this.props.username}</Link>
                 </div>
                 <div className="dot">
-                    <span>•</span>
+                    <span> •</span>
                 </div>
                 {follow}
             </header>

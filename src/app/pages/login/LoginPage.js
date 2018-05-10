@@ -58,6 +58,7 @@ class LoginPage extends Component {
 
         if (this._checkForm())
             _login(email, password).then(response => {
+                console.log(response)
                 if (response.success) {
                     const {data} = response;
                     const {accessToken, user} = data;
