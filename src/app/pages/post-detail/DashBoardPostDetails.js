@@ -6,7 +6,7 @@ import IconPostDetails from "./IconPostDetails";
 import CommentPostDetail from "./CommentPostDetail";
 import DatePost from "./DatePost";
 import PostOption from "./PostOption";
-import { save, unsave, getPostDetail, vote, unvote, getPostComments, addComment ,deleteComment } from "../../../services/PostDetailServices"
+import { save, unsave, getPostDetail, vote, unvote, getPostComments, addComment ,deleteComment,getUserAvatar } from "../../../services/PostDetailServices"
 
 class DashBoardPostDetails extends Component {
     state = {
@@ -21,7 +21,7 @@ class DashBoardPostDetails extends Component {
         owner: { name: "" },
         voted: false,
         saved: false,
-        
+        userAvatar: "",
     };
     componentDidMount() {
       getPostDetail(this.props.id).then(res => {
@@ -38,10 +38,16 @@ class DashBoardPostDetails extends Component {
               saved: obj.saved,
           })
 
+      }).then(() => {
+          getUserAvatar(this.state.owner._id).then((res) => {
+            this.setState({userAvatar:res})
+          })
       })
+      
       getPostComments(this.props.id).then(res => {
           this.setState({commentArray: res.data})
       })
+      
     }
     toggleFollow = (e) => {
         e.preventDefault();
@@ -107,6 +113,7 @@ class DashBoardPostDetails extends Component {
                         follow={this.state.follow}
                         toggleFollow={this.toggleFollow}
                         username={this.state.owner.name}
+                        userAvatar={this.state.userAvatar}
                     />
                     <div className="anh-post">
                         <img
