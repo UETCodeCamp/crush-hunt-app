@@ -33,14 +33,6 @@ class Comment extends Component {
                 <div className = "post-text">
                     {this.props.dataPost.title}
                 </div>
-                <div className = 'comment-list'>
-                    <div className='comment'><span
-                        className= 'user-comment' >hehe</span>haha</div>
-                </div>
-                <div>
-                    {loadCommentButton}
-                </div>
-
             </div>
         );
     }

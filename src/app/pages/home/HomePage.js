@@ -28,7 +28,6 @@ class HomePage extends Component {
     componentDidMount(){
         const isLogin = getAuthState();
         dataTrending(1, 10).then(data => {
-            console.log(data.data);
             this.setState({
                 isLogin:isLogin.accessToken,
                 trendingPost:data.data,
