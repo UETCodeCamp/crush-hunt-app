@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from "prop-types";
 import {getProfilePicURL} from "../../../services/HomeServices";
+import {Link} from "react-router-dom";
 
 class Content extends Component {
     state = {
@@ -17,19 +18,22 @@ class Content extends Component {
             })
 
     }
-
     render() {
 
         return (
             <div>
                 <div className='user-details'>
-                    <span className='avatar'
+                    <Link to={'/profile'}>
+                        <span className='avatar'
                           style={{backgroundImage:'url('+this.state.url+')'}}/>
+                    </Link>
                     <span className='user-name'>
                         {this.props.dataPost.owner.name}
                     </span>
                 </div>
-                <img src={this.props.dataPost.url} alt="pic"/>
+                <Link to={'/posts/' + this.props.dataPost._id}>
+                    <img src={this.props.dataPost.url} alt="pic"/>
+                </Link>
             </div>
         );
     }
