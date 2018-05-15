@@ -16,11 +16,12 @@ class Status extends Component {
         const currentUser = this.props.currentUser;
 
         const commentArray = this.props.comment.map((obj, i) => {
+            console.log("obj",obj);
             return (
                 <ListCommentPostDetails
                     key={"key" + i}
                     comment={obj.content}
-                    username={this.props.username}
+                    username={obj.owner.name}
                     id={obj._id}
                     owner={obj.owner}
                     deleteComment={this.props.deleteComment}

@@ -10,13 +10,13 @@ class IconPostDetails extends Component {
     render() {
         return (
             <section className="tim">
-                <a href="/" id={this.props.voted ? "liked" : "like"}>
+                <a  id={this.props.voted ? "liked" : "like"}>
                     <span onClick={this.props.toggleLike}/>
                 </a>
-                <a href="/" id="comment">
+                <a  id="comment">
                     <span onClick={this.toggleFocus}/>
                 </a>
-                <a href="/" id={this.props.saved ? "saved" : "save"}>
+                <a  id={this.props.saved ? "saved" : "save"}>
                     <span onClick={this.props.toggleSave}/>
                 </a>
             </section>
