@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 import PropTypes from "prop-types";
 import ListCommentPostDetails from "./ListCommentPostDetails";
 import withAuth from "../../shared-components/withAuth";
@@ -9,14 +9,14 @@ class Status extends Component {
     };
 
     loadMoreComment = () => {
-        this.setState({ numberOfComments: this.state.numberOfComments + 7 });
+        this.setState({numberOfComments: this.state.numberOfComments + 7});
     };
 
     render() {
         const currentUser = this.props.currentUser;
 
         const commentArray = this.props.comment.map((obj, i) => {
-            console.log("obj",obj);
+            console.log("obj", obj);
             return (
                 <ListCommentPostDetails
                     key={"key" + i}

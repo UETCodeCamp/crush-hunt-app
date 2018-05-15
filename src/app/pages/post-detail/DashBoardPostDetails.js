@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 import HeaderPostDetail from "./HeaderPostDetail";
 import Status from "./Status";
 import LikePostDetails from "./LikePostDetails";
@@ -6,7 +6,17 @@ import IconPostDetails from "./IconPostDetails";
 import CommentPostDetail from "./CommentPostDetail";
 import DatePost from "./DatePost";
 import PostOption from "./PostOption";
-import { save, unsave, getPostDetail, vote, unvote, getPostComments, addComment ,deleteComment,getUserAvatar } from "../../../services/PostDetailServices"
+import {
+    save,
+    unsave,
+    getPostDetail,
+    vote,
+    unvote,
+    getPostComments,
+    addComment,
+    deleteComment,
+    getUserAvatar
+} from "../../../services/PostDetailServices"
 
 class DashBoardPostDetails extends Component {
     state = {
@@ -18,53 +28,55 @@ class DashBoardPostDetails extends Component {
         created: "",
         title: "",
         url: "",
-        owner: { name: "" },
+        owner: {name: ""},
         voted: false,
         saved: false,
         userAvatar: "",
     };
-    componentDidMount() {
-      getPostDetail(this.props.id).then(res => {
-          const obj = res.data;
-          this.setState({
-              totalVotes: obj.totalVotes,
-              totalComments: obj.totalComments,
-              scoreTrend: obj.scoreTrend,
-              created: obj.created,
-              title: obj.title,
-              url: obj.url,
-              owner: obj.owner,
-              voted: obj.voted,
-              saved: obj.saved,
-          })
 
-      }).then(() => {
-          getUserAvatar(this.state.owner._id).then((res) => {
-            this.setState({userAvatar:res})
-          })
-      })
-      
-      getPostComments(this.props.id).then(res => {
-          console.log(res.data);
-          this.setState({commentArray: res.data})
-      })
-      
+    componentDidMount() {
+        getPostDetail(this.props.id).then(res => {
+            const obj = res.data;
+            this.setState({
+                totalVotes: obj.totalVotes,
+                totalComments: obj.totalComments,
+                scoreTrend: obj.scoreTrend,
+                created: obj.created,
+                title: obj.title,
+                url: obj.url,
+                owner: obj.owner,
+                voted: obj.voted,
+                saved: obj.saved,
+            })
+
+        }).then(() => {
+            getUserAvatar(this.state.owner._id).then((res) => {
+                this.setState({userAvatar: res})
+            })
+        });
+
+        getPostComments(this.props.id).then(res => {
+            console.log(res.data);
+            this.setState({commentArray: res.data})
+        })
+
     }
+
     toggleFollow = (e) => {
         e.preventDefault();
-        this.setState({ follow: !(this.state.follow), focus: false });
+        this.setState({follow: !(this.state.follow), focus: false});
     };
 
     toggleLike = (e) => {
         e.preventDefault();
         if (this.state.voted) {
             unvote(this.props.id).then(res => {
-                this.setState({ voted: false, focus: false, totalVotes: this.state.totalVotes - 1 })
+                this.setState({voted: false, focus: false, totalVotes: this.state.totalVotes - 1})
             })
         }
         else {
             vote(this.props.id).then(res => {
-                this.setState({ voted: true, totalVotes: this.state.totalVotes + 1, focus: false })
+                this.setState({voted: true, totalVotes: this.state.totalVotes + 1, focus: false})
             })
         }
 
@@ -74,12 +86,12 @@ class DashBoardPostDetails extends Component {
         e.preventDefault();
         if (this.state.saved) {
             unsave(this.props.id).then(res => {
-                this.setState({ saved: false, focus: false })
+                this.setState({saved: false, focus: false})
             })
         }
         else {
             save(this.props.id).then(res => {
-                this.setState({ saved: true, focus: false })
+                this.setState({saved: true, focus: false})
             })
         }
     };
@@ -87,24 +99,25 @@ class DashBoardPostDetails extends Component {
     handleSubmit = (text) => {
         addComment(this.props.id, text).then(res => {
             getPostComments(this.props.id).then(res => {
-                this.setState({ commentArray: res.data });
+                this.setState({commentArray: res.data});
             })
         })
     }
     deleteComment = (commentID) => {
         deleteComment(this.props.id, commentID).then(res => {
             getPostComments(this.props.id).then(res => {
-                this.setState({ commentArray: res.data });
+                this.setState({commentArray: res.data});
             })
         })
     }
     toggleExist = (e) => {
         e.preventDefault();
-        this.setState({ existed: !this.state.existed });
+        this.setState({existed: !this.state.existed});
     };
     toggleFocus = () => {
-        this.setState({ focus: true })
-    }
+        this.setState({focus: true})
+    };
+
     render() {
 
         return (
@@ -119,7 +132,7 @@ class DashBoardPostDetails extends Component {
                     <div className="anh-post">
                         <img
                             src={this.state.url}
-                            alt="unable to load" />
+                            alt="unable to load"/>
                     </div>
 
                     <div className="right_comment">
@@ -137,10 +150,10 @@ class DashBoardPostDetails extends Component {
                             voted={this.state.voted}
                             saved={this.state.saved}
                         />
-                        <LikePostDetails totalVotes={this.state.totalVotes} />
-                        <DatePost created={this.state.created} />
-                        <CommentPostDetail handleSubmit={this.handleSubmit} focus={this.state.focus} />
-                        <PostOption existed={this.state.existed} toggleExist={this.toggleExist} />
+                        <LikePostDetails totalVotes={this.state.totalVotes}/>
+                        <DatePost created={this.state.created}/>
+                        <CommentPostDetail handleSubmit={this.handleSubmit} focus={this.state.focus}/>
+                        <PostOption existed={this.state.existed} toggleExist={this.toggleExist}/>
                     </div>
                 </article>
             </div>
