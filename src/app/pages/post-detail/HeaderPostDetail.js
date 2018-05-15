@@ -20,13 +20,15 @@ class HeaderPostDetail extends Component {
                         src={this.props.userAvatar}
                         alt="unable to load"/></Link>
                 </div>
-                <div className="profile">
-                    <Link to="/profile" className="user-name">{this.props.username}</Link>
+                <div className="wrap10">
+                    <div className="profile">
+                        <Link to="/profile" className="user-name">{this.props.username}</Link>
+                    </div>
+                    <div className="dot">
+                        <span>•</span>
+                    </div>
+                    {follow}
                 </div>
-                <div className="dot">
-                    <span> •</span>
-                </div>
-                {follow}
             </header>
         );
     }
