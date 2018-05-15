@@ -45,6 +45,7 @@ class DashBoardPostDetails extends Component {
       })
       
       getPostComments(this.props.id).then(res => {
+          console.log(res.data);
           this.setState({commentArray: res.data})
       })
       

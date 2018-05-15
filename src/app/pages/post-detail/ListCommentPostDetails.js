@@ -9,7 +9,7 @@ class ListCommentPostDetails extends Component {
     }
     render() {
         if (this.props.title === false) {
-            const visible = (this.props.owner === this.props.currentUser._id)
+            const visible = (this.props.owner._id === this.props.currentUser._id)
             return (
                 <li className="item">
                     <Link to="/profile" className="user-name">{this.props.username}</Link>
