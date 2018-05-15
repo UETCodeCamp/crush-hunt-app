@@ -13,19 +13,25 @@ class ChangePassword extends Component {
             password: '',
             confirm_password: '',
             errorMessage: '',
-            isReset: false
+            isReset: false,
+            isLoading: false
         };
 
         this.handleOnClick = this.handleOnClick.bind(this);
-        // this.handleOnClick = this.handleOnClick.bind(this);
     }
 
     handleOnClick(password, confirm_password) {
+        this.setState({
+            isLoading: true
+        });
+
         const {access_token} = this.props.match.params;
         const email = this.props.location.search.replace("?email=", "");
+
         if (password != confirm_password) {
             this.setState({
-                errorMessage: 'Incorrect Confirm Password.'
+                errorMessage: 'Incorrect Confirm Password.',
+                isLoading: false
             })
         } else {
             reset_password(access_token, email, password).then(response => {
@@ -35,19 +41,22 @@ class ChangePassword extends Component {
                 if (success) {
                     this.setState({
                         errorMessage: '',
-                        isReset: true
+                        isReset: true,
+                        isLoading: false
                     });
                 } else {
                     const {message} = response;
                     this.setState({
                         errorMessage: message,
-                        isReset: false
+                        isReset: false,
+                        isLoading: false
                     });
                 }
             }).catch(error => {
                 this.setState({
                     errorMessage: error,
-                    isReset: false
+                    isReset: false,
+                    isLoading: false
                 })
             })
         }
@@ -55,7 +64,7 @@ class ChangePassword extends Component {
 
     render() {
         const dataRightMenu = [];
-        const {errorMessage, isReset} = this.state;
+        const {errorMessage, isReset, isLoading} = this.state;
 
         if (isReset) {
             return (
@@ -67,8 +76,8 @@ class ChangePassword extends Component {
             <div className="ChangePassword">
                 <div className="Main">
                     <div className="MidContent">
-                        <RightMenu listLink={dataRightMenu} />
-                        <Change comment={errorMessage} onClickSubmit={this.handleOnClick.bind(this)} />
+                        <RightMenu listLink={dataRightMenu}/>
+                        <Change comment={errorMessage} onClickSubmit={this.handleOnClick.bind(this)} isLoading={isLoading}/>
                     </div>
                 </div>
 

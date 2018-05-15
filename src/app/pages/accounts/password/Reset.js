@@ -57,8 +57,17 @@ class Reset extends Component {
     render () {
         const {isReset, isLoading, errorMessage} = this.state;
         const MessageReset = !isReset ? <p className="CommentReset">We can help you reset your password using your Instagram username or the email address linked to your account.</p> : <p className="CommentReset">Thanks! Please check email for a link to reset your password.</p>;
-        const displayButton = isLoading ? <button onClick={this._handleSubmit.bind(this)} disabled>Reset Password</button> : <button onClick={this._handleSubmit.bind(this)}>Reset Password</button>;
-        const CommentReset = !!errorMessage ? <p className="CommentReset">{errorMessage}</p> : MessageReset;
+        const CommentReset = !!errorMessage ? <p className="CommentReset ErrorComment">{errorMessage}</p> : MessageReset;
+
+        const ButtonForm = <button
+            onClick={this._handleSubmit.bind(this)}
+            className={isLoading ? "DisabledButton" : ''}
+            disabled={isLoading}
+        >
+            Reset Password
+        </button>;
+
+        const Loading = isLoading ? <div className="Loading"></div> : <div></div>;
 
         return <div className="Reset">
             <div className="TextReset">Reset Password</div>
@@ -66,7 +75,11 @@ class Reset extends Component {
 
             <form>
                 <Input type="email" title="Email" onChange={this._handleChangeEmail.bind(this)} ></Input>
-                {displayButton}
+
+                <div className="Button">
+                    {ButtonForm}
+                    {Loading}
+                </div>
             </form>
         </div>;
     }

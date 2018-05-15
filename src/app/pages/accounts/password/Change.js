@@ -2,7 +2,6 @@ import React, {Component} from "react";
 import "./Change.css"
 import HeaderAccount from "./HeaderAccount";
 import Input from "./Input";
-import {forgotPassword} from "../../../../services/ForgotPasswordServices";
 
 class Change extends Component {
     constructor(props){
@@ -33,8 +32,19 @@ class Change extends Component {
     }
 
     render () {
-        const {comment} = this.props;
+        const {comment, isLoading} = this.props;
+
         const Comment = !!comment ? <p className="Comment">{comment}</p> : <p></p>;
+
+        const ButtonForm = <button
+            onClick={this._handleOnSubmit.bind(this)}
+            className={isLoading ? "DisabledButton" : ''}
+            disabled={isLoading}
+        >
+            Change Password
+        </button>;
+
+        const Loading = isLoading ? <div className="Loading"></div> : <div></div>;
 
         return <div className="Change">
             <HeaderAccount/>
@@ -44,7 +54,10 @@ class Change extends Component {
                 <Input type="password" title="New Password" onChange={this._handleChangePassword.bind(this)} ></Input>
                 <Input type="password" title="Confirm New Password" onChange={this._handleChangeConfirmPassword.bind(this)} ></Input>
 
-                <button onClick={this._handleOnSubmit.bind(this)}>Change Password</button>
+                <div className="Button">
+                    {ButtonForm}
+                    {Loading}
+                </div>
             </form>
         </div>;
     }
