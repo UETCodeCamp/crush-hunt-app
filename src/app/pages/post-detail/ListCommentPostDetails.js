@@ -14,8 +14,9 @@ class ListCommentPostDetails extends Component {
                 <li className="item">
                     <Link to="/profile" className="user-name">{this.props.username}</Link>
                     <span className="text">
-                        <span>{this.props.comment}<span onClick={this.deleteComment} className={(visible) ? "delete" : "hide"}>x</span></span>
+                        <span className="text_real">{this.props.comment}</span>
                     </span>
+                    <span onClick={this.deleteComment} className={(visible) ? "delete" : "hide"}>&#x2715;</span>
                 </li>
             );
         }
