@@ -1,6 +1,7 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
-import ListCommentPostDetails from "./ListCommentPostDetails.js";
+import ListCommentPostDetails from "./ListCommentPostDetails";
+import withAuth from "../../shared-components/withAuth";
 
 class Status extends Component {
     state = {
@@ -8,15 +9,24 @@ class Status extends Component {
     };
 
     loadMoreComment = () => {
-        this.setState({numberOfComments: this.state.numberOfComments + 7});
+        this.setState({ numberOfComments: this.state.numberOfComments + 7 });
     };
 
     render() {
-        const commentArray = this.props.comment.map((text, i) => {
+        const currentUser = this.props.currentUser;
+
+        const commentArray = this.props.comment.map((obj, i) => {
             return (
                 <ListCommentPostDetails
                     key={"key" + i}
-                    comment={text}/>
+                    comment={obj.content}
+                    username={this.props.username}
+                    id={obj._id}
+                    owner={obj.owner}
+                    deleteComment={this.props.deleteComment}
+                    currentUser={currentUser}
+                    title={false}
+                />
             );
         });
 
@@ -30,8 +40,13 @@ class Status extends Component {
 
         return (
             <div className="status">
-                {loadCommentElement}
                 <ul className="list">
+                    <ListCommentPostDetails
+                        comment={this.props.title}
+                        username={this.props.username}
+                        title={true}
+                    />
+                    {loadCommentElement}
                     {displayComment}
                 </ul>
             </div>
@@ -43,4 +58,5 @@ Status.propTypes = {
     comment: PropTypes.array,
 };
 
-export default Status;
+export default withAuth(Status);
+

@@ -28,7 +28,7 @@ class ChangePassword extends Component {
         const {access_token} = this.props.match.params;
         const email = this.props.location.search.replace("?email=", "");
 
-        if (password != confirm_password) {
+        if (password !== confirm_password) {
             this.setState({
                 errorMessage: 'Incorrect Confirm Password.',
                 isLoading: false

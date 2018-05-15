@@ -1,7 +1,8 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import PropTypes from 'prop-types';
 import "./HomePage.css";
 import Post from "./Post";
+import TopPost from "./TopPost";
 
 class HomePage extends Component {
     state = {
@@ -18,10 +19,10 @@ class HomePage extends Component {
                 userNameComment: 'Bà Zôn Xơn',
                 commentText: 'không like cho Dép nha.'
             },
-                {
-                    userNameComment: 'Cô Zô Dép',
-                    commentText: 'chị Xơn quá đáng lắm lun á'
-                }
+            {
+                userNameComment: 'Cô Zô Dép',
+                commentText: 'chị Xơn quá đáng lắm lun á'
+            }
             ]
 
             ,
@@ -29,10 +30,10 @@ class HomePage extends Component {
                 userNameComment: 'Bà Zôn Xơn',
                 commentText: 'không like cho Dép nha.'
             },
-                {
-                    userNameComment: 'Cô Zô Dép',
-                    commentText: 'chị Xơn quá đáng lắm lun á'
-                }
+            {
+                userNameComment: 'Cô Zô Dép',
+                commentText: 'chị Xơn quá đáng lắm lun á'
+            }
 
             ],
         }, {
@@ -47,23 +48,23 @@ class HomePage extends Component {
                 userNameComment: 'ahihi1',
                 commentText: 'dep qua ne'
             },
-                {
-                    userNameComment: 'ahihi2',
-                    commentText: 'ok hehe dep!'
-                }
+            {
+                userNameComment: 'ahihi2',
+                commentText: 'ok hehe dep!'
+            }
             ],
             comments: [{
                 userNameComment: 'ahihi1',
                 commentText: 'de qua ne'
             },
-                {
-                    userNameComment: 'ahihi2',
-                    commentText: 'ok hehe dep'
-                },
-                {
-                    userNameComment: 'noname',
-                    commentText: 'hahah eheheh'
-                }
+            {
+                userNameComment: 'ahihi2',
+                commentText: 'ok hehe dep'
+            },
+            {
+                userNameComment: 'noname',
+                commentText: 'hahah eheheh'
+            }
             ],
 
         }],
@@ -73,15 +74,22 @@ class HomePage extends Component {
         const listPostData = this.state.listPost.map((e, index) => {
             return (
                 <Post dataPost={e}
-                      key={index}
-                      id={index}
-                      submitComment={this._handleSummitComment}
-                      likeButton={this._handleLike}/>
+                    key={index}
+                    id={index}
+                    submitComment={this._handleSummitComment}
+                    likeButton={this._handleLike} />
             );
         });
 
         return (
-            <div className='HomePage main-pusher'>{listPostData}</div>
+            <div className='home-page'>
+                <div className="home-display">
+                    <div className="list-post">
+                        {listPostData}
+                    </div>
+                    <TopPost />
+                </div>
+            </div>
         );
     }
 
@@ -117,7 +125,6 @@ class HomePage extends Component {
                 else {
                     for (let k = 0; k < this.state.listPost[j].likeText.length; k++) {
                         if (this.state.listPost[j].likeText[k] === ' and you like this') {
-                            console.log("akjsdkjahd");
                             this.state.listPost[j].likeText.slice(k, 1);
                             this.setState(this.state);
                         }
