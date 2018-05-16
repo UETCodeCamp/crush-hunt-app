@@ -19,9 +19,9 @@ class APIServices {
     }
 
     makeAuthRequest(args) {
+        
         const {accessToken} = getAuthState();
         const _headers = args.headers ? args.headers : {};
-
         const defaultHeaders = {
             'Authorization': accessToken,
         };
@@ -30,7 +30,8 @@ class APIServices {
             ...args,
             headers: {
                 ...defaultHeaders,
-                ..._headers
+                ..._headers,
+                
             }
         };
 

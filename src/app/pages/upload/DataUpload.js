@@ -1,5 +1,8 @@
 import React, {Component, createRef} from 'react';
 import {PostUrlAndTitle, UploadImage} from "../../../services/UploadService";
+import {Redirect} from 'react-router-dom'
+import LoadingBar from "./LoadingBar";
+
 
 class DataUpload extends Component {
 
@@ -7,6 +10,8 @@ class DataUpload extends Component {
         text: '',
         seclectedImage: [],
         loading: true,
+        id: '',
+        uploaded: false
     };
 
     inputFile = createRef();
@@ -36,7 +41,11 @@ class DataUpload extends Component {
         const title = this.state.text;
 
         PostUrlAndTitle(imageUrl, title)
-            .then(() => {
+            .then((res) => {
+                this.setState({
+                    id: res.data._id,
+                    uploaded: true
+                });
                 this.clearUpload();
             })
             .catch((err) => {
@@ -86,20 +95,62 @@ class DataUpload extends Component {
     }
 
     render() {
-        return (
-            <div>
+        if (this.state.uploaded === true) {
+            return <Redirect to={`/posts/${this.state.id}`}/>
+        }
 
-                <form className="informationUpload" onSubmit={this.handleToggleUpload.bind(this)}>
-                    <br/>
-                    <input type="file" className="link"
-                           onChange={this.handleOnImage.bind(this)}
-                           ref={this.inputFile}
-                    />
-                    <input className="caption" value={this.state.text} onChange={this.handleOnChange.bind(this)}/>
-                    <button className="button_form" type="Submit" disabled={this.state.loading}>Đăng Ảnh</button>
-                </form>
-            </div>
-        );
+        if (this.props.upFile === true) {
+
+            return (
+
+                <div>
+                    <form className="informationUpload" onSubmit={this.handleToggleUpload.bind(this)}>
+                        <br/>
+                        <input type="file" className="link"
+                               onChange={this.handleOnImage.bind(this)}
+                               ref={this.inputFile}
+                        />
+                        <input className="caption" value={this.state.text} onChange={this.handleOnChange.bind(this)}/>
+                        <button className="button_form" type="Submit" disabled={this.state.loading}>Đăng Ảnh</button>
+                    </form>
+                </div>
+            );
+        }
+        else if (this.state.loading === false && this.props.upFile === false) {
+
+            return (
+
+                <div>
+                    <form className="informationUpload" onSubmit={this.handleToggleUpload.bind(this)}>
+                        <br/>
+                        <LoadingBar/>
+                        <input type="file" className="link"
+                               onChange={this.handleOnImage.bind(this)}
+                               ref={this.inputFile}
+                        />
+                        <input className="caption" value={this.state.text} onChange={this.handleOnChange.bind(this)}/>
+                        <button className="button_form" type="Submit" disabled={this.state.loading}>Đăng Ảnh</button>
+                    </form>
+                </div>
+            );
+        }
+        else {
+            return (
+
+                <div>
+                    <form className="informationUpload" onSubmit={this.handleToggleUpload.bind(this)}>
+                        <br/>
+                        <input type="file" className="link"
+                               onChange={this.handleOnImage.bind(this)}
+                               ref={this.inputFile}
+                        />
+                        <input className="caption" value={this.state.text} onChange={this.handleOnChange.bind(this)}/>
+                        <button className="button_form" type="Submit" disabled={this.state.loading}>Đăng Ảnh</button>
+                    </form>
+                </div>
+            );
+        }
+
     }
 }
 

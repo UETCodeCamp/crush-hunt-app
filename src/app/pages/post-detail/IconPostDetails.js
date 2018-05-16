@@ -4,21 +4,19 @@ import PropTypes from "prop-types";
 class IconPostDetails extends Component {
     toggleFocus = (e) => {
         e.preventDefault();
-
-        //@todo use refs instead of document query. See more: https://reactjs.org/docs/refs-and-the-dom.html
-        document.getElementById("commentArea").focus();
+        this.props.toggleFocus();
     };
-
+    
     render() {
         return (
             <section className="tim">
-                <a href="/" id={this.props.liked ? "liked" : "like"}>
+                <a  id={this.props.voted ? "liked" : "like"}>
                     <span onClick={this.props.toggleLike}/>
                 </a>
-                <a href="/" id="comment">
+                <a  id="comment">
                     <span onClick={this.toggleFocus}/>
                 </a>
-                <a href="/" id={this.props.saved ? "saved" : "save"}>
+                <a  id={this.props.saved ? "saved" : "save"}>
                     <span onClick={this.props.toggleSave}/>
                 </a>
             </section>

@@ -13,8 +13,16 @@ class RegisterPage extends Component {
         name: '',
         password: '',
         confirmPassword: '',
-        errorMessage: ''
+        errorMessage: '',
+        disabledButton: false,
+        loadingButton: false
     };
+
+    setLoadingButton(checkLoading) {
+        this.setState({
+            loadingButton: checkLoading
+        });
+    }
 
     handleChangeInput(field, e) {
         const {value} = e.target;
@@ -25,6 +33,7 @@ class RegisterPage extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
+        this.setLoadingButton(true);
         const {email, name, password} = this.state;
         if (this.checkForm()) {
             _register(email, name, password).then(response => {
@@ -38,9 +47,10 @@ class RegisterPage extends Component {
                         errorMessage: response.message //Display error if server return success false
                     })
                 }
-
-
-            }).catch();
+                this.setLoadingButton(false);
+            }).catch(response => {
+                this.setLoadingButton(false);
+            });
         }
     }
 
@@ -70,7 +80,19 @@ class RegisterPage extends Component {
             return <Redirect to="/login"/>
         }
 
+        const {disabledButton, loadingButton} = this.state;
+
         const errorMessage = this.state.errorMessage ? <p className="ErrorMessage">{this.state.errorMessage}</p> : '';
+
+        const ButtonForm = <button
+            onClick={this.handleSubmit.bind(this)}
+            className={disabledButton || loadingButton ? "DisabledButton" : ''}
+            disabled={disabledButton || loadingButton}
+        >
+            Sign up
+        </button>;
+
+        const Loading = loadingButton ? <div className="Loading"></div> : <div></div>;
 
         return (
             <div className="RegisterPage">
@@ -87,8 +109,10 @@ class RegisterPage extends Component {
                                    onChange={this.handleChangeInput.bind(this, 'password')}/>
                             <input type="password" placeholder="Confirm Password"
                                    onChange={this.handleChangeInput.bind(this, 'confirmPassword')}/>
-                            <button onClick={this.handleSubmit}>Sign up
-                            </button>
+                            <div className="Button">
+                                {ButtonForm}
+                                {Loading}
+                            </div>
                             <p>By signing up, you agree to our Terms & Privacy Policy.</p>
                             {errorMessage}
                         </form>
