@@ -4,26 +4,18 @@ import "./HomePage.css";
 import Post from "./Post";
 import TopPost from "./TopPost";
 import { dataTrending } from "./../../../services/HomeServices";
-import {
-    addComment,
-    dataFresh,
-    dataHot,
-    deleteComment,
-    getComments, getPostDetail, getProfilePicURL,
-    likePost,
-    unlikePost
-} from "../../../services/HomeServices";
 import {getAuthState} from "../../../services/AuthServices";
 import Redirect from "react-router-dom/es/Redirect";
+import {dataHot} from "../../../services/HomeServices";
 
 class HomePage extends Component {
     state = {
       trendingPost:[],
+      hotPost:[],
        isLogin:false,
     }
     constructor(props) {
         super(props);
-
     }
     componentDidMount(){
         const isLogin = getAuthState();
@@ -33,6 +25,14 @@ class HomePage extends Component {
                 trendingPost:data.data,
             })
         });
+        dataHot(1,10)
+            .then((data)=>{
+                this.setState({
+                    isLogin:isLogin.accessToken,
+                    hotPost:data.data,
+                })
+            })
+
     }
 
     componentDidUpdate(){
@@ -59,7 +59,7 @@ class HomePage extends Component {
                         <div className="list-post">
                             {listPostData}
                         </div>
-                        <TopPost />
+                        <TopPost data={this.state.hotPost}/>
                     </div>
                 </div>
             );

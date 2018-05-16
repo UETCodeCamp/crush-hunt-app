@@ -14,11 +14,9 @@ export const dataTrending = (page = 1, limit = 10) => {
         }
     })
         .then(function (response) {
-            // console.log(response);
             return response.data;
         })
         .catch(function (error) {
-            // console.log(error);
             return error;
         });
 };
