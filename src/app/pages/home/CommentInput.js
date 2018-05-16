@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from "prop-types";
 import * as ReactDOM from "react-dom";
+import {addComment} from "../../../services/HomeServices";
 
 class CommentInput extends Component {
 
@@ -9,7 +10,7 @@ class CommentInput extends Component {
     }
     render() {
         return (
-            <div className={'comment-form'}>
+            <div className= 'comment-form' >
                 <form>
                     <input id={this.props.dataPost.idPost} type="text" className={'comment-input'}
                            placeholder={'Nhập bình luận của bạn...'} ref={'inputComment'}/>
@@ -22,7 +23,11 @@ class CommentInput extends Component {
     _submitCommentInput = (e) => {
         e.preventDefault();
         const input = ReactDOM.findDOMNode(this.refs.inputComment).value;
-        this.props.submitComment(input, this.props.dataPost.idPost);
+        addComment(this.props.dataPost._id,input)
+            .then((data)=>{
+                console.log(data);
+            })
+        //this.props.submitComment(input, this.props.dataPost.idPost);
         ReactDOM.findDOMNode(this.refs.inputComment).value='';
     }
 }
