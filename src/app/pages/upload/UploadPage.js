@@ -11,12 +11,14 @@ import cameraImg from "./image/camera.png";
 class UploadPage extends Component {
     state = {
         imageUp: cameraImg,
+        up: false
     };
 
     handleSeclected(image) {
 
         this.setState({
             imageUp: image,
+            up: true
         });
     }
 
@@ -34,7 +36,7 @@ class UploadPage extends Component {
 
                                 <ImageUpload imageFile={this.state.imageUp}/>
 
-                                <DataUpload seclectedFile={this.handleSeclected.bind(this)}/>
+                                <DataUpload seclectedFile={this.handleSeclected.bind(this)} upFile={this.state.up}/>
                             </div>
                         </section>
                     </div>
