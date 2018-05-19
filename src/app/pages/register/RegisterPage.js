@@ -68,8 +68,12 @@ class RegisterPage extends Component {
         }
 
         this.setState({
-            errorMessage: errorMessage
+            errorMessage: errorMessage,
         });
+
+        if (errorMessage) {
+            this.setLoadingButton(false);
+        }
 
         return !errorMessage;
     }

@@ -6,10 +6,9 @@ import "./LoginPage.css";
 import Footer from "../../shared-components/footer/Footer";
 import {_login} from "../../../services/UserServices";
 
-
 class LoginPage extends Component {
     state = {
-        passwordShowed:true,
+        passwordShowed: true,
         auth: isAuthenticated(),
         loading: false,
         email: '',
@@ -87,6 +86,10 @@ class LoginPage extends Component {
             errorMessage: errorMessage
         });
 
+        if (errorMessage) {
+            this.setLoadingButton(false);
+        }
+
         return !errorMessage;
     }
 
@@ -120,12 +123,11 @@ class LoginPage extends Component {
                             <h2>Sign up to see photos and videos from your friends.</h2>
                             <input type="text" placeholder="Email"
                                    onChange={this._handleChangeInput.bind(this, 'email')} value={email} name="email"/>
-                            <input type={this.state.passwordShowed?"password":"text"} placeholder="Password"
+                            <input type={this.state.passwordShowed ? "password" : "text"} placeholder="Password"
                                    onChange={this._handleChangeInput.bind(this, 'password')} value={password}
                                    name="password"/>
 
                             <div className="Button">
-                                {/*<button onClick={this._handleSubmit.bind(this)}>Log in</button>*/}
                                 {ButtonForm}
                                 {Loading}
                             </div>
