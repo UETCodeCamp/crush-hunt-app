@@ -13,13 +13,34 @@ class HomePage extends Component {
       trendingPost:[],
       hotPost:[],
        isLogin:false,
+       page:1
     }
     constructor(props) {
         super(props);
     }
+
+    handleScroll=()=> {
+        const windowHeight = "innerHeight" in window ? window.innerHeight : document.documentElement.offsetHeight;
+        const body = document.body;
+        const html = document.documentElement;
+        const docHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
+        const windowBottom = windowHeight + window.pageYOffset;
+        if (windowBottom >= docHeight) {
+            dataTrending(this.state.page+1, 10).then(data => {
+                this.setState({
+                    trendingPost:this.state.trendingPost.concat(data.data),
+                    page:this.state.page++
+                })
+            });
+            console.log("bottom")
+        } else {
+            console.log("Not bottom")
+        }
+    }
+
     componentDidMount(){
         const isLogin = getAuthState();
-        dataTrending(1, 10).then(data => {
+        dataTrending(this.state.page, 10).then(data => {
             this.setState({
                 isLogin:isLogin.accessToken,
                 trendingPost:data.data,
@@ -32,11 +53,15 @@ class HomePage extends Component {
                     hotPost:data.data,
                 })
             })
-
+            window.addEventListener("scroll", this.handleScroll);
     }
 
     componentDidUpdate(){
 
+    }
+
+    componentWillUnmount(){
+        window.removeEventListener("scroll", this.handleScroll);
     }
 
     render() {
@@ -60,6 +85,9 @@ class HomePage extends Component {
                             {listPostData}
                         </div>
                         <TopPost data={this.state.hotPost}/>
+                        <div className="loading">
+                        <img src="img/loading.gif"/>
+                        </div>
                     </div>
                 </div>
             );
